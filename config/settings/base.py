@@ -2,7 +2,7 @@ from pathlib import Path
 
 # config/settings/base.py
 # BASE_DIR は manage.py があるディレクトリを指すのが都合が良い
-BASE_DIR = Path(__file__).resolve().parents[2]  # 3 → 2 に修正
+BASE_DIR = Path(__file__).resolve().parents[2]
 
 SECRET_KEY = "django-insecure-x!e8w94#_z0x*10ek4f^v2*19%1hs167aj8!57htfo@mxalpeg"
 DEBUG = True
@@ -17,7 +17,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     
     # 外部ライブラリ
-    "rest_framework",  # 追加
+    "rest_framework",
     
     # 自作アプリ
     "apps.users",
