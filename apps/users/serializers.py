@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import User
 from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth import authenticate
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     """ユーザー登録用"""
@@ -30,10 +31,30 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-class UserLoginSerializer(serializers.Serializer):
-    """ログイン用"""
+class LoginSerializer(serializers.Serializer):
+    """ログイン用のシリアライザー"""
     username = serializers.CharField()
     password = serializers.CharField(write_only=True)
+    
+    def validate(self, data):
+        """ユーザー名とパスワードの検証"""
+        username = data.get('username')
+        password = data.get('password')
+        
+        if username and password:
+            # Djangoの認証システムでユーザー確認
+            user = authenticate(username=username, password=password)
+            
+            if user:
+                if user.is_active:
+                    data['user'] = user
+                    return data
+                else:
+                    raise serializers.ValidationError('このアカウントは無効化されています')
+            else:
+                raise serializers.ValidationError('ユーザー名またはパスワードが正しくありません')
+        else:
+            raise serializers.ValidationError('ユーザー名とパスワードを入力してください')
 
 
 class UserSerializer(serializers.ModelSerializer):

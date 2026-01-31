@@ -2,8 +2,9 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from django.contrib.auth import authenticate, login, logout
-from .serializers import UserRegisterSerializer, UserLoginSerializer, UserSerializer
+from rest_framework.authtoken.models import Token  # ← 追加
+from django.contrib.auth import authenticate
+from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer  # LoginSerializerに変更
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -12,9 +13,12 @@ def register(request):
     serializer = UserRegisterSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.save()
+        # 登録時にトークンも作成
+        token, created = Token.objects.get_or_create(user=user)
         return Response(
             {
                 "message": "ユーザー登録が完了しました",
+                "token": token.key,
                 "user": UserSerializer(user).data
             },
             status=status.HTTP_201_CREATED
@@ -25,25 +29,21 @@ def register(request):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def user_login(request):
-    """ログイン"""
-    serializer = UserLoginSerializer(data=request.data)
+    """ログイン（トークン認証）"""
+    serializer = LoginSerializer(data=request.data)
     if serializer.is_valid():
-        username = serializer.validated_data['username']
-        password = serializer.validated_data['password']
+        user = serializer.validated_data['user']
         
-        user = authenticate(username=username, password=password)
-        if user:
-            login(request, user)
-            return Response(
-                {
-                    "message": "ログインしました",
-                    "user": UserSerializer(user).data
-                },
-                status=status.HTTP_200_OK
-            )
+        # トークンを取得または作成
+        token, created = Token.objects.get_or_create(user=user)
+        
         return Response(
-            {"error": "ユーザー名またはパスワードが間違っています"},
-            status=status.HTTP_401_UNAUTHORIZED
+            {
+                "message": "ログインしました",
+                "token": token.key,
+                "user": UserSerializer(user).data
+            },
+            status=status.HTTP_200_OK
         )
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -51,8 +51,9 @@ def user_login(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def user_logout(request):
-    """ログアウト"""
-    logout(request)
+    """ログアウト（トークン削除）"""
+    # ユーザーのトークンを削除
+    request.user.auth_token.delete()
     return Response(
         {"message": "ログアウトしました"},
         status=status.HTTP_200_OK
