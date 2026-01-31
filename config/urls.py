@@ -1,13 +1,12 @@
 from django.contrib import admin
 from django.http import JsonResponse
 from django.urls import path, include
-from apps.common.api.health import healthz
 
 def root(request):
-    return JsonResponse({"service": "django-starter", "status": "ok"})
+    return JsonResponse({"service": "Drift Jellyfish", "status": "ok"})
 
 urlpatterns = [
     path("", root),
     path("admin/", admin.site.urls),
-    path("api/users/", include('apps.users.urls')),  # ← 追加
+    path("api/users/", include('apps.users.urls')),
 ]
