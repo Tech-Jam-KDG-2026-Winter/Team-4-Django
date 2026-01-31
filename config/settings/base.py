@@ -2,7 +2,7 @@ from pathlib import Path
 
 # config/settings/base.py
 # BASE_DIR は manage.py があるディレクトリを指すのが都合が良い
-BASE_DIR = Path(__file__).resolve().parents[3]
+BASE_DIR = Path(__file__).resolve().parents[2]  # 3 → 2 に修正
 
 SECRET_KEY = "django-insecure-x!e8w94#_z0x*10ek4f^v2*19%1hs167aj8!57htfo@mxalpeg"
 DEBUG = True
@@ -15,9 +15,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    # starter apps
-    "apps.common",
+    
+    # 外部ライブラリ
+    "rest_framework",  # 追加
+    
+    # 自作アプリ
+    "apps.users",
+    "apps.tasks",
+    "apps.reflections",
 ]
 
 MIDDLEWARE = [
@@ -73,3 +78,16 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# カスタムユーザーモデル
+AUTH_USER_MODEL = 'users.User'
+
+# REST Framework設定
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
