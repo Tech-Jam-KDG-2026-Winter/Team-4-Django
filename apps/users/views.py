@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.models import Token  # ← 追加
 from django.contrib.auth import authenticate
-from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,ModeSelectionSerializer  # LoginSerializerに変更
+from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer  # LoginSerializerに変更
 
 
 @api_view(['POST'])
@@ -90,6 +90,32 @@ def select_mode(request):
         return Response(
             {
                 "message": "モードを設定しました",
+                "user": UserSerializer(user).data
+            },
+            status=status.HTTP_200_OK
+        )
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def update_time_settings(request):
+    """タスク・振り返り時刻の設定"""
+    user = request.user
+    serializer = TimeSettingsSerializer(data=request.data)
+    
+    if serializer.is_valid():
+        # 指定された時刻のみ更新
+        if 'task_time' in serializer.validated_data:
+            user.task_time = serializer.validated_data['task_time']
+        
+        if 'reflection_time' in serializer.validated_data:
+            user.reflection_time = serializer.validated_data['reflection_time']
+        
+        user.save()
+        
+        return Response(
+            {
+                "message": "時刻設定を更新しました",
                 "user": UserSerializer(user).data
             },
             status=status.HTTP_200_OK

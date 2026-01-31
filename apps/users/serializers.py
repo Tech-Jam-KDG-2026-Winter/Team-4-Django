@@ -65,10 +65,28 @@ class LoginSerializer(serializers.Serializer):
         else:
             raise serializers.ValidationError('ユーザー名とパスワードを入力してください')
 
+class TimeSettingsSerializer(serializers.Serializer):
+    """タスク・振り返り時刻設定用"""
+    task_time = serializers.TimeField(
+        required=False,
+        help_text="タスク表示時刻（例: 05:00）"
+    )
+    reflection_time = serializers.TimeField(
+        required=False,
+        help_text="振り返り時刻（例: 20:00）"
+    )
+    
+    def validate(self, data):
+        """少なくとも1つは指定されている必要がある"""
+        if not data.get('task_time') and not data.get('reflection_time'):
+            raise serializers.ValidationError(
+                'task_time または reflection_time を指定してください'
+            )
+        return data
 
 class UserSerializer(serializers.ModelSerializer):
     """ユーザー情報取得用"""
     class Meta:
         model = User
-        fields = ['user_id', 'username', 'mode', 'challenge_day', 'created_at']
+        fields = ['user_id', 'username', 'mode', 'challenge_day', 'task_time','reflection_time','created_at']
         read_only_fields = ['user_id', 'created_at']
