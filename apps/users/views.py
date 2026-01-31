@@ -4,7 +4,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.models import Token  # ← 追加
 from django.contrib.auth import authenticate
-from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer  # LoginSerializerに変更
+from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,ModeSelectionSerializer  # LoginSerializerに変更
+
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -66,3 +67,31 @@ def get_current_user(request):
     """現在のユーザー情報取得"""
     serializer = UserSerializer(request.user)
     return Response(serializer.data)
+
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def select_mode(request):
+    """モード選択"""
+    user = request.user
+    
+    # すでにモード選択済みの場合
+    if user.mode is not None:
+        return Response(
+            {"error": "モードは既に選択されています"},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    serializer = ModeSelectionSerializer(data=request.data)
+    if serializer.is_valid():
+        user.mode = serializer.validated_data['mode']
+        user.save()
+        
+        return Response(
+            {
+                "message": "モードを設定しました",
+                "user": UserSerializer(user).data
+            },
+            status=status.HTTP_200_OK
+        )
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
