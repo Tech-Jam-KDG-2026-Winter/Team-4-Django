@@ -14,7 +14,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ['username', 'password', 'password_confirm', 'mode']
+        fields = ['username', 'password', 'password_confirm']  # ← modeを削除
     
     def validate(self, attrs):
         if attrs['password'] != attrs['password_confirm']:
@@ -26,10 +26,19 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(
             username=validated_data['username'],
             password=validated_data['password'],
-            mode=validated_data.get('mode', 'restart')
+            # mode は指定しない（自動で None になる）
         )
         return user
 
+class ModeSelectionSerializer(serializers.Serializer):
+    """モード選択用"""
+    mode = serializers.ChoiceField(choices=['restart', 'keep'])
+    
+    def validate_mode(self, value):
+        """モードの妥当性チェック"""
+        if value not in ['restart', 'keep']:
+            raise serializers.ValidationError('無効なモードです')
+        return value
 
 class LoginSerializer(serializers.Serializer):
     """ログイン用のシリアライザー"""

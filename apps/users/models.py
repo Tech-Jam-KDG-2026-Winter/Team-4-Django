@@ -13,7 +13,8 @@ class User(AbstractUser):
     mode = models.CharField(
         max_length=10,
         choices=MODE_CHOICES,
-        default='restart',
+        null=True,
+        blank=True,
         verbose_name='モード'
     )
     challenge_day = models.IntegerField(default=1, verbose_name='チャレンジ日数')
