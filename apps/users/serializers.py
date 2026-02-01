@@ -77,13 +77,39 @@ class TimeSettingsSerializer(serializers.Serializer):
     )
     
     def validate(self, data):
-        """少なくとも1つは指定されている必要がある"""
-        if not data.get('task_time') and not data.get('reflection_time'):
+        """バリデーション"""
+        from datetime import datetime, timedelta
+        
+        task_time = data.get('task_time')
+        reflection_time = data.get('reflection_time')
+        
+        # 両方指定されている場合のみ時間チェック
+        if task_time and reflection_time:
+            # 仮の日付で時刻を作成
+            t1 = datetime.combine(datetime.today(), task_time)
+            t2 = datetime.combine(datetime.today(), reflection_time)
+            
+            # 振り返りがタスクより前または同じなら翌日扱い
+            if t2 <= t1:
+                t2 += timedelta(days=1)
+            
+            # 差を計算（時間）
+            time_diff = (t2 - t1).total_seconds() / 3600
+            
+            # 24時間以上離れてたらNG
+            if time_diff >= 24:
+                raise serializers.ValidationError(
+                    'タスクと振り返りの間隔は24時間未満にしてください'
+                )
+        
+        # 少なくとも1つは指定されている必要がある
+        if not task_time and not reflection_time:
             raise serializers.ValidationError(
                 'task_time または reflection_time を指定してください'
             )
+        
         return data
-
+        
 class UserSerializer(serializers.ModelSerializer):
     """ユーザー情報取得用"""
     class Meta:
