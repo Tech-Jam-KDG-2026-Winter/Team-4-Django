@@ -18,7 +18,7 @@ class User(AbstractUser):
         verbose_name='モード'
     )
     challenge_day = models.IntegerField(default=1, verbose_name='チャレンジ日数')
-
+    
     task_time = models.TimeField(
         default='05:00:00',
         verbose_name='タスク表示時刻'
@@ -27,8 +27,14 @@ class User(AbstractUser):
         default='20:00:00',
         verbose_name='振り返り時刻'
     )
-
-
+    
+    # 追加：最後にタスクを完了した日
+    last_task_date = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name='最終タスク実施日'
+    )
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

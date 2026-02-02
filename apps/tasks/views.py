@@ -8,6 +8,7 @@ import random
 from .models import TaskTemplate, DailyTask
 from .serializers import DailyTaskSerializer
 
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_today_task(request):
@@ -21,6 +22,19 @@ def get_today_task(request):
             {"error": "先にモードを選択してください"},
             status=status.HTTP_400_BAD_REQUEST
         )
+    
+    # 挫折判定：最後のタスクから3日以上経過
+    if user.last_task_date:
+        days_since_last = (today - user.last_task_date).days
+        
+        if days_since_last > 3:
+            # モードに応じてリセットレベルを変更
+            if user.mode == 'restart':
+                user.challenge_day = 1  # 再始動モードはレベル1へ
+            else:  # keep
+                user.challenge_day = 8  # 維持モードはレベル8へ
+            
+            user.save()
     
     # 今日のタスクが既に存在するか確認
     existing_task = DailyTask.objects.filter(user=user, date=today).first()
@@ -65,6 +79,7 @@ def get_today_task(request):
     )
 
 
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def complete_task(request, task_id):
@@ -92,16 +107,25 @@ def complete_task(request, task_id):
     
     # challenge_day を +1
     user.challenge_day += 1
+    
+    # 最終タスク実施日を更新
+    user.last_task_date = date.today()
+    
+    # 7日目完了後、自動で維持モードへ（サイレント移行）
+    if user.challenge_day == 8 and user.mode == 'restart':
+        user.mode = 'keep'
+    
     user.save()
     
     return Response(
         {
-            "message": "タスク完了！お疲れさまでした",
+            "message": "おつかれさま、ここまで来た君ならもう一人でも大丈夫。",
             "task": DailyTaskSerializer(task).data,
             "next_level": user.challenge_day
         },
         status=status.HTTP_200_OK
     )
+
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
