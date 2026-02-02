@@ -30,6 +30,14 @@ class TaskTemplate(models.Model):
         verbose_name='メッセージ',
         help_text='ユーザーに表示する優しいメッセージ'
     )
+    
+    # 追加：振り返り質問
+    reflection_questions = models.JSONField(
+        default=list,
+        verbose_name='振り返り質問',
+        help_text='YES/NO形式の質問を3つまで'
+    )
+    
     created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
@@ -40,8 +48,6 @@ class TaskTemplate(models.Model):
     
     def __str__(self):
         return f"Lv.{self.level} - {self.title}"
-
-
 
 
 
