@@ -114,5 +114,5 @@ class UserSerializer(serializers.ModelSerializer):
     """ユーザー情報取得用"""
     class Meta:
         model = User
-        fields = ['user_id', 'username', 'mode', 'challenge_day', 'task_time','reflection_time','created_at']
+        fields = ['user_id', 'username', 'mode', 'challenge_day', 'task_time','reflection_time','last_task_date','created_at']
         read_only_fields = ['user_id', 'created_at']

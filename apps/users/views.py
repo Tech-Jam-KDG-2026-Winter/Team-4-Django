@@ -84,7 +84,14 @@ def select_mode(request):
     
     serializer = ModeSelectionSerializer(data=request.data)
     if serializer.is_valid():
-        user.mode = serializer.validated_data['mode']
+        selected_mode = serializer.validated_data['mode']
+        user.mode = selected_mode
+        
+        # 維持モードの場合、challenge_day を 8 に設定
+        if selected_mode == 'keep':
+            user.challenge_day = 8
+        # 再始動モードの場合、challenge_day は 1 のまま（デフォルト）
+        
         user.save()
         
         return Response(
@@ -96,6 +103,7 @@ def select_mode(request):
         )
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    
 @api_view(['PATCH'])
 @permission_classes([IsAuthenticated])
 def update_time_settings(request):
