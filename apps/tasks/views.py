@@ -79,7 +79,6 @@ def get_today_task(request):
     )
 
 
-
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def complete_task(request, task_id):
@@ -105,11 +104,27 @@ def complete_task(request, task_id):
     task.completed_at = timezone.now()
     task.save()
     
-    # challenge_day を +1
-    user.challenge_day += 1
-    
     # 最終タスク実施日を更新
     user.last_task_date = date.today()
+    
+    # 50日目完了の判定（challenge_day を +1 する前に）
+    if user.challenge_day == 50:
+        user.challenge_day += 1
+        user.save()
+        
+        return Response(
+            {
+                "message": "50日間、本当にお疲れさまでした。ここまで来たあなたは、もう一人で大丈夫。これからも、あなたのペースで。",
+                "congratulations": True,
+                "completed_program": True,
+                "task": DailyTaskSerializer(task).data,
+                "final_level": 50
+            },
+            status=status.HTTP_200_OK
+        )
+    
+    # challenge_day を +1
+    user.challenge_day += 1
     
     # 7日目完了後、自動で維持モードへ（サイレント移行）
     if user.challenge_day == 8 and user.mode == 'restart':
@@ -119,7 +134,7 @@ def complete_task(request, task_id):
     
     return Response(
         {
-            "message": "おつかれさま、ここまで来た君ならもう一人でも大丈夫。",
+            "message": "おつかれさま、よく頑張ったね",
             "task": DailyTaskSerializer(task).data,
             "next_level": user.challenge_day
         },
