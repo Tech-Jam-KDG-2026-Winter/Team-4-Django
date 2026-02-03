@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/TRfunction.css' %}">
+  <title>今日のタスク</title>
 </head>
 <body>
   <div class="content-wrapper">
@@ -19,18 +20,141 @@
     </div>
     <div class="task-block">
       <div class="card-outer card-task">
-        <div class="card card-task">
+        <div class="card card-task" id="task-card">
           <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' fill-rule='evenodd'><path d='M24 0v24H0V0zM12.594 23.258l-.012.002-.071.035-.02.004-.014-.004-.071-.036c-.01-.003-.019 0-.024.006l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.016-.018m.264-.113-.014.002-.184.093-.01.01-.003.011.018.43.005.012.008.008.201.092c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.003-.011.018-.43-.003-.012-.01-.01z'/><path fill='#E0E6EDFF' d='M12 4a2 2 0 0 0-2 2h4a2 2 0 0 0-2-2M9.354 3c.705-.622 1.632-1 2.646-1s1.94.378 2.646 1H18a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.126 5H6v15h12V5h-2.126c.082.32.126.655.126 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V6c0-.345.044-.68.126-1M8 11a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1m0 4a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1'/></g></svg>
-          <p>水を一杯飲むこれって文字数が増えたらバグっちゃうのかな？ここまではまだいけたけどめっちゃ文字増えたらやばいのかな</p>
+          <p id="task-text">読み込み中...</p>
         </div>
       </div>
       <div class="change-task-outer">
-        <button class="change-task-btn">タスクを変更する</button>
+        <button class="change-task-btn" id="change-task-btn">タスクを変更する</button>
       </div>
     </div>
   </div>
   <div class="btn-outer">
-    <button class="primary-btn">タスク完了</button>
+    <button class="primary-btn" id="complete-btn">タスク完了</button>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      const taskCard = document.getElementById('task-card');
+      const taskText = document.getElementById('task-text');
+      const changeTaskBtn = document.getElementById('change-task-btn');
+      const completeBtn = document.getElementById('complete-btn');
+      
+      let currentTaskId = null;
+      
+      // トークンを取得
+      function getToken() {
+        return localStorage.getItem('auth_token') || getCookie('auth_token');
+      }
+      
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+      }
+      
+      // 今日のタスクを取得
+      async function loadTodayTask() {
+        const token = getToken();
+        if (!token) {
+          alert('ログインが必要です');
+          window.location.href = '/login/';
+          return;
+        }
+        
+        try {
+          const response = await fetch('/api/tasks/today/', {
+            headers: {
+              'Authorization': `Token ${token}`
+            }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            if (data.task) {
+              currentTaskId = data.task.task_id;
+              taskText.textContent = data.task.task_title;
+            } else {
+              taskText.textContent = '今日のタスクはありません';
+            }
+          } else {
+            const error = await response.json();
+            alert(error.error || 'タスクの取得に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
+      }
+      
+      // タスク変更
+      changeTaskBtn.addEventListener('click', async function() {
+        if (!currentTaskId) {
+          alert('タスクがありません');
+          return;
+        }
+        
+        const token = getToken();
+        try {
+          const response = await fetch(`/api/tasks/${currentTaskId}/change/`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Token ${token}`,
+              'Content-Type': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            // 新しいタスクを表示
+            currentTaskId = data.task.task_id;
+            taskText.textContent = data.task.task_title;
+            alert('タスクを変更しました');
+          } else {
+            const error = await response.json();
+            alert(error.error || 'タスクの変更に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
+      });
+      
+      // タスク完了
+      completeBtn.addEventListener('click', async function() {
+        if (!currentTaskId) {
+          alert('タスクがありません');
+          return;
+        }
+        
+        const token = getToken();
+        try {
+          const response = await fetch(`/api/tasks/${currentTaskId}/complete/`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Token ${token}`,
+              'Content-Type': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // 完了画面へ遷移
+            window.location.href = '/task-clear/';
+          } else {
+            const error = await response.json();
+            alert(error.error || 'タスクの完了に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
+      });
+      
+      // 初期読み込み
+      await loadTodayTask();
+    });
+  </script>
 </body>
 </html>

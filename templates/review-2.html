@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/TRfunction.css' %}">
+  <title>簡単に振り返ろう</title>
 </head>
 <body>
   <div class="content-wrapper">
@@ -19,12 +20,75 @@
     </div>
     <div class="task-block">
       <div class="card-outer card-review">
-        <div class="card review-text-card" contenteditable="true" data-placeholder="愚痴でも何でもはきだしちゃおう"></div>
+        <div class="card review-text-card" id="reflection-text" contenteditable="true" data-placeholder="愚痴でも何でもはきだしちゃおう"></div>
       </div>
     </div>
   </div>
   <div class="btn-outer">
-    <button class="primary-btn">振り返りを終える</button>
+    <button class="primary-btn" id="submit-btn">振り返りを終える</button>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      const reflectionText = document.getElementById('reflection-text');
+      const submitBtn = document.getElementById('submit-btn');
+      
+      // トークンを取得
+      function getToken() {
+        return localStorage.getItem('auth_token') || getCookie('auth_token');
+      }
+      
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+      }
+      
+      // テキスト入力の取得
+      function getTextContent() {
+        return reflectionText.textContent.trim();
+      }
+      
+      // 振り返りを送信
+      submitBtn.addEventListener('click', async function() {
+        const token = getToken();
+        if (!token) {
+          alert('ログインが必要です');
+          window.location.href = '/login/';
+          return;
+        }
+        
+        const text = getTextContent();
+        
+        try {
+          // 振り返りテキストを更新（PATCHで既存の振り返りを更新）
+          const response = await fetch('/api/reflections/update/', {
+            method: 'PATCH',
+            headers: {
+              'Authorization': `Token ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              good_thing: text,
+              bad_thing: text  // 両方に同じテキストを保存（必要に応じて分離可能）
+            })
+          });
+          
+          if (response.ok) {
+            alert('振り返りを保存しました');
+            // ホーム画面または次の画面へ遷移
+            window.location.href = '/task-today/';
+          } else {
+            const error = await response.json();
+            alert(error.error || '振り返りの保存に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

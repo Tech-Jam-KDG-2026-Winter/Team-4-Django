@@ -41,8 +41,8 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        # プロジェクト直下の login.html をテンプレートとして読み込めるようにする
-        "DIRS": [BASE_DIR],
+        # プロジェクト直下の templates/ ディレクトリと login.html をテンプレートとして読み込めるようにする
+        "DIRS": [BASE_DIR / "templates", BASE_DIR],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -85,6 +85,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # カスタムユーザーモデル
 AUTH_USER_MODEL = 'users.User'
+
+# ログインURL設定
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/mode-question/'
 
 # REST Framework設定
 REST_FRAMEWORK = {

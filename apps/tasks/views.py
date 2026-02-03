@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.utils import timezone
 from datetime import date
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 import random
 from .models import TaskTemplate, DailyTask
 from .serializers import DailyTaskSerializer
@@ -215,3 +217,21 @@ def change_task(request, task_id):
         },
         status=status.HTTP_200_OK
     )
+
+
+@login_required
+def task_today_page(request):
+    """今日のタスク画面"""
+    return render(request, "task-today.html")
+
+
+@login_required
+def task_clear_page(request):
+    """タスク完了画面"""
+    return render(request, "task-clear.html")
+
+
+@login_required
+def target_page(request):
+    """目標画面"""
+    return render(request, "target.html")

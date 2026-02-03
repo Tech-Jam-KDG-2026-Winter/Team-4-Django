@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/TRfunction.css' %}">
+  <title>あなたへの質問</title>
 </head>
 <body>
   <div class="content-wrapper">
@@ -25,7 +26,7 @@
       </div>
     </label>
     <label class="card-radio-wrapper">
-      <input type="radio" name="mode" value="maintain" class="card-radio">
+      <input type="radio" name="mode" value="keep" class="card-radio">
       <div class="card mode-question">
         <svg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 24 24'><g fill='none' fill-rule='nonzero'><path d='M24 0v24H0V0h24ZM12.594 23.258l-.012.002-.071.035-.02.004-.014-.004-.071-.036c-.01-.003-.019 0-.024.006l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.016-.018Zm.264-.113-.014.002-.184.093-.01.01-.003.011.018.43.005.012.008.008.201.092c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.003-.011.018-.43-.003-.012-.01-.01-.184-.092Z'/><path fill='#B3C9EDFF' d='M17 6a1 1 0 1 0 0 2h1.586L14 12.586l-3.793-3.793a1 1 0 0 0-1.414 0l-6.5 6.5a1 1 0 1 0 1.414 1.414L9.5 10.914l3.793 3.793a1 1 0 0 0 1.414 0L20 9.414V11a1 1 0 1 0 2 0V7a1 1 0 0 0-1-1h-4Z'/></g></svg>
         <p class="p-title">維持・向上</p>
@@ -38,7 +39,70 @@
   </div>
   </div>
   <div class="btn-outer">
-    <button class="primary-btn">この選択肢でok</button>
+    <button class="primary-btn" id="submit-btn">この選択肢でok</button>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const submitBtn = document.getElementById('submit-btn');
+      const modeRadios = document.querySelectorAll('input[name="mode"]');
+      
+      // トークンを取得（localStorageまたはCookieから）
+      function getToken() {
+        return localStorage.getItem('auth_token') || getCookie('auth_token');
+      }
+      
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+      }
+      
+      submitBtn.addEventListener('click', async function() {
+        const selectedMode = document.querySelector('input[name="mode"]:checked');
+        if (!selectedMode) {
+          alert('モードを選択してください');
+          return;
+        }
+        
+        const mode = selectedMode.value;
+        const token = getToken();
+        
+        if (!token) {
+          alert('ログインが必要です');
+          window.location.href = '/login/';
+          return;
+        }
+        
+        try {
+          const response = await fetch('/api/users/me/mode/', {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Token ${token}`
+            },
+            body: JSON.stringify({ mode: mode })
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            // モードに応じて遷移
+            if (mode === 'restart') {
+              window.location.href = '/mode-restart/';
+            } else if (mode === 'keep') {
+              window.location.href = '/mode-maintainimprove/';
+            }
+          } else {
+            const error = await response.json();
+            alert(error.error || 'モード設定に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
