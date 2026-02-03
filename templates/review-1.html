@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/TRfunction.css' %}">
+  <title>簡単に振り返ろう</title>
 </head>
 <body>
   <div class="content-wrapper">
@@ -21,19 +22,19 @@
       <div class="card-outer card-review">
         <div class="card">
           <label class="review-label">
-            <input type="checkbox" class="review-checkbox">
+            <input type="checkbox" class="review-checkbox" id="hello-checkbox" value="hello">
             <p>挨拶ができた</p>
           </label>
         </div>
         <div class="card">
           <label class="review-label">
-            <input type="checkbox" class="review-checkbox">
+            <input type="checkbox" class="review-checkbox" id="thanks-given-checkbox" value="thanks_given">
             <p>ありがとうを言えた</p>
           </label>
         </div>
         <div class="card">
           <label class="review-label">
-            <input type="checkbox" class="review-checkbox">
+            <input type="checkbox" class="review-checkbox" id="thanks-received-checkbox" value="thanks_received">
             <p>感謝された</p>
           </label>
         </div>
@@ -41,7 +42,71 @@
     </div>
   </div>
   <div class="btn-outer">
-    <button class="primary-btn">自由入力画面へ</button>
+    <button class="primary-btn" id="next-btn">自由入力画面へ</button>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      const helloCheckbox = document.getElementById('hello-checkbox');
+      const thanksGivenCheckbox = document.getElementById('thanks-given-checkbox');
+      const thanksReceivedCheckbox = document.getElementById('thanks-received-checkbox');
+      const nextBtn = document.getElementById('next-btn');
+      
+      // トークンを取得
+      function getToken() {
+        return localStorage.getItem('auth_token') || getCookie('auth_token');
+      }
+      
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+      }
+      
+      // チェックボックスの状態を保存
+      nextBtn.addEventListener('click', async function() {
+        const token = getToken();
+        if (!token) {
+          alert('ログインが必要です');
+          window.location.href = '/login/';
+          return;
+        }
+        
+        // チェックボックスの状態を取得
+        const helloCount = helloCheckbox.checked ? 1 : 0;
+        const thanksGiven = thanksGivenCheckbox.checked;
+        const thanksReceived = thanksReceivedCheckbox.checked;
+        
+        try {
+          // 振り返りデータを保存（APIエンドポイントは後で確認）
+          const response = await fetch('/api/reflections/', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Token ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              hello_count: helloCount,
+              thanks_given: thanksGiven,
+              thanks_received: thanksReceived
+            })
+          });
+          
+          if (response.ok) {
+            // 自由入力画面へ遷移
+            window.location.href = '/review-2/';
+          } else {
+            const error = await response.json();
+            alert(error.error || '振り返りの保存に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          // エラーが発生しても次の画面へ遷移（部分保存の可能性）
+          window.location.href = '/review-2/';
+        }
+      });
+    });
+  </script>
 </body>
 </html>

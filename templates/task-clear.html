@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/TRfunction.css' %}">
+  <title>タスク完了</title>
 </head>
 <body>
   <div class="content-wrapper">
@@ -27,7 +28,18 @@
     </div>
   </div>
   <div class="btn-outer">
-    <button class="primary-btn">次の画面へ</button>
+    <button class="primary-btn" id="next-btn">次の画面へ</button>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const nextBtn = document.getElementById('next-btn');
+      
+      nextBtn.addEventListener('click', function() {
+        // 目標画面へ遷移
+        window.location.href = '/target/';
+      });
+    });
+  </script>
 </body>
 </html>
