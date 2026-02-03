@@ -2,10 +2,11 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.authtoken.models import Token  # ← 追加
+from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
+from .models import User
 from django.shortcuts import render
-from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer  # LoginSerializerに変更
+from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer,AccountUpdateSerializer   # LoginSerializerに変更
 
 
 @api_view(['POST'])
@@ -131,6 +132,79 @@ def update_time_settings(request):
         )
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_profile(request):
+    """マイページ用プロフィール情報取得"""
+    user = request.user
+    
+    # 完了タスク数をカウント
+    from apps.tasks.models import DailyTask
+    completed_tasks_count = DailyTask.objects.filter(
+        user=user,
+        is_completed=True
+    ).count()
+    
+    return Response(
+        {
+            "username": user.username,
+            "email": user.email,
+            "mode": user.mode,
+            "challenge_day": user.challenge_day,
+            "completed_tasks": completed_tasks_count,
+            "created_at": user.created_at,
+            "task_time": user.task_time,
+            "reflection_time": user.reflection_time
+        },
+        status=status.HTTP_200_OK
+    )
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def update_account(request):
+    """アカウント情報編集"""
+    user = request.user
+    serializer = AccountUpdateSerializer(data=request.data)
+    
+    if serializer.is_valid():
+        # ユーザー名変更
+        if 'username' in serializer.validated_data:
+            new_username = serializer.validated_data['username']
+            # 既に存在するか確認
+            if User.objects.filter(username=new_username).exclude(user_id=user.user_id).exists():
+                return Response(
+                    {"error": "このユーザー名は既に使用されています"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            user.username = new_username
+        
+        # メールアドレス変更
+        if 'email' in serializer.validated_data:
+            user.email = serializer.validated_data['email']
+        
+        # パスワード変更
+        if 'new_password' in serializer.validated_data:
+            current_password = serializer.validated_data['current_password']
+            # 現在のパスワードを確認
+            if not user.check_password(current_password):
+                return Response(
+                    {"error": "現在のパスワードが正しくありません"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            user.set_password(serializer.validated_data['new_password'])
+        
+        user.save()
+        
+        return Response(
+            {
+                "message": "アカウント情報を更新しました",
+                "username": user.username,
+                "email": user.email
+            },
+            status=status.HTTP_200_OK
+        )
+    
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def login_page(request):
     """ログイン画面（Jellyfish Splash）のHTMLを返すビュー"""

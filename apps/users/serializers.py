@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     """ユーザー登録用"""
+    email = serializers.EmailField(required=False, allow_blank=True)  # 任意
     password = serializers.CharField(
         write_only=True,
         required=True,
@@ -14,7 +15,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ['username', 'password', 'password_confirm']  # ← modeを削除
+        fields = ['username', 'email', 'password', 'password_confirm']  # email追加
     
     def validate(self, attrs):
         if attrs['password'] != attrs['password_confirm']:
@@ -25,8 +26,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         validated_data.pop('password_confirm')
         user = User.objects.create_user(
             username=validated_data['username'],
-            password=validated_data['password'],
-            # mode は指定しない（自動で None になる）
+            email=validated_data.get('email', ''),  # email を追加（空でもOK）
+            password=validated_data['password']
         )
         return user
 
@@ -109,7 +110,26 @@ class TimeSettingsSerializer(serializers.Serializer):
             )
         
         return data
+
+class AccountUpdateSerializer(serializers.Serializer):
+    """アカウント情報編集用"""
+    username = serializers.CharField(required=False, max_length=150)
+    email = serializers.EmailField(required=False)
+    current_password = serializers.CharField(required=False, write_only=True)
+    new_password = serializers.CharField(required=False, write_only=True, validators=[validate_password])
+    
+    def validate(self, data):
+        """バリデーション"""
+        # パスワード変更の場合、current_password が必須
+        if 'new_password' in data:
+            if 'current_password' not in data:
+                raise serializers.ValidationError({
+                    "current_password": "パスワードを変更するには現在のパスワードが必要です"
+                })
         
+        return data
+        
+    
 class UserSerializer(serializers.ModelSerializer):
     """ユーザー情報取得用"""
     class Meta:
