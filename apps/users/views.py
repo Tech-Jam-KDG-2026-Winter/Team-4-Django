@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.models import Token  # ← 追加
 from django.contrib.auth import authenticate
+from django.shortcuts import render
 from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer  # LoginSerializerに変更
 
 
@@ -121,3 +122,8 @@ def update_time_settings(request):
             status=status.HTTP_200_OK
         )
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+def login_page(request):
+    """ログイン画面（Jellyfish Splash）のHTMLを返すビュー"""
+    return render(request, "login.html")
