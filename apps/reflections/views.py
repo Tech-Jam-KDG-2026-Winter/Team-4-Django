@@ -7,7 +7,7 @@ from datetime import date
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import DailyReflection
-
+from django.views.generic import TemplateView   # 追加
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -88,3 +88,6 @@ def review_1_page(request):
 def review_2_page(request):
     """振り返りテキスト入力画面"""
     return render(request, "review-2.html")
+
+class ReflectionListView(TemplateView):
+    template_name = "reflections/list.html"

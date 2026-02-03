@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}これまでの記録 - 生活再起動{% endblock %}
+
+{% block content %}
+<div class="app-container scrollable">
+    
+    <h2 class="page-title">記憶の泡</h2>
+
+    <div class="bubble-list">
+        
+        <div class="bubble-card">
+            <div class="bubble-left">
+                <div class="bubble-date-box">
+                    <span class="month">Feb</span>
+                    <span class="day">03</span>
+                </div>
+            </div>
+            <div class="bubble-right">
+                <div class="stage-tag stage-2">Lv.12 家の中・家族</div>
+                <p class="bubble-text">
+                    今日は久しぶりにリビングで過ごした。少し緊張したけど、お茶が美味しかった。
+                </p>
+                <div class="bubble-footer">
+                    <span class="emotion-icon">☕️ 安らぎ</span>
+                    <span class="voice-icon">🎙️ 0:42</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bubble-card">
+            <div class="bubble-left">
+                <div class="bubble-date-box">
+                    <span class="month">Feb</span>
+                    <span class="day">02</span>
+                </div>
+            </div>
+            <div class="bubble-right">
+                <div class="stage-tag stage-1">Lv.5 自分の部屋</div>
+                <p class="bubble-text">
+                    窓を開けて換気だけした。風が冷たかった。
+                </p>
+                <div class="bubble-footer">
+                    <span class="emotion-icon">🍃 スッキリ</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="height: 60px;"></div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="{% url 'profile' %}" class="nav-item">
+            <span class="nav-icon">👤</span>
+        </a>
+        <a href="{% url 'list' %}" class="nav-item active">
+            <span class="nav-icon">📖</span>
+        </a>
+    </nav>
+</div>
+{% endblock %}

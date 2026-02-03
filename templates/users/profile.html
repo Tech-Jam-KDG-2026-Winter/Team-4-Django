@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}マイページ - 生活再起動{% endblock %}
+
+{% block content %}
+<div class="app-container">
+    
+    <h2 class="page-title">マイページ</h2>
+
+    <div class="glass-panel profile-card">
+        
+        <div class="profile-header">
+            <div class="avatar-circle">
+                <span style="font-size: 2.5rem;">🫧</span>
+            </div>
+            <div class="profile-info">
+                <p class="user-name">くらげちゃん</p>
+                <span class="mode-badge reboot">🚀 再稼働モード (Day 3/7)</span>
+            </div>
+        </div>
+
+        <hr class="glass-divider">
+
+        <div class="level-progress-container">
+            <div class="level-header">
+                <span class="level-label">現在のステージ</span>
+                <span class="level-value">Lv.12</span>
+            </div>
+            <div class="level-description">🏠 家の中で、家族と</div>
+            
+            <div class="progress-track">
+                <div class="progress-fill" style="width: 24%;"></div>
+            </div>
+            <div class="level-range">
+                <span>Lv.1</span>
+                <span>Lv.50</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-panel settings-card">
+        <h3 class="panel-title">設定</h3>
+        
+        <div class="setting-row">
+            <div class="setting-info">
+                <span class="setting-name">集中BGM</span>
+                <span class="setting-desc">タスク中の環境音</span>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="setting-row">
+            <div class="setting-info">
+                <span class="setting-name">通知時間</span>
+                <span class="setting-desc">朝のタスク / 夜の振り返り</span>
+            </div>
+            <button class="btn-icon">⚙️</button>
+        </div>
+    </div>
+
+    <button class="btn-text-only" style="margin-top: auto;">ログアウト</button>
+
+    <nav class="bottom-nav">
+        <a href="{% url 'profile' %}" class="nav-item active">
+            <span class="nav-icon">👤</span>
+        </a>
+        <a href="{% url 'list' %}" class="nav-item">
+            <span class="nav-icon">📖</span>
+        </a>
+    </nav>
+</div>
+{% endblock %}

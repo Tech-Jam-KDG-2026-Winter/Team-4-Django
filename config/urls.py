@@ -4,6 +4,8 @@ from django.urls import path, include
 from apps.users import views as user_views
 from apps.tasks import views as task_views
 from apps.reflections import views as reflection_views
+from apps.users.views import LoginView, SignupView, ProfileView # ProfileViewを追加
+from apps.reflections.views import ReflectionListView # 追加
 
 def root(request):
     return JsonResponse({"service": "Drift Jellyfish", "status": "ok"})
@@ -12,6 +14,10 @@ urlpatterns = [
     path("", root),
     path("admin/", admin.site.urls),
     path("login/", user_views.login_page, name="login-page"),
+    path("signup/", SignupView.as_view(), name="signup"),
+    path("profile/", ProfileView.as_view(), name='profile'), # 追加
+    path("list/", ReflectionListView.as_view(), name='list'), # 追加
+
     
     # モード選択関連
     path("mode-question/", user_views.mode_question_page, name="mode-question"),

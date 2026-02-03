@@ -8,7 +8,7 @@ from .models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer,AccountUpdateSerializer   # LoginSerializerに変更
-
+from django.views.generic import TemplateView   # 追加
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -229,3 +229,6 @@ def mode_restart_page(request):
 def mode_maintainimprove_page(request):
     """維持・向上モード説明画面"""
     return render(request, "mode-maintainimprove.html")
+
+class ProfileView(TemplateView):
+    template_name = "users/profile.html"
