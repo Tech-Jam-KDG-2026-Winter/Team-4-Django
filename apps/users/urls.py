@@ -8,4 +8,6 @@ urlpatterns = [
     path('me/', views.get_current_user, name='current-user'),
     path('me/mode/', views.select_mode, name='select-mode'),
     path('me/time/', views.update_time_settings, name='update-time-settings'),
+    path('me/profile/', views.get_profile, name='get-profile'),
+    path('me/account/', views.update_account, name='update-account'),
 ]
