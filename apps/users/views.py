@@ -5,12 +5,11 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from .models import User
-from django.shortcuts import render
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from apps.tasks.models import DailyTask
 from datetime import datetime, timedelta
-from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer,AccountUpdateSerializer   # LoginSerializerに変更
+from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer,AccountUpdateSerializer
 
 
 @api_view(['POST'])
@@ -36,13 +35,17 @@ def register(request):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def user_login(request):
-    """ログイン（トークン認証）"""
+    """ログイン（トークン認証 + セッション認証）"""
     serializer = LoginSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.validated_data['user']
         
         # トークンを取得または作成
         token, created = Token.objects.get_or_create(user=user)
+        
+        # セッション認証も有効にする（HTMLページ用）
+        from django.contrib.auth import login
+        login(request, user)
         
         return Response(
             {
@@ -78,31 +81,28 @@ def get_current_user(request):
 @api_view(['PATCH'])
 @permission_classes([IsAuthenticated])
 def select_mode(request):
-    """モード選択"""
+    """モード選択・変更"""
     user = request.user
-    
-    # すでにモード選択済みの場合
-    if user.mode is not None:
-        return Response(
-            {"error": "モードは既に選択されています"},
-            status=status.HTTP_400_BAD_REQUEST
-        )
     
     serializer = ModeSelectionSerializer(data=request.data)
     if serializer.is_valid():
         selected_mode = serializer.validated_data['mode']
+        
+        # モードが変更される場合のみ challenge_day をリセット
+        if user.mode != selected_mode:
+            # 維持モードの場合、challenge_day を 8 に設定
+            if selected_mode == 'keep':
+                user.challenge_day = 8
+            # 再始動モードの場合、challenge_day を 1 に設定
+            elif selected_mode == 'restart':
+                user.challenge_day = 1
+        
         user.mode = selected_mode
-        
-        # 維持モードの場合、challenge_day を 8 に設定
-        if selected_mode == 'keep':
-            user.challenge_day = 8
-        # 再始動モードの場合、challenge_day は 1 のまま（デフォルト）
-        
         user.save()
         
         return Response(
             {
-                "message": "モードを設定しました",
+                "message": "モードを設定しました" if user.mode is None else "モードを更新しました",
                 "user": UserSerializer(user).data
             },
             status=status.HTTP_200_OK
@@ -214,6 +214,8 @@ def login_page(request):
     """ログイン画面（Jellyfish Splash）のHTMLを返すビュー"""
     return render(request, "login.html")
 
+
+# 完走画面・待機画面（追加分）
 @login_required
 def complete_page(request):
     """50日完走画面"""
@@ -252,11 +254,10 @@ def waiting_page(request):
     
     return render(request, 'waiting.html', context)
 
+
 @login_required
 def waiting_before_reflection_page(request):
     """待機画面（タスク完了後、振り返り前）"""
-    from datetime import time, datetime, timedelta
-    
     user = request.user
     
     # タスク時刻と振り返り時刻を取得
@@ -296,3 +297,22 @@ def waiting_before_reflection_page(request):
     }
     
     return render(request, 'waiting_before_reflection.html', context)
+
+
+# モード選択画面（mainから追加分）
+@login_required
+def mode_question_page(request):
+    """モード選択画面"""
+    return render(request, "mode-question.html")
+
+
+@login_required
+def mode_restart_page(request):
+    """再稼働モード説明画面"""
+    return render(request, "mode-restart.html")
+
+
+@login_required
+def mode_maintainimprove_page(request):
+    """維持・向上モード説明画面"""
+    return render(request, "mode-maintainimprove.html")

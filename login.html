@@ -30,5 +30,205 @@
         <div class="fragment blue"></div>
     </div>
 
+    <!-- ログインフォーム -->
+    <div style="position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 10;">
+        <form id="login-form" style="background: rgba(255, 255, 255, 0.95); padding: 24px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <h2 style="margin: 0 0 20px 0; text-align: center; color: #1B263B; font-size: 24px;">ログイン</h2>
+            <div style="margin-bottom: 16px;">
+                <label style="display: block; margin-bottom: 8px; color: #334155; font-weight: 500;">ユーザー名</label>
+                <input type="text" id="username" name="username" required 
+                       style="width: 100%; padding: 12px; border: 1px solid #B1BDD0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; color: #334155; font-weight: 500;">パスワード</label>
+                <input type="password" id="password" name="password" required 
+                       style="width: 100%; padding: 12px; border: 1px solid #B1BDD0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+            </div>
+            <button type="submit" 
+                    style="width: 100%; padding: 12px; background: #1B263B; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer;">
+                ログイン
+            </button>
+            <div style="margin-top: 16px; text-align: center;">
+                <a href="#" id="register-link" style="color: #1A73E8; text-decoration: none; font-size: 14px;">新規登録はこちら</a>
+            </div>
+            <div id="error-message" style="margin-top: 12px; color: #dc3545; font-size: 14px; text-align: center; display: none;"></div>
+        </form>
+    </div>
+
+    <!-- 新規登録フォーム（初期は非表示） -->
+    <div id="register-form-container" style="position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 10; display: none;">
+        <form id="register-form" style="background: rgba(255, 255, 255, 0.95); padding: 24px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <h2 style="margin: 0 0 20px 0; text-align: center; color: #1B263B; font-size: 24px;">新規登録</h2>
+            <div style="margin-bottom: 16px;">
+                <label style="display: block; margin-bottom: 8px; color: #334155; font-weight: 500;">ユーザー名</label>
+                <input type="text" id="reg-username" name="username" required 
+                       style="width: 100%; padding: 12px; border: 1px solid #B1BDD0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 16px;">
+                <label style="display: block; margin-bottom: 8px; color: #334155; font-weight: 500;">メールアドレス（任意）</label>
+                <input type="email" id="reg-email" name="email" 
+                       style="width: 100%; padding: 12px; border: 1px solid #B1BDD0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 16px;">
+                <label style="display: block; margin-bottom: 8px; color: #334155; font-weight: 500;">パスワード</label>
+                <input type="password" id="reg-password" name="password" required 
+                       style="width: 100%; padding: 12px; border: 1px solid #B1BDD0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; color: #334155; font-weight: 500;">パスワード（確認）</label>
+                <input type="password" id="reg-password-confirm" name="password_confirm" required 
+                       style="width: 100%; padding: 12px; border: 1px solid #B1BDD0; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+            </div>
+            <button type="submit" 
+                    style="width: 100%; padding: 12px; background: #1B263B; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer;">
+                登録
+            </button>
+            <div style="margin-top: 16px; text-align: center;">
+                <a href="#" id="login-link" style="color: #1A73E8; text-decoration: none; font-size: 14px;">ログインはこちら</a>
+            </div>
+            <div id="register-error-message" style="margin-top: 12px; color: #dc3545; font-size: 14px; text-align: center; display: none;"></div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const loginFormContainer = loginForm.parentElement;
+            const registerFormContainer = document.getElementById('register-form-container');
+            const registerLink = document.getElementById('register-link');
+            const loginLink = document.getElementById('login-link');
+            const errorMessage = document.getElementById('error-message');
+            const registerErrorMessage = document.getElementById('register-error-message');
+
+            // ログインフォーム送信
+            loginForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                errorMessage.style.display = 'none';
+                
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                try {
+                    const response = await fetch('/api/users/login/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ username, password })
+                    });
+
+                    let data;
+                    try {
+                        data = await response.json();
+                    } catch (e) {
+                        errorMessage.textContent = `サーバーエラー: ${response.status} ${response.statusText}`;
+                        errorMessage.style.display = 'block';
+                        console.error('JSON parse error:', e, 'Response:', response);
+                        return;
+                    }
+
+                    if (response.ok) {
+                        // トークンをlocalStorageに保存
+                        localStorage.setItem('auth_token', data.token);
+                        // セッション認証も有効にするため、ページをリロードしてから遷移
+                        // モード選択画面へ遷移
+                        if (data.user.mode) {
+                            window.location.href = '/task-today/';
+                        } else {
+                            window.location.href = '/mode-question/';
+                        }
+                    } else {
+                        const errorText = data.error || 
+                                         data.non_field_errors?.[0] || 
+                                         data.username?.[0] || 
+                                         data.password?.[0] || 
+                                         `ログインに失敗しました (${response.status})`;
+                        errorMessage.textContent = errorText;
+                        errorMessage.style.display = 'block';
+                        console.error('Login error:', data);
+                    }
+                } catch (error) {
+                    errorMessage.textContent = `ネットワークエラー: ${error.message}`;
+                    errorMessage.style.display = 'block';
+                    console.error('Error:', error);
+                }
+            });
+
+            // 新規登録フォーム送信
+            registerForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                registerErrorMessage.style.display = 'none';
+                
+                const username = document.getElementById('reg-username').value;
+                const email = document.getElementById('reg-email').value;
+                const password = document.getElementById('reg-password').value;
+                const passwordConfirm = document.getElementById('reg-password-confirm').value;
+
+                if (password !== passwordConfirm) {
+                    registerErrorMessage.textContent = 'パスワードが一致しません';
+                    registerErrorMessage.style.display = 'block';
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/api/users/register/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ 
+                            username, 
+                            email: email || '', 
+                            password, 
+                            password_confirm: passwordConfirm 
+                        })
+                    });
+
+                    let data;
+                    try {
+                        data = await response.json();
+                    } catch (e) {
+                        registerErrorMessage.textContent = `サーバーエラー: ${response.status} ${response.statusText}`;
+                        registerErrorMessage.style.display = 'block';
+                        console.error('JSON parse error:', e, 'Response:', response);
+                        return;
+                    }
+
+                    if (response.ok) {
+                        // トークンをlocalStorageに保存
+                        localStorage.setItem('auth_token', data.token);
+                        // モード選択画面へ遷移
+                        window.location.href = '/mode-question/';
+                    } else {
+                        const errorText = data.error || 
+                                         Object.values(data).flat().join(', ') || 
+                                         `登録に失敗しました (${response.status})`;
+                        registerErrorMessage.textContent = errorText;
+                        registerErrorMessage.style.display = 'block';
+                        console.error('Register error:', data);
+                    }
+                } catch (error) {
+                    registerErrorMessage.textContent = `ネットワークエラー: ${error.message}`;
+                    registerErrorMessage.style.display = 'block';
+                    console.error('Error:', error);
+                }
+            });
+
+            // フォーム切り替え
+            registerLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginFormContainer.style.display = 'none';
+                registerFormContainer.style.display = 'block';
+            });
+
+            loginLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerFormContainer.style.display = 'none';
+                loginFormContainer.style.display = 'block';
+            });
+        });
+    </script>
+
 </body>
 </html>
