@@ -41,8 +41,10 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
+
         # プロジェクト直下の templates/ ディレクトリと login.html をテンプレートとして読み込めるようにする
         "DIRS": [BASE_DIR / "templates", BASE_DIR],
+
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

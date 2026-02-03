@@ -7,8 +7,10 @@ from django.contrib.auth import authenticate
 from .models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer,AccountUpdateSerializer   # LoginSerializerに変更
-from django.views.generic import TemplateView   # 追加
+from apps.tasks.models import DailyTask
+from datetime import datetime, timedelta
+from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer,AccountUpdateSerializer
+from django.views.generic import TemplateView
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -213,6 +215,91 @@ def login_page(request):
     return render(request, "login.html")
 
 
+# 完走画面・待機画面（追加分）
+@login_required
+def complete_page(request):
+    """50日完走画面"""
+    user = request.user
+    
+    # 完了タスク数をカウント
+    completed_tasks = DailyTask.objects.filter(
+        user=user,
+        is_completed=True
+    ).count()
+    
+    context = {
+        'user': user,
+        'completed_tasks': completed_tasks
+    }
+    
+    return render(request, 'complete.html', context)
+
+
+@login_required
+def waiting_page(request):
+    """待機画面（振り返り完了後）"""
+    user = request.user
+    
+    # タスク時刻をHH:MM形式に変換
+    task_time = user.task_time.strftime('%H:%M')
+    
+    # 次のレベル
+    next_level = user.challenge_day
+    
+    context = {
+        'user': user,
+        'task_time': task_time,
+        'next_level': next_level
+    }
+    
+    return render(request, 'waiting.html', context)
+
+
+@login_required
+def waiting_before_reflection_page(request):
+    """待機画面（タスク完了後、振り返り前）"""
+    user = request.user
+    
+    # タスク時刻と振り返り時刻を取得
+    task_time = user.task_time
+    reflection_time = user.reflection_time
+    
+    # 今日の日付で時刻を組み合わせてdatetimeオブジェクトを作成
+    today = datetime.now().date()
+    task_datetime = datetime.combine(today, task_time)
+    reflection_datetime = datetime.combine(today, reflection_time)
+    
+    # 振り返りがタスクより前なら翌日扱い
+    if reflection_datetime <= task_datetime:
+        reflection_datetime += timedelta(days=1)
+    
+    # 時間差を計算（時間単位）
+    time_diff = (reflection_datetime - task_datetime).total_seconds() / 3600
+    
+    # 時間差に応じてメッセージを変更
+    if time_diff < 3:
+        message = "少し休んだら、振り返りをしよう"
+    elif time_diff < 6:
+        message = "ゆっくり休んでね"
+    elif time_diff < 9:
+        message = "好きなことをして過ごそう"
+    elif time_diff < 12:
+        message = "のんびりしておいで"
+    else:
+        # 12時間以上
+        reflection_time_str = reflection_time.strftime('%H:%M')
+        message = f"ゆっくり1日を楽しんでね"
+    
+    context = {
+        'user': user,
+        'reflection_time': reflection_time.strftime('%H:%M'),
+        'message': message
+    }
+    
+    return render(request, 'waiting_before_reflection.html', context)
+
+
+# モード選択画面（mainから追加分）
 @login_required
 def mode_question_page(request):
     """モード選択画面"""
