@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/* 共通設定・背景 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #F4F7F9; /* アイスブルー背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* クラゲ (Main Character) */
+.jellyfish-container {
+    position: relative;
+    width: 100px;  /* 小さめサイズ */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* ゆらゆら漂う動き */
+    animation: float 7s ease-in-out infinite;
+}
+
+/* SVG全体の設定 */
+.jellyfish-svg {
+    width: 100%;
+    height: auto;
+    /* 呼吸する動き */
+    animation: breathe 4s ease-in-out infinite alternate;
+}
+
+/* ▼▼▼ 色の設定（画像と同じグレーに戻しました） ▼▼▼ */
+.cls-head {
+    fill: #D9D9D9; /* 元のグレー */
+}
+
+.cls-tentacles path {
+    fill: none;
+    stroke: #D9D9D9; /* 元のグレー */
+    stroke-width: 40;
+    stroke-linecap: round;
+}
+
+/* 装飾 (Decorations) */
+.fragment {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: breathe 5s ease-in-out infinite alternate;
+}
+
+/* 配置（広めに配置） */
+.fragment.pink { 
+    width: 18px; height: 18px; 
+    background: #FFB7B2; 
+    top: -40px; right: -30px; 
+    animation-delay: 0.5s; 
+}
+.fragment.green { 
+    width: 14px; height: 14px; 
+    background: #B5EAD7; 
+    bottom: -30px; left: -50px; 
+    animation-delay: 1.5s; 
+}
+.fragment.blue { 
+    width: 10px; height: 10px; 
+    background: #C7CEEA; 
+    top: 50%; right: -60px; 
+    animation-delay: 2.5s; 
+}
+
+/* 気泡 (Bubbles) */
+.bubble {
+    position: absolute;
+    bottom: -60px;
+    background-color: #fff;
+    border: 1px solid #B5EAD7;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.b1 { width: 22px; height: 22px; left: 20%; animation: bubble-rise 8s infinite ease-in; animation-delay: 0s; }
+.b2 { width: 12px; height: 12px; left: 70%; animation: bubble-rise 10s infinite ease-in; animation-delay: 3s; }
+.b3 { width: 16px; height: 16px; left: 45%; animation: bubble-rise 7s infinite ease-in; animation-delay: 5s; }
+.b4 { width: 8px;  height: 8px;  left: 85%; animation: bubble-rise 11s infinite ease-in; animation-delay: 1s; }
+
+/* アニメーション定義 (Keyframes) */
+
+@keyframes breathe {
+    0% { transform: scale(0.98); }
+    100% { transform: scale(1.04); }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  25%  { transform: translateY(-8px) rotate(2deg); }
+  50%  { transform: translateY(-14px) rotate(-2deg); }
+  75%  { transform: translateY(-6px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes bubble-rise {
+  0% {
+      transform: translateY(0) scale(0.7);
+      opacity: 0;
+  }
+  15% {
+      opacity: 0.6;
+  }
+  60% {
+      opacity: 0.9;
+  }
+  100% {
+      transform: translateY(-220px) scale(1);
+      opacity: 0;
+  }
+}
