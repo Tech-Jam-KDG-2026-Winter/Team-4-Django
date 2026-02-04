@@ -18,6 +18,7 @@ INSTALLED_APPS = [
 
     # starter apps
     "apps.common",
+    "apps.reflections",
 ]
 
 MIDDLEWARE = [
