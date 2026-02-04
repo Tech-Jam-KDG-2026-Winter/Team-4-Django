@@ -1,61 +1,62 @@
 {% extends 'base.html' %}
 
-{% block title %}これまでの記録 - 生活再起動{% endblock %}
+{% block title %}記憶の泡 - 生活再起動{% endblock %}
 
 {% block content %}
-<div class="app-container scrollable">
+    <div class="fragment pink"></div>
+    <div class="fragment green"></div>
+    <div class="fragment blue"></div>
     
-    <h2 class="page-title">記憶の泡</h2>
+    <div class="form-card wide">
+        <h2 class="form-title" style="margin-bottom: 20px;">記憶の泡</h2>
 
-    <div class="bubble-list">
-        
-        <div class="bubble-card">
-            <div class="bubble-left">
-                <div class="bubble-date-box">
-                    <span class="month">Feb</span>
+        <div class="memory-list">
+            
+            <div class="memory-card">
+                <div class="memory-date">
+                    <span class="month">FEB</span>
                     <span class="day">03</span>
                 </div>
-            </div>
-            <div class="bubble-right">
-                <div class="stage-tag stage-2">Lv.12 家の中・家族</div>
-                <p class="bubble-text">
-                    今日は久しぶりにリビングで過ごした。少し緊張したけど、お茶が美味しかった。
-                </p>
-                <div class="bubble-footer">
-                    <span class="emotion-icon">☕️ 安らぎ</span>
-                    <span class="voice-icon">🎙️ 0:42</span>
+                <div class="memory-content">
+                    <span class="stage-tag">Lv.12 家の中</span>
+                    <p class="memory-text">リビングでお茶を飲んだ。少し緊張したけど美味しかった。</p>
+                    <div class="memory-footer">
+                        <span>☕️ 安らぎ</span>
+                        <span>🎙️ 0:42</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="bubble-card">
-            <div class="bubble-left">
-                <div class="bubble-date-box">
-                    <span class="month">Feb</span>
+            <div class="memory-card">
+                <div class="memory-date">
+                    <span class="month">FEB</span>
                     <span class="day">02</span>
                 </div>
-            </div>
-            <div class="bubble-right">
-                <div class="stage-tag stage-1">Lv.5 自分の部屋</div>
-                <p class="bubble-text">
-                    窓を開けて換気だけした。風が冷たかった。
-                </p>
-                <div class="bubble-footer">
-                    <span class="emotion-icon">🍃 スッキリ</span>
+                <div class="memory-content">
+                    <span class="stage-tag blue">Lv.5 自分の部屋</span>
+                    <p class="memory-text">窓を開けて換気。風が冷たくて目が覚めた。</p>
+                    <div class="memory-footer">
+                        <span>🍃 スッキリ</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div style="height: 60px;"></div>
+            <div class="memory-card">
+                <div class="memory-date">
+                    <span class="month">FEB</span>
+                    <span class="day">01</span>
+                </div>
+                <div class="memory-content">
+                    <span class="stage-tag blue">Lv.1 スタート</span>
+                    <p class="memory-text">アプリをインストールした。無理せずやってみる。</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <nav class="bottom-nav">
-        <a href="{% url 'profile' %}" class="nav-item">
-            <span class="nav-icon">👤</span>
-        </a>
-        <a href="{% url 'list' %}" class="nav-item active">
-            <span class="nav-icon">📖</span>
-        </a>
+        <a href="{% url 'profile' %}" class="nav-item">👤</a>
+        <a href="{% url 'list' %}" class="nav-item active">📖</a>
     </nav>
-</div>
 {% endblock %}
