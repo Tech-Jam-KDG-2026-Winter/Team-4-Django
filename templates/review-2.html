@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/TRfunction.css' %}">
+  <title>簡単に振り返ろう</title>
+</head>
+<body>
+  <div class="content-wrapper">
+    <div class="title">
+      <svg width="120" height="156" viewBox="0 0 600 779" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M600 190C600 272.843 465.685 190 300 190C134.315 190 0 272.843 0 190C0 107.157 134.315 0 300 0C465.685 0 600 107.157 600 190Z" fill="#1B263B"/>
+      <path d="M116 258.819C116 258.819 106 296.601 106 321.319C106 346.037 116 383.819 116 383.819C116 383.819 126 421.601 126 446.319C126 471.037 116 508.819 116 508.819C116 508.819 106 546.601 106 571.319C106 596.037 116 633.819 116 633.819C116 633.819 126 671.911 126 696.319C126 720.727 116 758.819 116 758.819" stroke="#1B263B" stroke-width="40" stroke-linecap="round"/>
+      <path d="M300 258.819C300 258.819 290 296.601 290 321.319C290 346.037 300 383.819 300 383.819C300 383.819 310 421.601 310 446.319C310 471.037 300 508.819 300 508.819C300 508.819 290 546.601 290 571.319C290 596.037 300 633.819 300 633.819C300 633.819 310 671.911 310 696.319C310 720.727 300 758.819 300 758.819" stroke="#1B263B" stroke-width="40" stroke-linecap="round"/>
+      <path d="M484 258.819C484 258.819 474 296.601 474 321.319C474 346.037 484 383.819 484 383.819C484 383.819 494 421.601 494 446.319C494 471.037 484 508.819 484 508.819C484 508.819 474 546.601 474 571.319C474 596.037 484 633.819 484 633.819C484 633.819 494 671.911 494 696.319C494 720.727 484 758.819 484 758.819" stroke="#1B263B" stroke-width="40" stroke-linecap="round"/>
+      </svg>
+      <h1>簡単に振り返ろう</h1>
+    </div>
+    <div class="task-block">
+      <div class="card-outer card-review">
+        <div class="card review-text-card" id="reflection-text" contenteditable="true" data-placeholder="愚痴でも何でもはきだしちゃおう"></div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-outer">
+    <button class="primary-btn" id="submit-btn">振り返りを終える</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      const reflectionText = document.getElementById('reflection-text');
+      const submitBtn = document.getElementById('submit-btn');
+      
+      // CSRFトークン取得関数
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+      // テキスト入力の取得
+      function getTextContent() {
+        return reflectionText.textContent.trim();
+      }
+      
+      // 振り返りを送信
+      submitBtn.addEventListener('click', async function() {
+        
+        
+        const text = getTextContent();
+        
+        try {
+          // 振り返りテキストを更新（PATCHで既存の振り返りを更新）
+          const response = await fetch('/api/reflections/update/', {
+            method: 'PATCH',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Content-Type': 'application/json'
+                      },
+            body: JSON.stringify({
+              good_thing: text,
+              bad_thing: text  // 両方に同じテキストを保存（必要に応じて分離可能）
+            })
+          });
+          
+          if (response.ok) {
+            alert('振り返りを保存しました');
+            // ホーム画面または次の画面へ遷移
+            window.location.href = '/task-today/';
+          } else {
+            const error = await response.json();
+            alert(error.error || '振り返りの保存に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

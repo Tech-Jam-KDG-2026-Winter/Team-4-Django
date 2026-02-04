@@ -2,10 +2,12 @@ from pathlib import Path
 
 # config/settings/base.py
 # BASE_DIR は manage.py があるディレクトリを指すのが都合が良い
-BASE_DIR = Path(__file__).resolve().parents[3]
+BASE_DIR = Path(__file__).resolve().parents[2]
 
 SECRET_KEY = "django-insecure-x!e8w94#_z0x*10ek4f^v2*19%1hs167aj8!57htfo@mxalpeg"
+
 DEBUG = True
+
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
@@ -15,9 +17,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    # starter apps
+    
+    # 外部ライブラリ
+    "rest_framework",
+    "rest_framework.authtoken",
+    
+    # 自作アプリ
     "apps.common",
+    "apps.users",
+    "apps.tasks",
     "apps.reflections",
 ]
 
@@ -36,7 +44,8 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        # プロジェクト直下の templates/ ディレクトリと login.html をテンプレートとして読み込めるようにする
+        "DIRS": [BASE_DIR / "templates", BASE_DIR],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -72,5 +81,25 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
+# プロジェクト直下の static ディレクトリを参照
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# カスタムユーザーモデル
+AUTH_USER_MODEL = 'users.User'
+
+# ログインURL設定
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/mode-question/'
+
+# REST Framework設定
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}

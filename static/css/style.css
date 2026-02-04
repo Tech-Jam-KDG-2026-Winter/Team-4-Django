@@ -1,0 +1,175 @@
+@charset "UTF-8";
+/* 共通設定・背景 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #F4F7F9; /* アイスブルー背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* クラゲ (Main Character) */
+.jellyfish-container {
+    position: relative;
+    width: 100px;  /* 小さめサイズ */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* ゆらゆら漂う動き */
+    animation: float 7s ease-in-out infinite;
+}
+
+/* SVG全体の設定 */
+.jellyfish-svg {
+    width: 100%;
+    height: auto;
+    /* 呼吸する動き */
+    animation: breathe 4s ease-in-out infinite alternate;
+}
+
+/* ▼▼▼ 色の設定（画像と同じグレーに戻しました） ▼▼▼ */
+.cls-head {
+    fill: #D9D9D9; /* 元のグレー */
+}
+
+.cls-tentacles path {
+    fill: none;
+    stroke: #D9D9D9; /* 元のグレー */
+    stroke-width: 40;
+    stroke-linecap: round;
+}
+
+/* 装飾 (Decorations) */
+.fragment {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: breathe 5s ease-in-out infinite alternate;
+}
+
+/* 配置（広めに配置） */
+.fragment.pink { 
+    width: 18px; height: 18px; 
+    background: #FFB7B2; 
+    top: -40px; right: -30px; 
+    animation-delay: 0.5s; 
+}
+.fragment.green { 
+    width: 14px; height: 14px; 
+    background: #B5EAD7; 
+    bottom: -30px; left: -50px; 
+    animation-delay: 1.5s; 
+}
+.fragment.blue { 
+    width: 10px; height: 10px; 
+    background: #C7CEEA; 
+    top: 50%; right: -60px; 
+    animation-delay: 2.5s; 
+}
+
+/* 気泡 (Bubbles) */
+.bubble {
+    position: absolute;
+    bottom: -60px;
+    background-color: #fff;
+    border: 1px solid #B5EAD7;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.b1 { width: 22px; height: 22px; left: 20%; animation: bubble-rise 8s infinite ease-in; animation-delay: 0s; }
+.b2 { width: 12px; height: 12px; left: 70%; animation: bubble-rise 10s infinite ease-in; animation-delay: 3s; }
+.b3 { width: 16px; height: 16px; left: 45%; animation: bubble-rise 7s infinite ease-in; animation-delay: 5s; }
+.b4 { width: 8px;  height: 8px;  left: 85%; animation: bubble-rise 11s infinite ease-in; animation-delay: 1s; }
+
+/* アニメーション定義 (Keyframes) */
+
+@keyframes breathe {
+    0% { transform: scale(0.98); }
+    100% { transform: scale(1.04); }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  25%  { transform: translateY(-8px) rotate(2deg); }
+  50%  { transform: translateY(-14px) rotate(-2deg); }
+  75%  { transform: translateY(-6px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes bubble-rise {
+  0% {
+      transform: translateY(0) scale(0.7);
+      opacity: 0;
+  }
+  15% {
+      opacity: 0.6;
+  }
+  60% {
+      opacity: 0.9;
+  }
+  100% {
+      transform: translateY(-220px) scale(1);
+      opacity: 0;
+  }
+}
+/* =========================================
+   機能追加分（プロフィール・データ一覧）
+   ========================================= */
+   .app-container.scrollable { justify-content: flex-start; padding-bottom: 80px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+   .app-container.scrollable::-webkit-scrollbar { display: none; }
+   .page-title { color: #6B7A8F; font-size: 1.5rem; margin: 20px 0; text-align: center; letter-spacing: 0.1em; text-shadow: 0 2px 4px rgba(255,255,255,0.8); }
+   .glass-panel { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 20px; padding: 25px; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05); margin-bottom: 20px; }
+   .profile-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+   .avatar-circle { width: 60px; height: 60px; background: #E0F7FA; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+   .profile-info { display: flex; flex-direction: column; }
+   .user-name { font-size: 1.2rem; font-weight: bold; color: #546E7A; margin: 0; }
+   .mode-badge { font-size: 0.8rem; padding: 4px 10px; border-radius: 12px; margin-top: 5px; display: inline-block; }
+   .mode-badge.reboot { background: #FFCCBC; color: #BF360C; }
+   .glass-divider { border: 0; height: 1px; background: rgba(255,255,255,0.5); margin: 15px 0; }
+   .btn-text-only { background: none; border: none; color: #90A4AE; font-size: 0.9rem; text-decoration: underline; cursor: pointer; align-self: center; }
+   .bottom-nav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 85%; max-width: 350px; background: rgba(255, 255, 255, 0.9); border-radius: 50px; display: flex; justify-content: space-around; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 100; }
+   .nav-item { text-decoration: none; color: #B0BEC5; transition: color 0.3s; }
+   .nav-item.active { color: #FFB7B2; }
+   .nav-icon { font-size: 1.5rem; }
+   .panel-title { font-size: 1rem; color: #546E7A; margin: 0 0 15px 0; font-weight: bold; }
+   .level-progress-container { margin-top: 10px; }
+   .level-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+   .level-label { font-size: 0.85rem; color: #90A4AE; }
+   .level-value { font-size: 1.4rem; font-weight: bold; color: #FFB7B2; }
+   .level-description { font-size: 0.9rem; color: #546E7A; margin-bottom: 8px; }
+   .progress-track { width: 100%; height: 10px; background: rgba(255,255,255,0.5); border-radius: 5px; overflow: hidden; margin-bottom: 5px; }
+   .progress-fill { height: 100%; background: linear-gradient(90deg, #FFB7B2, #FF9A9E); border-radius: 5px; transition: width 1s ease-out; }
+   .level-range { display: flex; justify-content: space-between; font-size: 0.7rem; color: #B0BEC5; }
+   .setting-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.3); }
+   .setting-row:last-child { border-bottom: none; }
+   .setting-info { display: flex; flex-direction: column; }
+   .setting-name { font-size: 0.95rem; color: #546E7A; }
+   .setting-desc { font-size: 0.75rem; color: #90A4AE; }
+   .toggle-switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+   .toggle-switch input { opacity: 0; width: 0; height: 0; }
+   .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; }
+   .slider.round { border-radius: 24px; }
+   .slider.round:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+   input:checked + .slider { background-color: #B5EAD7; }
+   input:checked + .slider:before { transform: translateX(20px); }
+   .bubble-list { display: flex; flex-direction: column; gap: 15px; }
+   .bubble-card { display: flex; background: rgba(255, 255, 255, 0.7); border-radius: 16px; padding: 15px; box-shadow: 0 4px 15px rgba(200, 210, 230, 0.2); }
+   .bubble-left { margin-right: 15px; display: flex; flex-direction: column; align-items: center; }
+   .bubble-date-box { background: #E0F7FA; color: #00838F; border-radius: 10px; padding: 8px 10px; text-align: center; min-width: 45px; }
+   .bubble-date-box .month { display: block; font-size: 0.65rem; text-transform: uppercase; }
+   .bubble-date-box .day { display: block; font-size: 1.1rem; font-weight: bold; line-height: 1; }
+   .bubble-right { flex: 1; }
+   .stage-tag { display: inline-block; font-size: 0.7rem; padding: 3px 8px; border-radius: 6px; margin-bottom: 8px; font-weight: bold; }
+   .stage-1 { background: #E1F5FE; color: #0288D1; }
+   .stage-2 { background: #FFF3E0; color: #EF6C00; }
+   .bubble-text { font-size: 0.9rem; color: #455A64; line-height: 1.5; margin: 0 0 8px 0; }
+   .bubble-footer { display: flex; gap: 10px; font-size: 0.8rem; color: #90A4AE; }
+   .voice-icon { display: flex; align-items: center; gap: 4px; background: #F3E5F5; color: #8E24AA; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; }

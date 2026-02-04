@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/TRfunction.css' %}">
+  <title>今日のタスク</title>
+</head>
+<body>
+  <div class="content-wrapper">
+    <div class="title">
+      <svg width="120" height="156" viewBox="0 0 600 779" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M600 190C600 272.843 465.685 190 300 190C134.315 190 0 272.843 0 190C0 107.157 134.315 0 300 0C465.685 0 600 107.157 600 190Z" fill="#1B263B"/>
+      <path d="M116 258.819C116 258.819 106 296.601 106 321.319C106 346.037 116 383.819 116 383.819C116 383.819 126 421.601 126 446.319C126 471.037 116 508.819 116 508.819C116 508.819 106 546.601 106 571.319C106 596.037 116 633.819 116 633.819C116 633.819 126 671.911 126 696.319C126 720.727 116 758.819 116 758.819" stroke="#1B263B" stroke-width="40" stroke-linecap="round"/>
+      <path d="M300 258.819C300 258.819 290 296.601 290 321.319C290 346.037 300 383.819 300 383.819C300 383.819 310 421.601 310 446.319C310 471.037 300 508.819 300 508.819C300 508.819 290 546.601 290 571.319C290 596.037 300 633.819 300 633.819C300 633.819 310 671.911 310 696.319C310 720.727 300 758.819 300 758.819" stroke="#1B263B" stroke-width="40" stroke-linecap="round"/>
+      <path d="M484 258.819C484 258.819 474 296.601 474 321.319C474 346.037 484 383.819 484 383.819C484 383.819 494 421.601 494 446.319C494 471.037 484 508.819 484 508.819C484 508.819 474 546.601 474 571.319C474 596.037 484 633.819 484 633.819C484 633.819 494 671.911 494 696.319C494 720.727 484 758.819 484 758.819" stroke="#1B263B" stroke-width="40" stroke-linecap="round"/>
+      </svg>
+      <h1>今日のタスク</h1>
+    </div>
+    <div class="task-block">
+      <div class="card-outer card-task">
+        <div class="card card-task" id="task-card">
+          <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' fill-rule='evenodd'><path d='M24 0v24H0V0zM12.594 23.258l-.012.002-.071.035-.02.004-.014-.004-.071-.036c-.01-.003-.019 0-.024.006l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.016-.018m.264-.113-.014.002-.184.093-.01.01-.003.011.018.43.005.012.008.008.201.092c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.003-.011.018-.43-.003-.012-.01-.01z'/><path fill='#E0E6EDFF' d='M12 4a2 2 0 0 0-2 2h4a2 2 0 0 0-2-2M9.354 3c.705-.622 1.632-1 2.646-1s1.94.378 2.646 1H18a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.126 5H6v15h12V5h-2.126c.082.32.126.655.126 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V6c0-.345.044-.68.126-1M8 11a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1m0 4a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1'/></g></svg>
+          <p id="task-text">読み込み中...</p>
+        </div>
+      </div>
+      <div class="change-task-outer">
+        <button class="change-task-btn" id="change-task-btn">タスクを変更する</button>
+      </div>
+    </div>
+  </div>
+  <div class="btn-outer">
+    <button class="primary-btn" id="complete-btn">タスク完了</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      const taskCard = document.getElementById('task-card');
+      const taskText = document.getElementById('task-text');
+      const changeTaskBtn = document.getElementById('change-task-btn');
+      const completeBtn = document.getElementById('complete-btn');
+      
+      let currentTaskId = null;
+      
+      // CSRFトークン取得関数
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+      
+      // 今日のタスクを取得
+      async function loadTodayTask() {
+        try {
+          const response = await fetch('/api/tasks/today/', {
+            headers: {
+              'X-CSRFToken': getCookie('csrftoken')
+            }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            if (data.task) {
+              currentTaskId = data.task.task_id;
+              taskText.textContent = data.task.task_title;
+            } else {
+              taskText.textContent = '今日のタスクはありません';
+            }
+          } else {
+            const error = await response.json();
+            alert(error.error || 'タスクの取得に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
+      }
+      
+      // タスク変更
+      changeTaskBtn.addEventListener('click', async function() {
+        if (!currentTaskId) {
+          alert('タスクがありません');
+          return;
+        }
+        
+        try {
+          const response = await fetch(`/api/tasks/${currentTaskId}/change/`, {
+            method: 'POST',
+            headers: {
+              'X-CSRFToken': getCookie('csrftoken'),
+              'Content-Type': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            currentTaskId = data.task.task_id;
+            taskText.textContent = data.task.task_title;
+            alert('タスクを変更しました');
+          } else {
+            const error = await response.json();
+            alert(error.error || 'タスクの変更に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
+      });
+      
+      // タスク完了
+      completeBtn.addEventListener('click', async function() {
+        if (!currentTaskId) {
+          alert('タスクがありません');
+          return;
+        }
+        
+        try {
+          const response = await fetch(`/api/tasks/${currentTaskId}/complete/`, {
+            method: 'POST',
+            headers: {
+              'X-CSRFToken': getCookie('csrftoken'),
+              'Content-Type': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            window.location.href = '/task-clear/';
+          } else {
+            const error = await response.json();
+            alert(error.error || 'タスクの完了に失敗しました');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
+      });
+      
+      // 初期読み込み
+      await loadTodayTask();
+    });
+    </script>
+</body>
+</html>
