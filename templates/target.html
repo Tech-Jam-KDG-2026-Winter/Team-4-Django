@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/TRfunction.css' %}">
-  <title>また〜時に会おう</title>
+  <title>時間を設定しよう</title>
 </head>
 <body>
   <div class="content-wrapper">
@@ -16,32 +16,90 @@
       <path d="M300 258.819C300 258.819 290 296.601 290 321.319C290 346.037 300 383.819 300 383.819C300 383.819 310 421.601 310 446.319C310 471.037 300 508.819 300 508.819C300 508.819 290 546.601 290 571.319C290 596.037 300 633.819 300 633.819C300 633.819 310 671.911 310 696.319C310 720.727 300 758.819 300 758.819" stroke="#1B263B" stroke-width="40" stroke-linecap="round"/>
       <path d="M484 258.819C484 258.819 474 296.601 474 321.319C474 346.037 484 383.819 484 383.819C484 383.819 494 421.601 494 446.319C494 471.037 484 508.819 484 508.819C484 508.819 474 546.601 474 571.319C474 596.037 484 633.819 484 633.819C484 633.819 494 671.911 494 696.319C494 720.727 484 758.819 484 758.819" stroke="#1B263B" stroke-width="40" stroke-linecap="round"/>
       </svg>
-      <h1>また〜時に会おう</h1>
+      <h1>時間を設定しよう</h1>
     </div>
     <div class="task-block">
       <div class="card-outer card-target">
         <div class="card">
-          <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' fill-rule='evenodd'><path d='M24 0v24H0V0zM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01z'/><path fill='#1B263BFF' d='M4 21a1 1 0 1 0 2 0v-4.204l11.45-2.643A2 2 0 0 0 19 12.204V3.63a1.5 1.5 0 0 0-1.837-1.462L5.55 4.847A2 2 0 0 0 4 6.796zM6 6.796l11-2.539v7.948L6 14.743z'/></g></svg>
-          <p>挨拶をしてみよう</p>
+          <label for="task-time" style="display: block; font-weight: 600; margin-bottom: 10px; color: #1B263B;">
+            ⏰ タスク開始時刻
+          </label>
+          <input 
+            type="time" 
+            id="task-time" 
+            value="05:00"
+            style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 16px; font-family: inherit;">
+          <p style="margin-top: 10px; color: #666; font-size: 14px;">毎日この時間にタスクが表示されます</p>
         </div>
+        
         <div class="card">
-          <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' fill-rule='evenodd'><path d='M24 0v24H0V0zM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01z'/><path fill='#1B263BFF' d='M4 21a1 1 0 1 0 2 0v-4.204l11.45-2.643A2 2 0 0 0 19 12.204V3.63a1.5 1.5 0 0 0-1.837-1.462L5.55 4.847A2 2 0 0 0 4 6.796zM6 6.796l11-2.539v7.948L6 14.743z'/></g></svg>
-          <p>ありがとうを伝えよう</p>
+          <label for="reflection-time" style="display: block; font-weight: 600; margin-bottom: 10px; color: #1B263B;">
+            📝 振り返り時刻
+          </label>
+          <input 
+            type="time" 
+            id="reflection-time" 
+            value="20:00"
+            style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 16px; font-family: inherit;">
+          <p style="margin-top: 10px; color: #666; font-size: 14px;">毎日この時間に振り返りができます</p>
         </div>
       </div>
     </div>
   </div>
   <div class="btn-outer">
-    <button class="primary-btn" id="next-btn">本日の振り返り画面へ</button>
+    <button class="primary-btn" id="save-btn">設定してタスクへ</button>
   </div>
 
   <script>
+    // CSRFトークン取得
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
-      const nextBtn = document.getElementById('next-btn');
+      const saveBtn = document.getElementById('save-btn');
+      const taskTimeInput = document.getElementById('task-time');
+      const reflectionTimeInput = document.getElementById('reflection-time');
       
-      nextBtn.addEventListener('click', function() {
-        // 振り返り画面へ遷移
-        window.location.href = '/review-1/';
+      saveBtn.addEventListener('click', async function() {
+        const taskTime = taskTimeInput.value + ':00';  // HH:MM → HH:MM:SS
+        const reflectionTime = reflectionTimeInput.value + ':00';
+        
+        try {
+          const response = await fetch('/api/users/me/time/', {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({
+              task_time: taskTime,
+              reflection_time: reflectionTime
+            })
+          });
+          
+          if (response.ok) {
+            // タスク画面へ遷移
+            window.location.href = '/task-today/';
+          } else {
+            const error = await response.json();
+            alert('設定に失敗しました: ' + (error.error || JSON.stringify(error)));
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('エラーが発生しました');
+        }
       });
     });
   </script>

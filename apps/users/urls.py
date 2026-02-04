@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from django.urls import path
 from . import views
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 urlpatterns = [
     path('register/', views.register, name='user-register'),

@@ -10,6 +10,17 @@
 </head>
 <body>
     <div class="page-container">
+        <!-- プロフィールリンク（右上） -->
+        <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+            <a href="/profile/?back=waiting" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: rgba(255, 255, 255, 0.9); border-radius: 25px; text-decoration: none; color: #1B263B; font-weight: 600; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                プロフィール
+            </a>
+        </div>
+
         <!-- クラゲ -->
         <div class="jellyfish-container">
             <svg width="600" height="779" viewBox="0 0 600 779" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,6 +53,23 @@
             <p class="info-time">{{ task_time }}</p>
             <p class="info-text">に表示されます</p>
         </div>
+
+        <!-- テスト用ボタン -->
+        <div style="margin-top: 30px; text-align: center;">
+            <button onclick="window.location.href='/task-today/'" 
+                    style="padding: 15px 30px; 
+                           background: #1B263B; 
+                           color: white; 
+                           border: none; 
+                           border-radius: 25px; 
+                           cursor: pointer; 
+                           font-size: 16px;
+                           font-weight: 600;
+                           box-shadow: 0 4px 10px rgba(27, 38, 59, 0.3);
+                           transition: all 0.3s ease;">
+                今すぐタスク画面へ（テスト用）
+            </button>
+        </div>
     </div>
 
     <script>
@@ -54,9 +82,7 @@
                               now.getMinutes().toString().padStart(2, '0');
             
             if (currentTime === taskTime) {
-                // TODO: タスクのHTMLができたら遷移先を入れる
-                // window.location.href = '/タスクのHTMLのURL/';
-                console.log('タスクの時間になりました！');
+                window.location.href = '/task-today/';
             }
         }
         

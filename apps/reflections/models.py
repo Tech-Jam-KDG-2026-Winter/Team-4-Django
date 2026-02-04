@@ -2,6 +2,7 @@ from django.db import models
 from apps.users.models import User
 from django.utils import timezone
 
+
 class DailyReflection(models.Model):
     """日次振り返り"""
     
@@ -13,7 +14,14 @@ class DailyReflection(models.Model):
     )
     date = models.DateField(default=timezone.now, verbose_name='振り返り日付')
     
-    # 社会性チェック
+    # 動的な振り返り質問の回答（JSON配列: [true, false, true]）
+    answers = models.JSONField(
+        default=list,
+        verbose_name='振り返り質問の回答',
+        help_text='チェックボックスの回答を配列で保存'
+    )
+    
+    # 社会性チェック（後方互換性のため残す）
     hello_count = models.IntegerField(default=0, verbose_name='あいさつ回数')
     thanks_given = models.BooleanField(default=False, verbose_name='ありがとう言えた')
     thanks_received = models.BooleanField(default=False, verbose_name='ありがとう言われた')
