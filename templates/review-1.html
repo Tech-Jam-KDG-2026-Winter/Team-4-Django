@@ -19,25 +19,9 @@
       <h1>簡単に振り返ろう</h1>
     </div>
     <div class="task-block">
-      <div class="card-outer card-review">
-        <div class="card">
-          <label class="review-label">
-            <input type="checkbox" class="review-checkbox" id="hello-checkbox" value="hello">
-            <p>挨拶ができた</p>
-          </label>
-        </div>
-        <div class="card">
-          <label class="review-label">
-            <input type="checkbox" class="review-checkbox" id="thanks-given-checkbox" value="thanks_given">
-            <p>ありがとうを言えた</p>
-          </label>
-        </div>
-        <div class="card">
-          <label class="review-label">
-            <input type="checkbox" class="review-checkbox" id="thanks-received-checkbox" value="thanks_received">
-            <p>感謝された</p>
-          </label>
-        </div>
+      <div class="card-outer card-review" id="questions-container">
+        <!-- 動的に生成 -->
+        <p style="text-align: center; color: #666;">読み込み中...</p>
       </div>
     </div>
   </div>
@@ -47,47 +31,80 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', async function() {
-      const helloCheckbox = document.getElementById('hello-checkbox');
-      const thanksGivenCheckbox = document.getElementById('thanks-given-checkbox');
-      const thanksReceivedCheckbox = document.getElementById('thanks-received-checkbox');
+      const questionsContainer = document.getElementById('questions-container');
       const nextBtn = document.getElementById('next-btn');
       
-      // トークンを取得
-function getCookie(name) {
-  let cookieValue = null;
-  if (document.cookie && document.cookie !== '') {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim();
-      if (cookie.substring(0, name.length + 1) === (name + '=')) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
+      let reflectionQuestions = [];
+      
+      // CSRFトークン取得
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
       }
-    }
-  }
-  return cookieValue;
-}
-
+      
+      // 今日のタスクから振り返り質問を取得
+      async function loadReflectionQuestions() {
+        try {
+          const response = await fetch('/api/tasks/today/', {
+            headers: {
+              'X-CSRFToken': getCookie('csrftoken')
+            }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            reflectionQuestions = data.task.reflection_questions || [];
+            
+            // 質問を表示
+            questionsContainer.innerHTML = '';
+            reflectionQuestions.forEach((question, index) => {
+              const card = document.createElement('div');
+              card.className = 'card';
+              card.innerHTML = `
+                <label class="review-label">
+                  <input type="checkbox" class="review-checkbox" id="question-${index}" data-index="${index}">
+                  <p>${question}</p>
+                </label>
+              `;
+              questionsContainer.appendChild(card);
+            });
+          } else {
+            questionsContainer.innerHTML = '<p style="text-align: center; color: #f00;">質問の読み込みに失敗しました</p>';
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          questionsContainer.innerHTML = '<p style="text-align: center; color: #f00;">エラーが発生しました</p>';
+        }
+      }
+      
       // チェックボックスの状態を保存
       nextBtn.addEventListener('click', async function() {
-        
-        // チェックボックスの状態を取得
-        const helloCount = helloCheckbox.checked ? 1 : 0;
-        const thanksGiven = thanksGivenCheckbox.checked;
-        const thanksReceived = thanksReceivedCheckbox.checked;
+        // チェック状態を取得（配列形式: [true, false, true]）
+        const answers = reflectionQuestions.map((_, index) => {
+          const checkbox = document.getElementById(`question-${index}`);
+          return checkbox ? checkbox.checked : false;
+        });
         
         try {
-          // 振り返りデータを保存（APIエンドポイントは後で確認）
+          // 振り返りデータを保存
           const response = await fetch('/api/reflections/', {
             method: 'POST',
             headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Content-Type': 'application/json'
-                },
+              'X-CSRFToken': getCookie('csrftoken'),
+              'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
-              hello_count: helloCount,
-              thanks_given: thanksGiven,
-              thanks_received: thanksReceived
+              answers: answers  // [true, false, true] の形式
             })
           });
           
@@ -104,6 +121,9 @@ function getCookie(name) {
           window.location.href = '/review-2/';
         }
       });
+      
+      // 初期読み込み
+      await loadReflectionQuestions();
     });
   </script>
 </body>

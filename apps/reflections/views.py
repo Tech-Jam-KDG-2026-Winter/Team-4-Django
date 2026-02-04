@@ -51,6 +51,7 @@ def create_reflection(request):
         user=user,
         date=today,
         defaults={
+            'answers': [],
             'hello_count': 0,
             'thanks_given': False,
             'thanks_received': False
@@ -58,6 +59,10 @@ def create_reflection(request):
     )
     
     # リクエストデータから更新
+    if 'answers' in request.data:
+        reflection.answers = request.data['answers']
+    
+    # 後方互換性（古い形式もサポート）
     if 'hello_count' in request.data:
         reflection.hello_count = request.data['hello_count']
     if 'thanks_given' in request.data:
@@ -74,7 +79,7 @@ def create_reflection(request):
         },
         status=status.HTTP_200_OK if not created else status.HTTP_201_CREATED
     )
-
+    
 
 @api_view(['PATCH'])
 @permission_classes([IsAuthenticated])

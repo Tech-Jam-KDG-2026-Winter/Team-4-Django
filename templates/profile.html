@@ -75,20 +75,35 @@
             </form>
         </div>
 
-        <!-- ホームに戻るボタン -->
-        <button class="home-button" onclick="location.href='/'">
-            ホームに戻る
+        <!-- 戻るボタン -->
+        <button class="home-button" onclick="goBack()">
+            戻る
         </button>
     </div>
 
     <script>
+        // CSRFトークン取得
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        // 保存ボタン
         document.getElementById('saveButton').addEventListener('click', async () => {
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const current_password = document.getElementById('current_password').value;
-            
-            const token = localStorage.getItem('token');
             
             const data = {};
             if (username) data.username = username;
@@ -103,7 +118,7 @@
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Token ${token}`
+                        'X-CSRFToken': getCookie('csrftoken')
                     },
                     body: JSON.stringify(data)
                 });
@@ -123,6 +138,21 @@
                 alert('更新エラーが発生しました');
             }
         });
+
+        // 戻るボタン - URLパラメータから戻り先を判定
+        function goBack() {
+            const params = new URLSearchParams(window.location.search);
+            const back = params.get('back');
+            
+            if (back === 'waiting-before-reflection') {
+                window.location.href = '/waiting-before-reflection/';
+            } else if (back === 'waiting') {
+                window.location.href = '/waiting/';
+            } else {
+                // デフォルトはタスク前待機画面
+                window.location.href = '/waiting/';
+            }
+        }
     </script>
 </body>
 </html>

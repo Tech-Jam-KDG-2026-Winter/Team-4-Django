@@ -11,6 +11,8 @@ from apps.tasks.models import DailyTask
 from datetime import datetime, timedelta
 from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer,AccountUpdateSerializer
 from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 
 def signup_page(request):
@@ -34,7 +36,7 @@ def profile_page(request):
         'completed_tasks': completed_tasks
     }
     
-    return render(request, 'users/profile.html', context)
+    return render(request, 'profile.html', context)
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -55,6 +57,10 @@ def register(request):
         )
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@login_required
+def target_page(request):
+    """時間設定画面"""
+    return render(request, "target.html")
 
 def login_page(request):
     """ログイン画面（GET: 画面表示、POST: ログイン処理）"""
@@ -73,7 +79,14 @@ def login_page(request):
             login(request, user)
             print("DEBUG: ログイン成功")  # デバッグ用
             print(f"DEBUG: session_key={request.session.session_key}")
-            return redirect('/mode-question/')
+            
+            # モード設定済みかチェック
+            if user.mode:
+                # モード設定済み → タスク画面へ
+                return redirect('/task-today/')
+            else:
+                # モード未設定 → モード選択画面へ
+                return redirect('/mode-question/')
         else:
             print("DEBUG: ログイン失敗")  # デバッグ用
             return render(request, "login.html", {"error": "ユーザー名またはパスワードが正しくありません"})

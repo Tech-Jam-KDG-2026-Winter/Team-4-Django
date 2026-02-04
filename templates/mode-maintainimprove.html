@@ -60,8 +60,8 @@
           });
           
           if (response.ok) {
-            // タスク画面へ遷移
-            window.location.href = '/task-today/';
+            // 時間設定画面へ遷移
+            window.location.href = '/target/';
           } else {
             const error = await response.json();
             alert(error.error || 'モード設定に失敗しました');

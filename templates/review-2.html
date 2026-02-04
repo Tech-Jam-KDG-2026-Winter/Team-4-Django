@@ -20,6 +20,16 @@
     </div>
     <div class="task-block">
       <div class="card-outer card-review">
+        <!-- 音声入力ボタン -->
+        <div style="text-align: center; margin-bottom: 15px;">
+          <button type="button" id="btnVoiceStart" style="padding: 10px 20px; background: #1B263B; color: white; border: none; border-radius: 20px; cursor: pointer; font-size: 14px; margin-right: 10px;">
+            🎤 音声入力開始
+          </button>
+          <button type="button" id="btnVoiceStop" style="padding: 10px 20px; background: #dc2626; color: white; border: none; border-radius: 20px; cursor: pointer; font-size: 14px;" disabled>
+            ⏹ 停止
+          </button>
+        </div>
+        
         <div class="card review-text-card" id="reflection-text" contenteditable="true" data-placeholder="愚痴でも何でもはきだしちゃおう"></div>
       </div>
     </div>
@@ -28,27 +38,71 @@
     <button class="primary-btn" id="submit-btn">振り返りを終える</button>
   </div>
 
+  <!-- 音声入力JS読み込み -->
+  <script src="{% static 'reflections/voice-input.js' %}"></script>
+
   <script>
     document.addEventListener('DOMContentLoaded', async function() {
       const reflectionText = document.getElementById('reflection-text');
       const submitBtn = document.getElementById('submit-btn');
+      const btnVoiceStart = document.getElementById('btnVoiceStart');
+      const btnVoiceStop = document.getElementById('btnVoiceStop');
+      
+      // 音声入力初期化
+      if (VoiceInput.isSupported()) {
+        VoiceInput.init({
+          onResult: function(text) {
+            // 音声認識結果をテキストエリアに追加
+            reflectionText.textContent += text;
+          },
+          onStart: function() {
+            btnVoiceStart.disabled = true;
+            btnVoiceStop.disabled = false;
+            btnVoiceStart.textContent = '🎤 聞いています...';
+          },
+          onStop: function() {
+            btnVoiceStart.disabled = false;
+            btnVoiceStop.disabled = true;
+            btnVoiceStart.textContent = '🎤 音声入力開始';
+          },
+          onError: function(msg) {
+            alert('音声入力エラー: ' + msg);
+            btnVoiceStart.disabled = false;
+            btnVoiceStop.disabled = true;
+            btnVoiceStart.textContent = '🎤 音声入力開始';
+          }
+        });
+      } else {
+        btnVoiceStart.disabled = true;
+        btnVoiceStart.textContent = '🎤 音声入力非対応';
+      }
+      
+      // 音声入力開始
+      btnVoiceStart.addEventListener('click', function() {
+        VoiceInput.start();
+      });
+      
+      // 音声入力停止
+      btnVoiceStop.addEventListener('click', function() {
+        VoiceInput.stop();
+      });
       
       // CSRFトークン取得関数
-function getCookie(name) {
-  let cookieValue = null;
-  if (document.cookie && document.cookie !== '') {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim();
-      if (cookie.substring(0, name.length + 1) === (name + '=')) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
       }
-    }
-  }
-  return cookieValue;
-}
-
+      
       // テキスト入力の取得
       function getTextContent() {
         return reflectionText.textContent.trim();
@@ -56,18 +110,21 @@ function getCookie(name) {
       
       // 振り返りを送信
       submitBtn.addEventListener('click', async function() {
-        
-        
         const text = getTextContent();
+        
+        if (!text) {
+          alert('振り返りを入力してください');
+          return;
+        }
         
         try {
           // 振り返りテキストを更新（PATCHで既存の振り返りを更新）
           const response = await fetch('/api/reflections/update/', {
             method: 'PATCH',
             headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Content-Type': 'application/json'
-                      },
+              'X-CSRFToken': getCookie('csrftoken'),
+              'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
               good_thing: text,
               bad_thing: text  // 両方に同じテキストを保存（必要に応じて分離可能）
@@ -76,8 +133,8 @@ function getCookie(name) {
           
           if (response.ok) {
             alert('振り返りを保存しました');
-            // ホーム画面または次の画面へ遷移
-            window.location.href = '/task-today/';
+            // 待機画面へ遷移
+            window.location.href = '/waiting/';
           } else {
             const error = await response.json();
             alert(error.error || '振り返りの保存に失敗しました');
