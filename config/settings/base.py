@@ -5,7 +5,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parents[2]
 
 SECRET_KEY = "django-insecure-x!e8w94#_z0x*10ek4f^v2*19%1hs167aj8!57htfo@mxalpeg"
+
 DEBUG = True
+
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
@@ -21,6 +23,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     
     # 自作アプリ
+    "apps.common",
     "apps.users",
     "apps.tasks",
     "apps.reflections",
@@ -41,10 +44,8 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-
         # プロジェクト直下の templates/ ディレクトリと login.html をテンプレートとして読み込めるようにする
         "DIRS": [BASE_DIR / "templates", BASE_DIR],
-
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

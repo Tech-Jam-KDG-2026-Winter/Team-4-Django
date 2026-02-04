@@ -1,14 +1,44 @@
+from django.shortcuts import render
+from django.views import View
+from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.utils import timezone
 from datetime import date
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from .models import DailyReflection
-from django.views.generic import TemplateView   # 追加
+from .services import send_test_email
 
+
+# テスト用ビュー
+class EmailTestView(View):
+    template_name = "reflections/test_email.html"
+    
+    def get(self, request):
+        return render(request, self.template_name)
+    
+    def post(self, request):
+        to_email = request.POST.get("email")
+        success, error_message = send_test_email(to_email)
+        context = {
+            "to_email": to_email,
+            "success": success,
+            "error_message": error_message,
+        }
+        return render(request, self.template_name, context)
+
+
+class VoiceInputTestView(View):
+    """Web Speech API による音声入力（音声→テキスト）のテスト用ビュー。"""
+    template_name = "reflections/voice_input_test.html"
+    
+    def get(self, request):
+        return render(request, self.template_name)
+
+
+# 振り返りAPI
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def create_reflection(request):
@@ -78,6 +108,7 @@ def update_reflection(request):
     )
 
 
+# HTML表示用ビュー
 @login_required
 def review_1_page(request):
     """振り返りチェックボックス画面"""
@@ -88,6 +119,7 @@ def review_1_page(request):
 def review_2_page(request):
     """振り返りテキスト入力画面"""
     return render(request, "review-2.html")
+
 
 class ReflectionListView(TemplateView):
     template_name = "reflections/list.html"
