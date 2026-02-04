@@ -33,18 +33,22 @@
       const reflectionText = document.getElementById('reflection-text');
       const submitBtn = document.getElementById('submit-btn');
       
-      // トークンを取得
-      function getToken() {
-        return localStorage.getItem('auth_token') || getCookie('auth_token');
+      // CSRFトークン取得関数
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
       }
-      
-      function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-        return null;
-      }
-      
+    }
+  }
+  return cookieValue;
+}
+
       // テキスト入力の取得
       function getTextContent() {
         return reflectionText.textContent.trim();
@@ -52,12 +56,7 @@
       
       // 振り返りを送信
       submitBtn.addEventListener('click', async function() {
-        const token = getToken();
-        if (!token) {
-          alert('ログインが必要です');
-          window.location.href = '/login/';
-          return;
-        }
+        
         
         const text = getTextContent();
         
@@ -66,9 +65,9 @@
           const response = await fetch('/api/reflections/update/', {
             method: 'PATCH',
             headers: {
-              'Authorization': `Token ${token}`,
-              'Content-Type': 'application/json'
-            },
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Content-Type': 'application/json'
+                      },
             body: JSON.stringify({
               good_thing: text,
               bad_thing: text  // 両方に同じテキストを保存（必要に応じて分離可能）

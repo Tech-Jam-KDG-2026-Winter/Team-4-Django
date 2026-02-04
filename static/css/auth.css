@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+/* 認証画面専用スタイル（ログイン・新規登録） */
+
+/* style.cssの設定を上書き */
+body, html {
+    overflow-y: auto !important;
+    height: auto !important;
+    display: block !important;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* ページコンテナ */
+.page-container {
+    max-width: 375px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* クラゲコンテナ */
+.jellyfish-container {
+    width: 120px;
+    margin: 0 auto 30px;
+    position: relative;
+    animation: float 7s ease-in-out infinite;
+}
+
+.jellyfish-container svg {
+    width: 100%;
+    height: auto;
+}
+
+/* 装飾（パステルの丸と四角） */
+.fragment {
+    position: absolute;
+    opacity: 0.6;
+    animation: breathe 5s ease-in-out infinite alternate;
+}
+
+.fragment.circle {
+    border-radius: 50%;
+}
+
+.fragment.square {
+    border-radius: 3px;
+}
+
+.fragment.pink { 
+    width: 16px; 
+    height: 16px; 
+    background: #FFB7B2; 
+    top: -25px; 
+    right: -35px; 
+    animation-delay: 0.5s; 
+}
+
+.fragment.green { 
+    width: 13px; 
+    height: 13px; 
+    background: #B5EAD7; 
+    bottom: 20px; 
+    left: -40px; 
+    animation-delay: 1.5s; 
+}
+
+.fragment.blue { 
+    width: 11px; 
+    height: 11px; 
+    background: #C7CEEA; 
+    top: 40%; 
+    right: -45px; 
+    animation-delay: 2.5s; 
+}
+
+.fragment.yellow { 
+    width: 12px; 
+    height: 12px; 
+    background: #FFEAA7; 
+    top: 60%; 
+    left: -38px; 
+    animation-delay: 3.5s; 
+}
+
+/* バブル */
+.bubble {
+    position: fixed;
+    bottom: -60px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 2px solid #B5EAD7;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.b1 { 
+    width: 22px; 
+    height: 22px; 
+    left: 15%; 
+    animation: bubble-rise 8s infinite ease-in; 
+    animation-delay: 0s; 
+}
+
+.b2 { 
+    width: 14px; 
+    height: 14px; 
+    left: 35%; 
+    animation: bubble-rise 10s infinite ease-in; 
+    animation-delay: 3s; 
+}
+
+.b3 { 
+    width: 18px; 
+    height: 18px; 
+    left: 55%; 
+    animation: bubble-rise 9s infinite ease-in; 
+    animation-delay: 5s; 
+}
+
+.b4 { 
+    width: 12px; 
+    height: 12px; 
+    left: 75%; 
+    animation: bubble-rise 11s infinite ease-in; 
+    animation-delay: 1s; 
+}
+
+.b5 { 
+    width: 16px; 
+    height: 16px; 
+    left: 90%; 
+    animation: bubble-rise 7s infinite ease-in; 
+    animation-delay: 6s; 
+}
+
+/* タイトル */
+.auth-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1B263B;
+    margin: 0 0 30px;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+/* カード */
+.auth-card {
+    background: #fff;
+    border: 2px solid #B5C4D8;
+    border-radius: 12px;
+    padding: 30px 25px;
+    max-width: 320px;
+    width: 90%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* フォームグループ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #4A5568;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 2px solid #E2E8F0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #B5EAD7;
+}
+
+/* ボタン */
+.auth-button {
+    width: 100%;
+    background: #1B263B;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(27, 38, 59, 0.3);
+    transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(27, 38, 59, 0.4);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+/* リンク */
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #718096;
+}
+
+.auth-link a {
+    color: #1B263B;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes breathe {
+    0% { transform: scale(0.98); }
+    100% { transform: scale(1.04); }
+}
+
+@keyframes bubble-rise {
+    0% {
+        transform: translateY(0) scale(0.7);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.6;
+    }
+    60% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* スマホ最適化 */
+@media (max-width: 375px) {
+    .page-container {
+        padding: 60px 20px 40px;
+    }
+    
+    .jellyfish-container {
+        width: 100px;
+    }
+    
+    .auth-title {
+        font-size: 22px;
+    }
+    
+    .auth-card {
+        padding: 25px 20px;
+    }
+}

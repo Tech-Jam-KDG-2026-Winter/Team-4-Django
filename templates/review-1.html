@@ -53,25 +53,23 @@
       const nextBtn = document.getElementById('next-btn');
       
       // トークンを取得
-      function getToken() {
-        return localStorage.getItem('auth_token') || getCookie('auth_token');
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
       }
-      
-      function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-        return null;
-      }
-      
+    }
+  }
+  return cookieValue;
+}
+
       // チェックボックスの状態を保存
       nextBtn.addEventListener('click', async function() {
-        const token = getToken();
-        if (!token) {
-          alert('ログインが必要です');
-          window.location.href = '/login/';
-          return;
-        }
         
         // チェックボックスの状態を取得
         const helloCount = helloCheckbox.checked ? 1 : 0;
@@ -83,9 +81,9 @@
           const response = await fetch('/api/reflections/', {
             method: 'POST',
             headers: {
-              'Authorization': `Token ${token}`,
-              'Content-Type': 'application/json'
-            },
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Content-Type': 'application/json'
+                },
             body: JSON.stringify({
               hello_count: helloCount,
               thanks_given: thanksGiven,

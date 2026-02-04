@@ -12,6 +12,30 @@ from datetime import datetime, timedelta
 from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer,TimeSettingsSerializer,ModeSelectionSerializer,AccountUpdateSerializer
 from django.views.generic import TemplateView
 
+
+def signup_page(request):
+    """新規登録画面のHTMLを返すビュー"""
+    return render(request, "signup.html")
+
+@login_required
+def profile_page(request):
+    """プロフィール画面"""
+    user = request.user
+    
+    # 完了タスク数をカウント
+    from apps.tasks.models import DailyTask
+    completed_tasks = DailyTask.objects.filter(
+        user=user,
+        is_completed=True
+    ).count()
+    
+    context = {
+        'user': user,
+        'completed_tasks': completed_tasks
+    }
+    
+    return render(request, 'users/profile.html', context)
+
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register(request):
@@ -32,31 +56,29 @@ def register(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['POST'])
-@permission_classes([AllowAny])
-def user_login(request):
-    """ログイン（トークン認証 + セッション認証）"""
-    serializer = LoginSerializer(data=request.data)
-    if serializer.is_valid():
-        user = serializer.validated_data['user']
+def login_page(request):
+    """ログイン画面（GET: 画面表示、POST: ログイン処理）"""
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         
-        # トークンを取得または作成
-        token, created = Token.objects.get_or_create(user=user)
+        print(f"DEBUG: username={username}, password={password}")  # デバッグ用
         
-        # セッション認証も有効にする（HTMLページ用）
-        from django.contrib.auth import login
-        login(request, user)
+        from django.contrib.auth import login, authenticate
+        user = authenticate(username=username, password=password)
         
-        return Response(
-            {
-                "message": "ログインしました",
-                "token": token.key,
-                "user": UserSerializer(user).data
-            },
-            status=status.HTTP_200_OK
-        )
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        print(f"DEBUG: user={user}")  # デバッグ用
+        
+        if user:
+            login(request, user)
+            print("DEBUG: ログイン成功")  # デバッグ用
+            print(f"DEBUG: session_key={request.session.session_key}")
+            return redirect('/mode-question/')
+        else:
+            print("DEBUG: ログイン失敗")  # デバッグ用
+            return render(request, "login.html", {"error": "ユーザー名またはパスワードが正しくありません"})
+    
+    return render(request, "login.html")
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -210,9 +232,7 @@ def update_account(request):
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-def login_page(request):
-    """ログイン画面（Jellyfish Splash）のHTMLを返すビュー"""
-    return render(request, "login.html")
+
 
 
 # 完走画面・待機画面（追加分）
@@ -303,6 +323,7 @@ def waiting_before_reflection_page(request):
 @login_required
 def mode_question_page(request):
     """モード選択画面"""
+    print(f"DEBUG mode_question: user={request.user}, is_authenticated={request.user.is_authenticated}")
     return render(request, "mode-question.html")
 
 
