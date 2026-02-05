@@ -73,13 +73,14 @@
                     </div>
                 </div>
             </form>
-        </div>
-
-        <!-- 戻るボタン -->
-        <button class="home-button" onclick="goBack()">
-            戻る
-        </button>
-    </div>
+            <div class="button-group">
+                <button class="btn btn-back" onclick="goBack()">
+                    戻る
+                </button>
+                <button class="btn btn-logout" onclick="logout()">
+                    ログアウト
+                </button>
+            </div>
 
     <script>
         // CSRFトークン取得
@@ -151,6 +152,12 @@
             } else {
                 // デフォルトはタスク前待機画面
                 window.location.href = '/waiting/';
+            }
+        }
+
+        function logout() {
+            if (confirm('ログアウトしますか？')) {
+            window.location.href = '/logout/';
             }
         }
     </script>

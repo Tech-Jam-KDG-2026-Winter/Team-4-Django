@@ -13,11 +13,17 @@ from .serializers import UserRegisterSerializer, LoginSerializer, UserSerializer
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.contrib.auth import logout
 
 
 def signup_page(request):
     """新規登録画面のHTMLを返すビュー"""
     return render(request, "signup.html")
+
+def logout_page(request):
+    """ログアウト"""
+    logout(request)
+    return redirect('/login/')
 
 @login_required
 def profile_page(request):
@@ -45,22 +51,19 @@ def register(request):
     serializer = UserRegisterSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.save()
-        # 登録時にトークンも作成
-        token, created = Token.objects.get_or_create(user=user)
+        
+        # ★ 追加：セッションを作成してログイン
+        from django.contrib.auth import login
+        login(request, user)
+        
         return Response(
             {
                 "message": "ユーザー登録が完了しました",
-                "token": token.key,
                 "user": UserSerializer(user).data
             },
             status=status.HTTP_201_CREATED
         )
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-@login_required
-def target_page(request):
-    """時間設定画面"""
-    return render(request, "target.html")
 
 def login_page(request):
     """ログイン画面（GET: 画面表示、POST: ログイン処理）"""
@@ -68,27 +71,31 @@ def login_page(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         
-        print(f"DEBUG: username={username}, password={password}")  # デバッグ用
-        
         from django.contrib.auth import login, authenticate
         user = authenticate(username=username, password=password)
         
-        print(f"DEBUG: user={user}")  # デバッグ用
-        
         if user:
             login(request, user)
-            print("DEBUG: ログイン成功")  # デバッグ用
-            print(f"DEBUG: session_key={request.session.session_key}")
             
             # モード設定済みかチェック
             if user.mode:
-                # モード設定済み → タスク画面へ
-                return redirect('/task-today/')
+                # 今日のタスクがあるか確認
+                from apps.tasks.models import DailyTask
+                from datetime import date
+                today = date.today()
+                
+                task = DailyTask.objects.filter(user=user, date=today).first()
+                
+                if task and task.is_completed:
+                    # タスク完了済み → 待機画面へ
+                    return redirect('/waiting-before-reflection/')
+                else:
+                    # タスク未完了 → タスク画面へ
+                    return redirect('/task-today/')
             else:
                 # モード未設定 → モード選択画面へ
                 return redirect('/mode-question/')
         else:
-            print("DEBUG: ログイン失敗")  # デバッグ用
             return render(request, "login.html", {"error": "ユーザー名またはパスワードが正しくありません"})
     
     return render(request, "login.html")
@@ -209,7 +216,6 @@ def update_account(request):
         # ユーザー名変更
         if 'username' in serializer.validated_data:
             new_username = serializer.validated_data['username']
-            # 既に存在するか確認
             if User.objects.filter(username=new_username).exclude(user_id=user.user_id).exists():
                 return Response(
                     {"error": "このユーザー名は既に使用されています"},
@@ -224,15 +230,19 @@ def update_account(request):
         # パスワード変更
         if 'new_password' in serializer.validated_data:
             current_password = serializer.validated_data['current_password']
-            # 現在のパスワードを確認
             if not user.check_password(current_password):
                 return Response(
                     {"error": "現在のパスワードが正しくありません"},
                     status=status.HTTP_400_BAD_REQUEST
                 )
             user.set_password(serializer.validated_data['new_password'])
-        
-        user.save()
+            user.save()
+            
+            # ★ 追加：セッションを維持
+            from django.contrib.auth import update_session_auth_hash
+            update_session_auth_hash(request, user)
+        else:
+            user.save()
         
         return Response(
             {
@@ -244,7 +254,6 @@ def update_account(request):
         )
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 
@@ -333,22 +342,26 @@ def waiting_before_reflection_page(request):
 
 
 # モード選択画面（mainから追加分）
-@login_required
 def mode_question_page(request):
     """モード選択画面"""
-    print(f"DEBUG mode_question: user={request.user}, is_authenticated={request.user.is_authenticated}")
+    # ログインチェック（リダイレクトなし）
+    if not request.user.is_authenticated:
+        return redirect('/login/')
+    
     return render(request, "mode-question.html")
 
 
-@login_required
 def mode_restart_page(request):
     """再稼働モード説明画面"""
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     return render(request, "mode-restart.html")
 
 
-@login_required
 def mode_maintainimprove_page(request):
     """維持・向上モード説明画面"""
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     return render(request, "mode-maintainimprove.html")
 
 class ProfileView(TemplateView):

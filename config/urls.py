@@ -50,4 +50,6 @@ urlpatterns = [
     
     # テスト用（開発中）
     path("reflections/", include("apps.reflections.urls")),
+    # ログアウト
+    path("logout/", user_views.logout_page, name="logout"),
 ]

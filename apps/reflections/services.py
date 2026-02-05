@@ -9,8 +9,8 @@ SMTP_HOST = "smtp.gmail.com"
 SMTP_PORT = 587
 
 # Gmail アカウント情報
-SMTP_USER = "your-email@gmail.com"  # 自分のメールアドレス
-SMTP_PASSWORD = "your-app-password"  # 作ったパスワード
+SMTP_USER = "hinato263@gmail.com"  # 自分のメールアドレス
+SMTP_PASSWORD = "bgizxpmrgazhqmca"  # 作ったパスワード
 def send_email(
     to_email: str,
     subject: str,
