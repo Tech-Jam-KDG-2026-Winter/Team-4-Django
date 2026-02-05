@@ -1,0 +1,14 @@
+import smtplib
+from email.mime.text import MIMEText
+from typing import Tuple
+
+# ===== SMTP設定 (Gmail) =====
+SMTP_HOST = "smtp.gmail.com"
+SMTP_PORT = 587
+
+# Gmail アカウント情報（ここに自分の情報を入れてください）
+SMTP_USER = "your-email@gmail.com"
+SMTP_PASSWORD = "your-app-password"
+
+def send_email(to_email: str, subject: str, body: str, *, is_html: bool = True, from_email: str | None = None) -> Tuple[bool, str | None]:
+    # ... 以下同じ
