@@ -1,0 +1,4898 @@
+[
+{
+  "model": "tasks.tasktemplate",
+  "pk": 952,
+  "fields": {
+    "level": 1,
+    "theme": "alone",
+    "title": "カーテンを開ける",
+    "message": "ゆっくりでいい。光を感じよう",
+    "reflection_questions": [
+      "カーテンを開けられましたか？",
+      "光を感じることができましたか？",
+      "部屋が明るくなったと感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 953,
+  "fields": {
+    "level": 1,
+    "theme": "alone",
+    "title": "窓を開けて深呼吸する",
+    "message": "外の空気を感じてみよう",
+    "reflection_questions": [
+      "窓を開けられましたか？",
+      "深呼吸できましたか？",
+      "外の空気を感じられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 954,
+  "fields": {
+    "level": 1,
+    "theme": "alone",
+    "title": "ベッドから起き上がる",
+    "message": "今日も、君のペースで行こう",
+    "reflection_questions": [
+      "ベッドから起き上がれましたか？",
+      "体を動かせましたか？",
+      "少しすっきりしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 955,
+  "fields": {
+    "level": 1,
+    "theme": "alone",
+    "title": "目を閉じて1分過ごす",
+    "message": "無理に何かしなくていい。ただ休もう",
+    "reflection_questions": [
+      "目を閉じられましたか？",
+      "1分そのままでいられましたか？",
+      "少し落ち着きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 956,
+  "fields": {
+    "level": 1,
+    "theme": "alone",
+    "title": "布団の中で手を動かす",
+    "message": "今日は起きなくてもいい",
+    "reflection_questions": [
+      "手を動かせましたか？",
+      "体の感覚を感じられましたか？",
+      "少し体が温まりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 957,
+  "fields": {
+    "level": 1,
+    "theme": "alone",
+    "title": "天井を見る",
+    "message": "視線を上に向けるだけでいい",
+    "reflection_questions": [
+      "天井を見られましたか？",
+      "10秒以上見られましたか？",
+      "気持ちは変わりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 958,
+  "fields": {
+    "level": 1,
+    "theme": "alone",
+    "title": "今日の日付を確認する",
+    "message": "今日も、君のペースで行こう",
+    "reflection_questions": [
+      "ベッドから起き上がれましたか？",
+      "体を動かせましたか？",
+      "少しすっきりしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 959,
+  "fields": {
+    "level": 2,
+    "theme": "alone",
+    "title": "コップ一杯の水を飲む",
+    "message": "ゆっくりでいい。体に水分を",
+    "reflection_questions": [
+      "水を飲めましたか？",
+      "喉の渇きを感じましたか？",
+      "体が潤った感じがしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 960,
+  "fields": {
+    "level": 2,
+    "theme": "alone",
+    "title": "顔を洗う",
+    "message": "冷たい水で、目を覚まそう",
+    "reflection_questions": [
+      "顔を洗えましたか？",
+      "水の冷たさを感じましたか？",
+      "少し目が覚めましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 961,
+  "fields": {
+    "level": 2,
+    "theme": "alone",
+    "title": "着替える",
+    "message": "新しい服で、新しい気持ちに",
+    "reflection_questions": [
+      "着替えられましたか？",
+      "服を選べましたか？",
+      "気分が少し変わりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 962,
+  "fields": {
+    "level": 2,
+    "theme": "alone",
+    "title": "窓の外の音を聞く",
+    "message": "いろんな音に、耳を澄ませて",
+    "reflection_questions": [
+      "外の音を聞けましたか？",
+      "何の音が分かりましたか？",
+      "外の存在を感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 963,
+  "fields": {
+    "level": 2,
+    "theme": "alone",
+    "title": "タオルで顔を拭く",
+    "message": "匂いや質感を、肌に感じよう",
+    "reflection_questions": [
+      "顔を拭けましたか？",
+      "タオルの感触を感じましたか？",
+      "さっぱりしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 964,
+  "fields": {
+    "level": 2,
+    "theme": "alone",
+    "title": "目を瞬きする",
+    "message": "ゆっくりでいい。目を活性化しよう",
+    "reflection_questions": [
+      "瞬きできましたか？",
+      "目は疲れていませんか？",
+      "少し楽になりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 965,
+  "fields": {
+    "level": 2,
+    "theme": "alone",
+    "title": "肩の力を抜く",
+    "message": "一瞬でいい。リラックスしよう。",
+    "reflection_questions": [
+      "肩を緩めましたか？",
+      "力が抜けましたか？",
+      "呼吸しやすくなりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 966,
+  "fields": {
+    "level": 3,
+    "theme": "alone",
+    "title": "ベッドを整える",
+    "message": "小さなことから、少しずつ",
+    "reflection_questions": [
+      "ベッドを整えられましたか？",
+      "部屋が少し片付きましたか？",
+      "達成感を感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 967,
+  "fields": {
+    "level": 3,
+    "theme": "alone",
+    "title": "部屋の換気をする",
+    "message": "新しい空気を部屋に入れよう",
+    "reflection_questions": [
+      "換気できましたか？",
+      "5分以上窓を開けられましたか？",
+      "部屋の空気が変わったと感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 968,
+  "fields": {
+    "level": 3,
+    "theme": "alone",
+    "title": "好きな音楽を1曲聴く",
+    "message": "心が少し軽くなるかも",
+    "reflection_questions": [
+      "音楽を聴けましたか？",
+      "好きな曲を選べましたか？",
+      "少し気分が良くなりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 969,
+  "fields": {
+    "level": 3,
+    "theme": "alone",
+    "title": "部屋の色を1つ探す",
+    "message": "何色でもいい",
+    "reflection_questions": [
+      "色を見つけましたか？",
+      "意識を向けられましたか？",
+      "気分は変わりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 970,
+  "fields": {
+    "level": 3,
+    "theme": "alone",
+    "title": "背中を伸ばす",
+    "message": "一瞬でOK",
+    "reflection_questions": [
+      "よく背中を伸ばせましたか？",
+      "姿勢は変わりましたか？",
+      "痛くなかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 971,
+  "fields": {
+    "level": 3,
+    "theme": "alone",
+    "title": "椅子に深く座る",
+    "message": "姿勢を意識してみよう",
+    "reflection_questions": [
+      "座り直せましたか？",
+      "良い姿勢を感じましたか？",
+      "苦しくなかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 972,
+  "fields": {
+    "level": 3,
+    "theme": "alone",
+    "title": "好きな匂いを嗅ぐ",
+    "message": "鼻を心地よくしよう",
+    "reflection_questions": [
+      "いい気分になりましたか？",
+      "どんな匂いでしたか？",
+      "どんな物でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 973,
+  "fields": {
+    "level": 4,
+    "theme": "alone",
+    "title": "鏡で自分の顔を見る",
+    "message": "ありのままの君でいい",
+    "reflection_questions": [
+      "鏡を見られましたか？",
+      "自分の顔を見つめられましたか？",
+      "少し落ち着きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 974,
+  "fields": {
+    "level": 4,
+    "theme": "alone",
+    "title": "部屋で軽くストレッチ",
+    "message": "体をほぐしてみよう",
+    "reflection_questions": [
+      "ストレッチできましたか？",
+      "体を動かせましたか？",
+      "少し体がほぐれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 975,
+  "fields": {
+    "level": 4,
+    "theme": "alone",
+    "title": "机の上を少し片付ける",
+    "message": "見える範囲だけでいい",
+    "reflection_questions": [
+      "片付けられましたか？",
+      "何か捨てられましたか？",
+      "机がすっきりしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 976,
+  "fields": {
+    "level": 4,
+    "theme": "alone",
+    "title": "腹式呼吸を1回する",
+    "message": "短くてOK",
+    "reflection_questions": [
+      "呼吸できましたか？",
+      "苦しくなかったですか？",
+      "少し落ち着きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 977,
+  "fields": {
+    "level": 4,
+    "theme": "alone",
+    "title": "自分の服装を考える",
+    "message": "なりたい自分を想像して！",
+    "reflection_questions": [
+      "どんな姿が浮かびましたか？",
+      "いい気分になりましたか？",
+      "どこに行く服装ですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 978,
+  "fields": {
+    "level": 4,
+    "theme": "alone",
+    "title": "部屋の音を聞く",
+    "message": "耳を澄ませてみよう",
+    "reflection_questions": [
+      "どんな音を意識しましたか？",
+      "落ち着いて聞けましたか？",
+      "心は安心しましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 979,
+  "fields": {
+    "level": 4,
+    "theme": "alone",
+    "title": "今日の天気を確認する",
+    "message": "どんな日になりそう？",
+    "reflection_questions": [
+      "好きな天気ですか？",
+      "どんな時間を過ごしたいですか？",
+      "外に出かけたい気分ですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 980,
+  "fields": {
+    "level": 5,
+    "theme": "alone",
+    "title": "朝ごはんを食べる",
+    "message": "何でもいい、口にしてみよう",
+    "reflection_questions": [
+      "何か食べられましたか？",
+      "朝食を用意できましたか？",
+      "少しお腹が満たされましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 981,
+  "fields": {
+    "level": 5,
+    "theme": "alone",
+    "title": "スマホを10分置いてみる",
+    "message": "デジタルから少し離れよう",
+    "reflection_questions": [
+      "スマホを置けましたか？",
+      "10分我慢できましたか？",
+      "少し落ち着きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 982,
+  "fields": {
+    "level": 5,
+    "theme": "alone",
+    "title": "今日の予定を1つ書き出す",
+    "message": "小さな計画を立ててみよう",
+    "reflection_questions": [
+      "予定を書けましたか？",
+      "実現可能な予定でしたか？",
+      "計画を立てられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 983,
+  "fields": {
+    "level": 5,
+    "theme": "alone",
+    "title": "いらないものを捨てる",
+    "message": "断捨離で心をリフレッシュ",
+    "reflection_questions": [
+      "何を捨てましたか？",
+      "いくつ捨てられましたか？",
+      "リフレッシュできましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 984,
+  "fields": {
+    "level": 5,
+    "theme": "alone",
+    "title": "自分の部屋の引き出しを開ける",
+    "message": "思い出してみよう",
+    "reflection_questions": [
+      "何が入っていましたか？",
+      "どんなことを思いましたか？",
+      "取り出したいものはありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 985,
+  "fields": {
+    "level": 5,
+    "theme": "alone",
+    "title": "カレンダーを見る",
+    "message": "これからの未来を考えて！",
+    "reflection_questions": [
+      "忙しそうでしたか？",
+      "楽しい出来事はありますか？",
+      "カレンダーはどんな感じでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 986,
+  "fields": {
+    "level": 5,
+    "theme": "alone",
+    "title": "脱いだ服を畳む",
+    "message": "服も心もスッキリさせよう",
+    "reflection_questions": [
+      "どんな服を畳みましたか？",
+      "その服の思い出は？",
+      "部屋が少し綺麗になりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 987,
+  "fields": {
+    "level": 6,
+    "theme": "alone",
+    "title": "好きな本を1ページ読む",
+    "message": "1ページだけでも十分",
+    "reflection_questions": [
+      "本を開けましたか？",
+      "1ページ読めましたか？",
+      "内容が少し頭に入りましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 988,
+  "fields": {
+    "level": 6,
+    "theme": "alone",
+    "title": "部屋の電気を全部つける",
+    "message": "明るい部屋で過ごしてみよう",
+    "reflection_questions": [
+      "電気をつけられましたか？",
+      "部屋が明るくなりましたか？",
+      "気分が少し変わりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 989,
+  "fields": {
+    "level": 6,
+    "theme": "alone",
+    "title": "深呼吸を5回する",
+    "message": "ゆっくり、吸って、吐いて",
+    "reflection_questions": [
+      "深呼吸できましたか？",
+      "5回続けられましたか？",
+      "少し落ち着きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 990,
+  "fields": {
+    "level": 6,
+    "theme": "alone",
+    "title": "自分の好きな物を触る",
+    "message": "心ゆくまで触っていい",
+    "reflection_questions": [
+      "どんなものに触れましたか？",
+      "なぜそれを好きになりましたか？",
+      "いつから好きなものでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 991,
+  "fields": {
+    "level": 6,
+    "theme": "alone",
+    "title": "好きな言葉を1つ思い出す",
+    "message": "過去のものでOK",
+    "reflection_questions": [
+      "言葉を思い出しましたか？",
+      "少し安心しましたか？",
+      "今の自分に合っていましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 992,
+  "fields": {
+    "level": 6,
+    "theme": "alone",
+    "title": "自分の歯を磨く",
+    "message": "短すぎず、長すぎず",
+    "reflection_questions": [
+      "綺麗に磨けましたか？",
+      "血は出ましたか？",
+      "どんな箇所を多く磨きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 993,
+  "fields": {
+    "level": 6,
+    "theme": "alone",
+    "title": "髪型を整える",
+    "message": "身だしなみを綺麗にしよう",
+    "reflection_questions": [
+      "パリッとしましたか？",
+      "どんな髪型になりましたか？",
+      "寝癖は取れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 994,
+  "fields": {
+    "level": 7,
+    "theme": "alone",
+    "title": "今日の目標を1つ決める",
+    "message": "小さな目標でいい",
+    "reflection_questions": [
+      "目標を決められましたか？",
+      "達成できそうな目標でしたか？",
+      "やる気が少し出ましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 995,
+  "fields": {
+    "level": 7,
+    "theme": "alone",
+    "title": "自分の部屋から出る準備をする",
+    "message": "外に出る準備、できるかな",
+    "reflection_questions": [
+      "準備を始められましたか？",
+      "靴を履けそうですか？",
+      "少し勇気が出ましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 996,
+  "fields": {
+    "level": 7,
+    "theme": "alone",
+    "title": "昨日の自分を褒める",
+    "message": "昨日も頑張ったね",
+    "reflection_questions": [
+      "昨日を振り返れましたか？",
+      "自分を褒められましたか？",
+      "少し前向きになれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 997,
+  "fields": {
+    "level": 7,
+    "theme": "alone",
+    "title": "明日やることを1つ考える",
+    "message": "今は実行しなくていい",
+    "reflection_questions": [
+      "考えられましたか？",
+      "現実的でしたか？",
+      "プレッシャーはありませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 998,
+  "fields": {
+    "level": 7,
+    "theme": "alone",
+    "title": "明日やらなくていいことを決める",
+    "message": "1つでOK",
+    "reflection_questions": [
+      "決められましたか？",
+      "気持ちは軽くなりましたか？",
+      "自分に優しくできましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 999,
+  "fields": {
+    "level": 7,
+    "theme": "alone",
+    "title": "今日できたことを1つ思い出す",
+    "message": "小さくてOK",
+    "reflection_questions": [
+      "思い出せましたか？",
+      "できた感覚はありましたか？",
+      "自分を責めませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1000,
+  "fields": {
+    "level": 7,
+    "theme": "alone",
+    "title": "ここまで来た自分を認める",
+    "message": "心の中でOK",
+    "reflection_questions": [
+      "認められましたか？",
+      "少し優しくなれましたか？",
+      "続けたいと思えましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1001,
+  "fields": {
+    "level": 8,
+    "theme": "family",
+    "title": "自分の部屋から出る",
+    "message": "廊下まで、行ってみよう",
+    "reflection_questions": [
+      "部屋から出られましたか？",
+      "廊下に立てましたか？",
+      "少し外の空気を感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1002,
+  "fields": {
+    "level": 8,
+    "theme": "family",
+    "title": "家族の気配を感じる",
+    "message": "誰かいる、それだけでいい",
+    "reflection_questions": [
+      "家族の存在を感じましたか？",
+      "声や音が聞こえましたか？",
+      "少し安心しましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1003,
+  "fields": {
+    "level": 8,
+    "theme": "family",
+    "title": "家族の生活音を聞く",
+    "message": "音を感じるだけでいい",
+    "reflection_questions": [
+      "音が聞こえましたか？",
+      "誰の音か想像できましたか？",
+      "不安は強くなりませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1004,
+  "fields": {
+    "level": 8,
+    "theme": "family",
+    "title": "リビングの様子を見る",
+    "message": "入らなくていい",
+    "reflection_questions": [
+      "様子を確認できましたか？",
+      "人がいましたか？",
+      "安心できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1005,
+  "fields": {
+    "level": 8,
+    "theme": "family",
+    "title": "家族の姿を見る",
+    "message": "目を合わせなくていい",
+    "reflection_questions": [
+      "姿を見られましたか？",
+      "距離を保てましたか？",
+      "怖さは強くなりませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1006,
+  "fields": {
+    "level": 8,
+    "theme": "family",
+    "title": "リビングに足を踏み入れる",
+    "message": "すぐ戻ってもいい",
+    "reflection_questions": [
+      "足を踏み入れられましたか？",
+      "数秒いられましたか？",
+      "自分を責めませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1007,
+  "fields": {
+    "level": 8,
+    "theme": "family",
+    "title": "リビングのドアを開ける",
+    "message": "ドアを開けるだけでいい",
+    "reflection_questions": [
+      "ドアを開けられましたか？",
+      "リビングを見られましたか？",
+      "少し勇気が出ましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1008,
+  "fields": {
+    "level": 9,
+    "theme": "family",
+    "title": "家族におはようと言う",
+    "message": "小さな声でもいい",
+    "reflection_questions": [
+      "おはようと言えましたか？",
+      "家族に聞こえましたか？",
+      "反応がありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1009,
+  "fields": {
+    "level": 9,
+    "theme": "family",
+    "title": "リビングに5分いる",
+    "message": "同じ空間にいるだけでいい",
+    "reflection_questions": [
+      "リビングに入れましたか？",
+      "5分いられましたか？",
+      "家族と同じ空間にいられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1010,
+  "fields": {
+    "level": 9,
+    "theme": "family",
+    "title": "家族と同じテレビを見る",
+    "message": "見てるフリでもOK",
+    "reflection_questions": [
+      "同じ番組を共有できましたか？",
+      "気まずさは強くなりませんでしたか？",
+      "耐えられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1011,
+  "fields": {
+    "level": 9,
+    "theme": "family",
+    "title": "食べ物を取り分ける",
+    "message": "早くなくていい",
+    "reflection_questions": [
+      "取りに行けましたか？",
+      "家族とすれ違いましたか？",
+      "問題なく戻れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1012,
+  "fields": {
+    "level": 9,
+    "theme": "family",
+    "title": "家族のあいさつに返事をする",
+    "message": "どんな感じでもいい",
+    "reflection_questions": [
+      "返事できましたか？",
+      "声が出ましたか？",
+      "後悔しませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1013,
+  "fields": {
+    "level": 9,
+    "theme": "family",
+    "title": "家族の動きを目で追う",
+    "message": "観察するだけ",
+    "reflection_questions": [
+      "観察できましたか？",
+      "不安は増えませんでしたか？",
+      "冷静でいられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1014,
+  "fields": {
+    "level": 9,
+    "theme": "family",
+    "title": "キッチンに行く",
+    "message": "何か飲み物を取りに行こう",
+    "reflection_questions": [
+      "キッチンに行けましたか？",
+      "何か取れましたか？",
+      "家族と会いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1015,
+  "fields": {
+    "level": 10,
+    "theme": "family",
+    "title": "家族と同じ空間で過ごす",
+    "message": "会話しなくてもいい",
+    "reflection_questions": [
+      "同じ空間にいられましたか？",
+      "10分以上いられましたか？",
+      "落ち着いて過ごせましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1016,
+  "fields": {
+    "level": 10,
+    "theme": "family",
+    "title": "家族の顔を見る",
+    "message": "目を合わせなくてもいい",
+    "reflection_questions": [
+      "家族の顔を見られましたか？",
+      "表情を確認できましたか？",
+      "少し距離が縮まりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1017,
+  "fields": {
+    "level": 10,
+    "theme": "family",
+    "title": "ありがとうを1回言う",
+    "message": "小さなことでもいい",
+    "reflection_questions": [
+      "ありがとうと言えましたか？",
+      "家族に伝わりましたか？",
+      "言えて良かったと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1018,
+  "fields": {
+    "level": 10,
+    "theme": "family",
+    "title": "家族の近くで食事を取る",
+    "message": "同席だけでOK",
+    "reflection_questions": [
+      "同じ空間で食べられましたか？",
+      "緊張は強すぎませんでしたか？",
+      "無事終われましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1019,
+  "fields": {
+    "level": 10,
+    "theme": "family",
+    "title": "家族の名前を呼ぶ",
+    "message": "聞こえる声でいい",
+    "reflection_questions": [
+      "名前を呼べましたか？",
+      "声は届きましたか？",
+      "怖くなりませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1020,
+  "fields": {
+    "level": 10,
+    "theme": "family",
+    "title": "家族の質問に答える",
+    "message": "短くていい",
+    "reflection_questions": [
+      "答えられましたか？",
+      "自分の気持ちを守れましたか？",
+      "無理していませんか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1021,
+  "fields": {
+    "level": 10,
+    "theme": "family",
+    "title": "家族の話の聞き役になる",
+    "message": "話さなくていい",
+    "reflection_questions": [
+      "聞けましたか？",
+      "途中で逃げたくなりませんでしたか？",
+      "やり切れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1022,
+  "fields": {
+    "level": 11,
+    "theme": "family",
+    "title": "家族と一緒に食事をする",
+    "message": "同じテーブルで食べてみよう",
+    "reflection_questions": [
+      "一緒に食事できましたか？",
+      "同じテーブルに座れましたか？",
+      "少し会話できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1023,
+  "fields": {
+    "level": 11,
+    "theme": "family",
+    "title": "家族に1つ質問する",
+    "message": "天気のことでもいい",
+    "reflection_questions": [
+      "質問できましたか？",
+      "家族は答えてくれましたか？",
+      "会話が続きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1024,
+  "fields": {
+    "level": 11,
+    "theme": "family",
+    "title": "家族にお願いを1つする",
+    "message": "簡単なことで",
+    "reflection_questions": [
+      "お願いできましたか？",
+      "断られても大丈夫でしたか？",
+      "自分を守れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1025,
+  "fields": {
+    "level": 11,
+    "theme": "family",
+    "title": "家族の話に相槌を打つ",
+    "message": "「うん」でOK",
+    "reflection_questions": [
+      "相槌できましたか？",
+      "会話が途切れませんでしたか？",
+      "自然でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1026,
+  "fields": {
+    "level": 11,
+    "theme": "family",
+    "title": "家族と感情を共有する",
+    "message": "一瞬でOK",
+    "reflection_questions": [
+      "思いを向けられましたか？",
+      "相手の反応を受け止められましたか？",
+      "気持ちは安定していましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1027,
+  "fields": {
+    "level": 11,
+    "theme": "family",
+    "title": "家庭の話題に触れる",
+    "message": "一言でいい",
+    "reflection_questions": [
+      "話題に触れられましたか？",
+      "会話が広がりましたか？",
+      "無理していませんか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1028,
+  "fields": {
+    "level": 11,
+    "theme": "family",
+    "title": "家族の話を聞く",
+    "message": "うなずくだけでもいい",
+    "reflection_questions": [
+      "話を聞けましたか？",
+      "相槌を打てましたか？",
+      "内容が理解できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1029,
+  "fields": {
+    "level": 12,
+    "theme": "family",
+    "title": "家族と10分会話する",
+    "message": "どんな話題でもいい",
+    "reflection_questions": [
+      "会話できましたか？",
+      "10分続きましたか？",
+      "楽しいと感じる瞬間がありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1030,
+  "fields": {
+    "level": 12,
+    "theme": "family",
+    "title": "家族の手伝いをする",
+    "message": "簡単なことでいい",
+    "reflection_questions": [
+      "手伝えましたか？",
+      "家族は喜んでくれましたか？",
+      "役に立てたと感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1031,
+  "fields": {
+    "level": 12,
+    "theme": "family",
+    "title": "家族に謝りたいことを伝える",
+    "message": "一言でいい",
+    "reflection_questions": [
+      "伝えられましたか？",
+      "相手の反応を受け止められましたか？",
+      "相手は許してくれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1032,
+  "fields": {
+    "level": 12,
+    "theme": "family",
+    "title": "家族の話を要約して返す",
+    "message": "短くてOK",
+    "reflection_questions": [
+      "要約できましたか？",
+      "聞いていたことを伝えられましたか？",
+      "緊張しすぎませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1033,
+  "fields": {
+    "level": 12,
+    "theme": "family",
+    "title": "家族と同じ作業をする",
+    "message": "一緒じゃなくでもOK",
+    "reflection_questions": [
+      "同じ作業空間にいられましたか？",
+      "落ち着いて過ごせましたか？",
+      "不安は増えませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1034,
+  "fields": {
+    "level": 12,
+    "theme": "family",
+    "title": "家族と一緒に飲み物を飲む",
+    "message": "沈黙OK",
+    "reflection_questions": [
+      "一緒に飲めましたか？",
+      "落ち着いて過ごせましたか？",
+      "気疲れしすぎませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1035,
+  "fields": {
+    "level": 12,
+    "theme": "family",
+    "title": "テレビを家族と見る",
+    "message": "一緒にいる時間を過ごそう",
+    "reflection_questions": [
+      "一緒に見られましたか？",
+      "同じ番組を見られましたか？",
+      "少し楽しめましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1036,
+  "fields": {
+    "level": 13,
+    "theme": "family",
+    "title": "家族に「おやすみ」と言う",
+    "message": "1日の終わりに",
+    "reflection_questions": [
+      "おやすみと言えましたか？",
+      "家族に伝わりましたか？",
+      "穏やかに終われましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1037,
+  "fields": {
+    "level": 13,
+    "theme": "family",
+    "title": "家族と笑う",
+    "message": "笑顔になれる瞬間を",
+    "reflection_questions": [
+      "笑えましたか？",
+      "家族も笑っていましたか？",
+      "楽しい時間でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1038,
+  "fields": {
+    "level": 13,
+    "theme": "family",
+    "title": "昨日あったことを話す",
+    "message": "短くてOK",
+    "reflection_questions": [
+      "話せましたか？",
+      "相手は聞いてくれましたか？",
+      "安心できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1039,
+  "fields": {
+    "level": 13,
+    "theme": "family",
+    "title": "家族と食後の時間を過ごす",
+    "message": "会話なしOK",
+    "reflection_questions": [
+      "同席できましたか？",
+      "安心して過ごせましたか？",
+      "疲れすぎませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1040,
+  "fields": {
+    "level": 13,
+    "theme": "family",
+    "title": "家族の話題を広げる",
+    "message": "些細なことでもいいので一言追加",
+    "reflection_questions": [
+      "話題を広げられましたか？",
+      "会話が続きましたか？",
+      "無理しませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1041,
+  "fields": {
+    "level": 13,
+    "theme": "family",
+    "title": "家族に意見を言う",
+    "message": "小さなことでも大丈夫",
+    "reflection_questions": [
+      "意見を言えましたか？",
+      "否定されても耐えられましたか？",
+      "自分を守れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1042,
+  "fields": {
+    "level": 13,
+    "theme": "family",
+    "title": "家族に今日あったことを話す",
+    "message": "小さなことでもいい",
+    "reflection_questions": [
+      "話せましたか？",
+      "家族は聞いてくれましたか？",
+      "話して良かったと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1043,
+  "fields": {
+    "level": 14,
+    "theme": "family",
+    "title": "家族と一緒に料理する",
+    "message": "簡単な手伝いでもいい",
+    "reflection_questions": [
+      "料理に参加できましたか？",
+      "何か作れましたか？",
+      "家族と協力できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1044,
+  "fields": {
+    "level": 14,
+    "theme": "family",
+    "title": "家族に悩みを1つ話す",
+    "message": "小さな悩みでもいい",
+    "reflection_questions": [
+      "悩みを話せましたか？",
+      "家族は聞いてくれましたか？",
+      "少し楽になりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1045,
+  "fields": {
+    "level": 14,
+    "theme": "family",
+    "title": "家族と同じ目標を共有する",
+    "message": "小さなことでOK",
+    "reflection_questions": [
+      "共有できましたか？",
+      "前向きな気持ちになれましたか？",
+      "緊張しすぎませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1046,
+  "fields": {
+    "level": 14,
+    "theme": "family",
+    "title": "家族と一緒に片付けをする",
+    "message": "5分でOK",
+    "reflection_questions": [
+      "片付けできましたか？",
+      "協力できましたか？",
+      "疲れすぎませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1047,
+  "fields": {
+    "level": 14,
+    "theme": "family",
+    "title": "家族と過ごした時間を振り返る",
+    "message": "心の中でOK",
+    "reflection_questions": [
+      "振り返れましたか？",
+      "成長を感じましたか？",
+      "自分を褒められましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1048,
+  "fields": {
+    "level": 14,
+    "theme": "family",
+    "title": "家族を褒める",
+    "message": "1つでもOK",
+    "reflection_questions": [
+      "笑顔を出せましたか？",
+      "喜んでくれましたか？",
+      "いい気分になれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1049,
+  "fields": {
+    "level": 14,
+    "theme": "family",
+    "title": "家族と将来の話をする",
+    "message": "ぼんやりした話でもいい",
+    "reflection_questions": [
+      "将来の話ができましたか？",
+      "自分の考えを伝えられましたか？",
+      "前向きな気持ちになれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1050,
+  "fields": {
+    "level": 15,
+    "theme": "outside",
+    "title": "玄関まで行く",
+    "message": "ドアの前まで、行ってみよう",
+    "reflection_questions": [
+      "玄関まで行けましたか？",
+      "ドアに触れられましたか？",
+      "外を意識できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1051,
+  "fields": {
+    "level": 15,
+    "theme": "outside",
+    "title": "玄関のドアを開ける",
+    "message": "開けるだけでいい",
+    "reflection_questions": [
+      "ドアを開けられましたか？",
+      "外の空気を感じましたか？",
+      "少し勇気が出ましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1052,
+  "fields": {
+    "level": 15,
+    "theme": "outside",
+    "title": "玄関先で5分過ごす",
+    "message": "無言でOK",
+    "reflection_questions": [
+      "5分いられましたか？",
+      "不安は耐えられましたか？",
+      "戻れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1053,
+  "fields": {
+    "level": 15,
+    "theme": "outside",
+    "title": "外出の準備をする",
+    "message": "出なくてOK",
+    "reflection_questions": [
+      "準備できましたか？",
+      "途中でやめてもOKでしたか？",
+      "自分を責めませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1054,
+  "fields": {
+    "level": 15,
+    "theme": "outside",
+    "title": "外に出て空気を吸う",
+    "message": "深呼吸1回",
+    "reflection_questions": [
+      "外で呼吸できましたか？",
+      "気分は悪くなりませんでしたか？",
+      "体は大丈夫でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1055,
+  "fields": {
+    "level": 15,
+    "theme": "outside",
+    "title": "玄関前に立つ",
+    "message": "何もしなくていい",
+    "reflection_questions": [
+      "ちゃんとした姿勢で立てましたか？",
+      "周りを見られましたか？",
+      "逃げずに戻れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1056,
+  "fields": {
+    "level": 15,
+    "theme": "outside",
+    "title": "外の音を聞く",
+    "message": "耳を澄ませてみよう",
+    "reflection_questions": [
+      "外の音が聞こえましたか？",
+      "何の音か分かりましたか？",
+      "外の世界を感じられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1057,
+  "fields": {
+    "level": 16,
+    "theme": "outside",
+    "title": "玄関の外に立つ",
+    "message": "1分だけでもいい",
+    "reflection_questions": [
+      "外に立てましたか？",
+      "1分いられましたか？",
+      "周りを見られましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1058,
+  "fields": {
+    "level": 16,
+    "theme": "outside",
+    "title": "靴を履いて外に出る",
+    "message": "一歩、外へ",
+    "reflection_questions": [
+      "靴を履けましたか？",
+      "外に出られましたか？",
+      "少し達成感がありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1059,
+  "fields": {
+    "level": 16,
+    "theme": "outside",
+    "title": "外に出た自分を認める",
+    "message": "心の中でOK",
+    "reflection_questions": [
+      "出た事実を認められましたか？",
+      "自分を責めませんでしたか？",
+      "少し自信は出ましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1060,
+  "fields": {
+    "level": 16,
+    "theme": "outside",
+    "title": "お隣さんに挨拶する",
+    "message": "丁寧な言葉で",
+    "reflection_questions": [
+      "しっかりとした挨拶ができましたか？",
+      "怖さは我慢できましたか？",
+      "相手は喜んでましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1061,
+  "fields": {
+    "level": 16,
+    "theme": "outside",
+    "title": "どんな人がいるか観察する",
+    "message": "日常の景色を大事に",
+    "reflection_questions": [
+      "どんな人が多かったですか？",
+      "どんな様子でしたか？",
+      "人を見ることに慣れることができましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1062,
+  "fields": {
+    "level": 16,
+    "theme": "outside",
+    "title": "日の光を浴びる(雨の日は傘を差す)",
+    "message": "その場にいるだけでもいい",
+    "reflection_questions": [
+      "気持ちはどうなりましたか？",
+      "外に出た実感は湧きましたか？",
+      "どんな日になるか想像できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1063,
+  "fields": {
+    "level": 16,
+    "theme": "outside",
+    "title": "ポストを見に行く",
+    "message": "家のすぐ近くでいい",
+    "reflection_questions": [
+      "ポストまで行けましたか？",
+      "郵便物を確認できましたか？",
+      "戻ってこられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1064,
+  "fields": {
+    "level": 17,
+    "theme": "outside",
+    "title": "家の前を往復する",
+    "message": "短い距離でいい",
+    "reflection_questions": [
+      "往復できましたか？",
+      "5分以上外にいられましたか？",
+      "少し慣れてきましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1065,
+  "fields": {
+    "level": 17,
+    "theme": "outside",
+    "title": "近所の景色を見る",
+    "message": "何か1つ、覚えておこう",
+    "reflection_questions": [
+      "景色を見られましたか？",
+      "何か印象に残りましたか？",
+      "外の世界を感じられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1066,
+  "fields": {
+    "level": 17,
+    "theme": "outside",
+    "title": "外でスマホを見ずに過ごす",
+    "message": "1分でOK",
+    "reflection_questions": [
+      "スマホなしでいられましたか？",
+      "不安は大丈夫でしたか？",
+      "集中できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1067,
+  "fields": {
+    "level": 17,
+    "theme": "outside",
+    "title": "外に出て休憩する",
+    "message": "いくらでも取っていいよ",
+    "reflection_questions": [
+      "休憩できましたか？",
+      "体調は大丈夫でしたか？",
+      "無理していませんか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1068,
+  "fields": {
+    "level": 17,
+    "theme": "outside",
+    "title": "公園まで行く",
+    "message": "ゆっくりでOK",
+    "reflection_questions": [
+      "しっかり行けましたか？",
+      "人は気になりすぎませんでしたか？",
+      "どんな人がいましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1069,
+  "fields": {
+    "level": 17,
+    "theme": "outside",
+    "title": "いろんな人とすれ違う",
+    "message": "会話不要",
+    "reflection_questions": [
+      "すれ違えましたか？",
+      "過剰に反応しませんでしたか？",
+      "無事でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1070,
+  "fields": {
+    "level": 17,
+    "theme": "outside",
+    "title": "外で深呼吸する",
+    "message": "外の空気を胸いっぱいに",
+    "reflection_questions": [
+      "外で深呼吸できましたか？",
+      "空気の違いを感じましたか？",
+      "少しリフレッシュできましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1071,
+  "fields": {
+    "level": 18,
+    "theme": "outside",
+    "title": "家の周りを一周する",
+    "message": "ゆっくりでいい",
+    "reflection_questions": [
+      "一周できましたか？",
+      "10分以上歩けましたか？",
+      "疲れすぎませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1072,
+  "fields": {
+    "level": 18,
+    "theme": "outside",
+    "title": "近所のコンビニまで歩く",
+    "message": "行くだけでもいい",
+    "reflection_questions": [
+      "コンビニまで行けましたか？",
+      "道を覚えていましたか？",
+      "無事に帰れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1073,
+  "fields": {
+    "level": 18,
+    "theme": "outside",
+    "title": "自動販売機でものを買う",
+    "message": "買うものはなんでもOK",
+    "reflection_questions": [
+      "買えましたか？",
+      "何を買いましたか？",
+      "缶を分別できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1074,
+  "fields": {
+    "level": 18,
+    "theme": "outside",
+    "title": "外出後に記録する",
+    "message": "一言でOK",
+    "reflection_questions": [
+      "記録できましたか？",
+      "振り返れましたか？",
+      "自分を責めませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1075,
+  "fields": {
+    "level": 18,
+    "theme": "outside",
+    "title": "外で水を飲む",
+    "message": "落ち着きましょう",
+    "reflection_questions": [
+      "家で飲むのとどう違いましたか？",
+      "体調は安定しましたか？",
+      "少し安心できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1076,
+  "fields": {
+    "level": 18,
+    "theme": "outside",
+    "title": "人の声を聞く",
+    "message": "無理に理解しなくてOK",
+    "reflection_questions": [
+      "聞けましたか？",
+      "過敏になりすぎませんでしたか？",
+      "どんな内容でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1077,
+  "fields": {
+    "level": 18,
+    "theme": "outside",
+    "title": "外で5分立ち止まる",
+    "message": "周りを観察してみよう",
+    "reflection_questions": [
+      "立ち止まれましたか？",
+      "周りを見られましたか？",
+      "何か発見がありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1078,
+  "fields": {
+    "level": 19,
+    "theme": "outside",
+    "title": "コンビニで何か買う",
+    "message": "小さなものでいい",
+    "reflection_questions": [
+      "コンビニに入れましたか？",
+      "何か買えましたか？",
+      "店員さんと接せましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1079,
+  "fields": {
+    "level": 19,
+    "theme": "outside",
+    "title": "外で10分過ごす",
+    "message": "どこでもいい、外にいよう",
+    "reflection_questions": [
+      "10分外にいられましたか？",
+      "落ち着いて過ごせましたか？",
+      "帰りたくなりませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1080,
+  "fields": {
+    "level": 19,
+    "theme": "outside",
+    "title": "自分の好きな建物の周りを半周する",
+    "message": "途中でやめてOK",
+    "reflection_questions": [
+      "半周できましたか？",
+      "どんな景色でしたか？",
+      "戻れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1081,
+  "fields": {
+    "level": 19,
+    "theme": "outside",
+    "title": "視線を上げて歩く",
+    "message": "しっかり前を向こう",
+    "reflection_questions": [
+      "上げられましたか？",
+      "怖さは爆発しませんでしたか？",
+      "続けられそうですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1082,
+  "fields": {
+    "level": 19,
+    "theme": "outside",
+    "title": "人の多い道を少し歩く",
+    "message": "嫌な気分になったらやめてOK",
+    "reflection_questions": [
+      "歩けましたか？",
+      "刺激は強すぎませんでしたか？",
+      "自分の場所を見失わず戻れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1083,
+  "fields": {
+    "level": 19,
+    "theme": "outside",
+    "title": "帰り道を少し遠回にする",
+    "message": "数分だけでも大丈夫！",
+    "reflection_questions": [
+      "遠回りできましたか？",
+      "不安になりませんでしたか？",
+      "どのくらい多く歩きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1084,
+  "fields": {
+    "level": 19,
+    "theme": "outside",
+    "title": "近所を散歩する",
+    "message": "目的地なしでいい",
+    "reflection_questions": [
+      "散歩できましたか？",
+      "15分以上歩けましたか？",
+      "楽しめましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1085,
+  "fields": {
+    "level": 20,
+    "theme": "outside",
+    "title": "公園まで行く",
+    "message": "ベンチに座ってみよう",
+    "reflection_questions": [
+      "公園まで行けましたか？",
+      "ベンチに座れましたか？",
+      "少し休めましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1086,
+  "fields": {
+    "level": 20,
+    "theme": "outside",
+    "title": "外で20分過ごす",
+    "message": "慣れてきたね",
+    "reflection_questions": [
+      "20分外にいられましたか？",
+      "焦らずいられましたか？",
+      "外が怖くなくなってきましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1087,
+  "fields": {
+    "level": 20,
+    "theme": "outside",
+    "title": "いろんな場所に行く",
+    "message": "いろんな人と会ってみよう",
+    "reflection_questions": [
+      "店に行きましたか？",
+      "焦らずいられましたか？",
+      "お気に入りの場所は見つかりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1088,
+  "fields": {
+    "level": 20,
+    "theme": "outside",
+    "title": "自分の母校に行って見る",
+    "message": "まだ道のり、覚えられてるかな？",
+    "reflection_questions": [
+      "自分で辿り着けましたか？",
+      "懐かしい気持ちになりましたか？",
+      "どのくらいの距離でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1089,
+  "fields": {
+    "level": 20,
+    "theme": "outside",
+    "title": "人のいる場所に少し留まる",
+    "message": "短い時間でOK",
+    "reflection_questions": [
+      "留まれましたか？",
+      "少し人混みに慣れましたか？",
+      "どんな気持ちになりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1090,
+  "fields": {
+    "level": 20,
+    "theme": "outside",
+    "title": "歩くスピードを少し上げる",
+    "message": "走らなくて大丈夫！",
+    "reflection_questions": [
+      "スピードを上げられましたか？",
+      "疲れはどうでしたか？",
+      "歩くことが怖くなくなってきましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1091,
+  "fields": {
+    "level": 20,
+    "theme": "outside",
+    "title": "知らない道を歩く",
+    "message": "新しい発見があるかも",
+    "reflection_questions": [
+      "新しい道を歩けましたか？",
+      "迷わず帰れましたか？",
+      "冒険できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1092,
+  "fields": {
+    "level": 21,
+    "theme": "outside",
+    "title": "好きな場所を見つける",
+    "message": "外で落ち着ける場所",
+    "reflection_questions": [
+      "場所を見つけられましたか？",
+      "そこで過ごせましたか？",
+      "また行きたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1093,
+  "fields": {
+    "level": 21,
+    "theme": "outside",
+    "title": "その場所に30分いる",
+    "message": "ゆっくり過ごそう",
+    "reflection_questions": [
+      "30分いられましたか？",
+      "リラックスできましたか？",
+      "時間が早く感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1094,
+  "fields": {
+    "level": 21,
+    "theme": "outside",
+    "title": "家族の誰かと外で一緒に遊ぶ",
+    "message": "激しい運動じゃなくてもいい！",
+    "reflection_questions": [
+      "どんな遊びをしましたか？",
+      "どれくらいの時間を過ごしましたか？",
+      "心が軽くなりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1095,
+  "fields": {
+    "level": 21,
+    "theme": "outside",
+    "title": "会った人に挨拶する",
+    "message": "一言でも、一人でもいい",
+    "reflection_questions": [
+      "しっかり声をかけられましたか？",
+      "緊張しませんでしたか？",
+      "相手の反応はどうでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1096,
+  "fields": {
+    "level": 21,
+    "theme": "outside",
+    "title": "人に道を尋ねる",
+    "message": "一言だけでも",
+    "reflection_questions": [
+      "聞けましたか？",
+      "返答を受け取れましたか？",
+      "達成感はありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1097,
+  "fields": {
+    "level": 21,
+    "theme": "outside",
+    "title": "行きたい場所を調べてそこに行く",
+    "message": "計画を立てよう",
+    "reflection_questions": [
+      "どんなところに行きましたか？",
+      "しっかり辿り着けましたか？",
+      "達成感はありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1098,
+  "fields": {
+    "level": 21,
+    "theme": "outside",
+    "title": "外で写真を1枚撮る",
+    "message": "記念に残そう",
+    "reflection_questions": [
+      "写真を撮れましたか？",
+      "何を撮りましたか？",
+      "良い思い出になりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1099,
+  "fields": {
+    "level": 22,
+    "theme": "stay_outside",
+    "title": "図書館に入る",
+    "message": "静かな場所で過ごそう",
+    "reflection_questions": [
+      "図書館に入れましたか？",
+      "中で過ごせましたか？",
+      "落ち着いていられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1100,
+  "fields": {
+    "level": 22,
+    "theme": "stay_outside",
+    "title": "外で1時間過ごす",
+    "message": "長い時間、外にいてみよう",
+    "reflection_questions": [
+      "1時間外にいられましたか？",
+      "疲れすぎませんでしたか？",
+      "充実していましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1101,
+  "fields": {
+    "level": 22,
+    "theme": "stay_outside",
+    "title": "公園で球技をする",
+    "message": "一人でも、みんなとでもいい",
+    "reflection_questions": [
+      "どんなスポーツをしましたか？",
+      "しっかり体を動かせましたか？",
+      "満足感はありますか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1102,
+  "fields": {
+    "level": 22,
+    "theme": "stay_outside",
+    "title": "服屋さんに入る",
+    "message": "見てるだけでいいよ",
+    "reflection_questions": [
+      "どんな服がありましたか？",
+      "来てみたい服は見つかりましたか？",
+      "気分はどうですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1103,
+  "fields": {
+    "level": 22,
+    "theme": "stay_outside",
+    "title": "スーパーに入る",
+    "message": "商品を買う必要はない！",
+    "reflection_questions": [
+      "どんな商品がありましたか？",
+      "気になった商品はありましたか？",
+      "店員さんの様子はどうでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1104,
+  "fields": {
+    "level": 22,
+    "theme": "stay_outside",
+    "title": "飲食チェーンに入る",
+    "message": "何も買わなくていい",
+    "reflection_questions": [
+      "どんなチェーンでしたか？",
+      "食べてみたい・飲んでみたいものはありましたか？",
+      "また行きたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1105,
+  "fields": {
+    "level": 22,
+    "theme": "stay_outside",
+    "title": "カフェに入る",
+    "message": "中を見るだけでもいい",
+    "reflection_questions": [
+      "カフェに入れましたか？",
+      "中の様子を見られましたか？",
+      "次も来たいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1106,
+  "fields": {
+    "level": 23,
+    "theme": "stay_outside",
+    "title": "カフェで何か注文する",
+    "message": "飲み物1つでいい",
+    "reflection_questions": [
+      "注文できましたか？",
+      "店員さんと話せましたか？",
+      "ゆっくり飲めましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1107,
+  "fields": {
+    "level": 23,
+    "theme": "stay_outside",
+    "title": "外で軽食を食べる",
+    "message": "少しだけでも",
+    "reflection_questions": [
+      "食べられましたか？",
+      "緊張しませんでしたか？",
+      "味をしっかり感じられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1108,
+  "fields": {
+    "level": 23,
+    "theme": "stay_outside",
+    "title": "外で本を読む",
+    "message": "公園やカフェで",
+    "reflection_questions": [
+      "外で本を読めましたか？",
+      "集中できましたか？",
+      "リラックスできましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1109,
+  "fields": {
+    "level": 23,
+    "theme": "stay_outside",
+    "title": "外で日記を書く",
+    "message": "日にちはいつでもいい",
+    "reflection_questions": [
+      "どんなことを書きましたか？",
+      "その日はどんな一日でしたか？",
+      "しっかり振り返られましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1110,
+  "fields": {
+    "level": 23,
+    "theme": "stay_outside",
+    "title": "外で軽食を食べる",
+    "message": "少しだけでも",
+    "reflection_questions": [
+      "食べられましたか？",
+      "緊張しませんでしたか？",
+      "味を感じられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1111,
+  "fields": {
+    "level": 23,
+    "theme": "stay_outside",
+    "title": "外で夕日を見る",
+    "message": "1日の終わりを感じよう",
+    "reflection_questions": [
+      "夕日を見られましたか？",
+      "きれいだと感じましたか？",
+      "穏やかな気持ちになれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1112,
+  "fields": {
+    "level": 23,
+    "theme": "stay_outside",
+    "title": "外で音楽を聴く",
+    "message": "イヤホンで自分の世界を",
+    "reflection_questions": [
+      "音楽を聴けましたか？",
+      "外の景色と音楽が合いましたか？",
+      "気分が良くなりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1113,
+  "fields": {
+    "level": 24,
+    "theme": "stay_outside",
+    "title": "外で2時間過ごす",
+    "message": "長く外にいられるように",
+    "reflection_questions": [
+      "2時間外にいられましたか？",
+      "何をして過ごしましたか？",
+      "時間が早く感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1114,
+  "fields": {
+    "level": 24,
+    "theme": "stay_outside",
+    "title": "ショッピングモールに行く",
+    "message": "見て回るだけでもいい",
+    "reflection_questions": [
+      "モールに入れましたか？",
+      "店を見て回れましたか？",
+      "人混みは大丈夫でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1115,
+  "fields": {
+    "level": 24,
+    "theme": "stay_outside",
+    "title": "ゲームセンターに行く",
+    "message": "大きな音に触れてみよう",
+    "reflection_questions": [
+      "どんなゲームがありましたか？",
+      "やりたいと思うゲームはありましたか？",
+      "大きな音に慣れられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1116,
+  "fields": {
+    "level": 24,
+    "theme": "stay_outside",
+    "title": "外で勉強する",
+    "message": "環境の変化を楽しもう",
+    "reflection_questions": [
+      "どんな場所でしましたか？",
+      "集中できましたか？",
+      "満足できる時間でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1117,
+  "fields": {
+    "level": 24,
+    "theme": "stay_outside",
+    "title": "カフェで作業する",
+    "message": "30分でOK",
+    "reflection_questions": [
+      "作業できましたか？",
+      "集中できましたか？",
+      "居心地はどうでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1118,
+  "fields": {
+    "level": 24,
+    "theme": "stay_outside",
+    "title": "夜に帰宅する",
+    "message": "暗い時間に帰ろう",
+    "reflection_questions": [
+      "帰れましたか？",
+      "不安は強くなかったですか？",
+      "どんな天気でしたか"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1119,
+  "fields": {
+    "level": 24,
+    "theme": "stay_outside",
+    "title": "外で昼食を食べる",
+    "message": "レストランやカフェで",
+    "reflection_questions": [
+      "外で食事できましたか？",
+      "ゆっくり食べられましたか？",
+      "美味しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1120,
+  "fields": {
+    "level": 25,
+    "theme": "stay_outside",
+    "title": "映画館に行く",
+    "message": "映画を見なくてもいい、場所に慣れよう",
+    "reflection_questions": [
+      "映画館に行けましたか？",
+      "中に入れましたか？",
+      "雰囲気を楽しめましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1121,
+  "fields": {
+    "level": 25,
+    "theme": "stay_outside",
+    "title": "外で3時間過ごす",
+    "message": "もう外も怖くないね",
+    "reflection_questions": [
+      "3時間外にいられましたか？",
+      "いろんな場所に行けましたか？",
+      "充実していましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1122,
+  "fields": {
+    "level": 25,
+    "theme": "stay_outside",
+    "title": "知らない街を歩く",
+    "message": "探検してみよう",
+    "reflection_questions": [
+      "知らない街に行けましたか？",
+      "歩き回れましたか？",
+      "楽しめましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1123,
+  "fields": {
+    "level": 25,
+    "theme": "stay_outside",
+    "title": "外で運動する",
+    "message": "ストレッチなどでもOK",
+    "reflection_questions": [
+      "体を動かせましたか？",
+      "気分は変わりましたか？",
+      "疲れすぎませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1124,
+  "fields": {
+    "level": 25,
+    "theme": "stay_outside",
+    "title": "知らない店でおつかいする",
+    "message": "新しい物と出会えるかも？",
+    "reflection_questions": [
+      "どんなものを買いましたか？",
+      "次行く時、買いたい商品を見つけられましたか？",
+      "雰囲気を楽しめましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1125,
+  "fields": {
+    "level": 25,
+    "theme": "stay_outside",
+    "title": "外で家族と食事をする",
+    "message": "どんな場所でもOK",
+    "reflection_questions": [
+      "どんな店に行きましたか",
+      "そわそわせずに過ごせましたか？",
+      "どんな気分でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1126,
+  "fields": {
+    "level": 25,
+    "theme": "stay_outside",
+    "title": "新しいお店を開拓する",
+    "message": "行ったことない場所へ",
+    "reflection_questions": [
+      "新しいお店に行けましたか？",
+      "中に入れましたか？",
+      "また行きたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1127,
+  "fields": {
+    "level": 26,
+    "theme": "stay_outside",
+    "title": "外で半日過ごす",
+    "message": "朝から昼まで、または昼から夜まで",
+    "reflection_questions": [
+      "半日外にいられましたか？",
+      "いろんなことができましたか？",
+      "疲れすぎませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1128,
+  "fields": {
+    "level": 26,
+    "theme": "stay_outside",
+    "title": "博物館や美術館に行く",
+    "message": "文化に触れてみよう",
+    "reflection_questions": [
+      "博物館に行けましたか？",
+      "展示を見られましたか？",
+      "何か印象に残りましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1129,
+  "fields": {
+    "level": 26,
+    "theme": "stay_outside",
+    "title": "人気の飲食店で過ごす",
+    "message": "待つことに慣れよう",
+    "reflection_questions": [
+      "どのくらい待ちましたか？",
+      "緊張しましたか？",
+      "どんな店に行きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1130,
+  "fields": {
+    "level": 26,
+    "theme": "stay_outside",
+    "title": "イベント会場に行ってみよう",
+    "message": "人の集まりに慣れよう",
+    "reflection_questions": [
+      "どんなイベントでしたか？",
+      "どれくらい人がいましたか？",
+      "今後、参加してみたいと思いますか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1131,
+  "fields": {
+    "level": 26,
+    "theme": "stay_outside",
+    "title": "人気の飲食店で過ごす",
+    "message": "待つことに慣れよう",
+    "reflection_questions": [
+      "どのくらい待ちましたか？",
+      "緊張しましたか？",
+      "どんな店に行きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1132,
+  "fields": {
+    "level": 26,
+    "theme": "stay_outside",
+    "title": "外で電話する",
+    "message": "外で話すことに慣れよう",
+    "reflection_questions": [
+      "どんな人と話しましたか？",
+      "緊張しましたか？",
+      "いい会話ができましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1133,
+  "fields": {
+    "level": 26,
+    "theme": "stay_outside",
+    "title": "外でスケッチする",
+    "message": "風景や物を描いてみよう",
+    "reflection_questions": [
+      "スケッチできましたか？",
+      "集中できましたか？",
+      "満足できる絵になりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1134,
+  "fields": {
+    "level": 27,
+    "theme": "stay_outside",
+    "title": "電車やバスに乗る",
+    "message": "少し遠くへ行ってみよう",
+    "reflection_questions": [
+      "乗れましたか？",
+      "目的地に着けましたか？",
+      "問題なく過ごせましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1135,
+  "fields": {
+    "level": 27,
+    "theme": "stay_outside",
+    "title": "知らない街を歩く",
+    "message": "探検してみよう",
+    "reflection_questions": [
+      "知らない街に行けましたか？",
+      "歩き回れましたか？",
+      "楽しめましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1136,
+  "fields": {
+    "level": 27,
+    "theme": "stay_outside",
+    "title": "何も決めずに1時間歩く",
+    "message": "自由に移動してみよう",
+    "reflection_questions": [
+      "歩けましたか？",
+      "方向を選べましたか？",
+      "不安はどうでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1137,
+  "fields": {
+    "level": 27,
+    "theme": "stay_outside",
+    "title": "雨の日に外出する",
+    "message": "環境の変化を楽しもう",
+    "reflection_questions": [
+      "外出できましたか？",
+      "気分は保てましたか？",
+      "帰れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1138,
+  "fields": {
+    "level": 27,
+    "theme": "stay_outside",
+    "title": "外で用事を2つこなす",
+    "message": "複数の仕事をこなしてみよう",
+    "reflection_questions": [
+      "両方できましたか？",
+      "混乱しませんでしたか？",
+      "自信になりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1139,
+  "fields": {
+    "level": 27,
+    "theme": "stay_outside",
+    "title": "家族に自分の言った場所を説明する",
+    "message": "案内役をやってみよう",
+    "reflection_questions": [
+      "説明できましたか？",
+      "伝わりましたか？",
+      "役割を果たせましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1140,
+  "fields": {
+    "level": 27,
+    "theme": "stay_outside",
+    "title": "外で夕日を見る",
+    "message": "1日の終わりを感じよう",
+    "reflection_questions": [
+      "夕日を見られましたか？",
+      "きれいだと感じましたか？",
+      "穏やかな気持ちになれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1141,
+  "fields": {
+    "level": 28,
+    "theme": "stay_outside",
+    "title": "1日中外で過ごす",
+    "message": "朝から夜まで",
+    "reflection_questions": [
+      "1日外にいられましたか？",
+      "充実していましたか？",
+      "家に帰りたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1142,
+  "fields": {
+    "level": 28,
+    "theme": "stay_outside",
+    "title": "外で誰かを待つ",
+    "message": "待ち合わせの練習",
+    "reflection_questions": [
+      "待てましたか？",
+      "落ち着いて待てましたか？",
+      "時間を潰せましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1143,
+  "fields": {
+    "level": 28,
+    "theme": "stay_outside",
+    "title": "電車で乗り換えをする",
+    "message": "遠くの街にも行けるように",
+    "reflection_questions": [
+      "乗り換えることができましたか？",
+      "乗り換えにかかった時間が？",
+      "時間を潰せましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1144,
+  "fields": {
+    "level": 28,
+    "theme": "stay_outside",
+    "title": "他の都道府県に出かけてみよう",
+    "message": "遠くに行ってみよう",
+    "reflection_questions": [
+      "",
+      "落ち着いて待てましたか？",
+      "時間を潰せましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1145,
+  "fields": {
+    "level": 28,
+    "theme": "stay_outside",
+    "title": "自分で計画を立てて長時間外へ出かけてみよう",
+    "message": "旅行の練習",
+    "reflection_questions": [
+      "どこに行きましたか？",
+      "しっかりとした計画を立てれましたか？",
+      "時間を潰せましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1146,
+  "fields": {
+    "level": 28,
+    "theme": "stay_outside",
+    "title": "一人で旅行してみよう",
+    "message": "もう怖さはないはず！",
+    "reflection_questions": [
+      "今後どんなところに行きたいですか？",
+      "楽しむことができましたか？",
+      "一番楽しかったことはなんですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1147,
+  "fields": {
+    "level": 28,
+    "theme": "stay_outside",
+    "title": "夜の外出をする",
+    "message": "夜の街を歩いてみよう",
+    "reflection_questions": [
+      "夜に外出できましたか？",
+      "怖くなかったですか？",
+      "夜の雰囲気を楽しめましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1148,
+  "fields": {
+    "level": 29,
+    "theme": "interact",
+    "title": "店員さんに「ありがとう」と言う",
+    "message": "小さな声でもいい",
+    "reflection_questions": [
+      "ありがとうと言えましたか？",
+      "店員さんに聞こえましたか？",
+      "言えて良かったと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1149,
+  "fields": {
+    "level": 29,
+    "theme": "interact",
+    "title": "誰かに挨拶する",
+    "message": "すれ違う人でもいい",
+    "reflection_questions": [
+      "挨拶できましたか？",
+      "相手は返してくれましたか？",
+      "勇気が出ましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1150,
+  "fields": {
+    "level": 29,
+    "theme": "interact",
+    "title": "店員さんと目を合わせる",
+    "message": "一瞬でもいい",
+    "reflection_questions": [
+      "目を合わせられましたか？",
+      "笑顔を見られましたか？",
+      "少し緊張しましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1151,
+  "fields": {
+    "level": 29,
+    "theme": "interact",
+    "title": "お隣さんと会話をする",
+    "message": "どんな話題でもいい",
+    "reflection_questions": [
+      "いろんな会話ができましたか？",
+      "相手の反応はどうでしたか？",
+      "自己肯定感が上がりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1152,
+  "fields": {
+    "level": 29,
+    "theme": "interact",
+    "title": "自分の同僚、もしくはクラスメイトに挨拶する",
+    "message": "聞こえる声なら大丈夫",
+    "reflection_questions": [
+      "しっかり挨拶できましたか？",
+      "挨拶を返されましたか？",
+      "知り合いを増やせそうな気がしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1153,
+  "fields": {
+    "level": 30,
+    "theme": "interact",
+    "title": "店員さんに質問する",
+    "message": "商品の場所を聞いてみよう",
+    "reflection_questions": [
+      "質問できましたか？",
+      "答えてもらえましたか？",
+      "目的の物を見つけられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1154,
+  "fields": {
+    "level": 30,
+    "theme": "interact",
+    "title": "知らない人に道を聞く",
+    "message": "話しかける練習",
+    "reflection_questions": [
+      "道を聞けましたか？",
+      "相手は教えてくれましたか？",
+      "目的地に着けましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1155,
+  "fields": {
+    "level": 30,
+    "theme": "interact",
+    "title": "店に来た人と会話する",
+    "message": "商品について話してみよう",
+    "reflection_questions": [
+      "どんな質問をしましたか？",
+      "答えてもらえましたか？",
+      "楽しい会話になりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1156,
+  "fields": {
+    "level": 30,
+    "theme": "interact",
+    "title": "店員さんと世間話をする",
+    "message": "どんな話題でも大丈夫",
+    "reflection_questions": [
+      "どんなことを話しましたか？",
+      "会話が盛り上がりましたか？",
+      "コミュニケーションを取れるようになってきましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1157,
+  "fields": {
+    "level": 30,
+    "theme": "interact",
+    "title": "レジで会話する",
+    "message": "天気の話でもいい",
+    "reflection_questions": [
+      "会話できましたか？",
+      "店員さんは反応してくれましたか？",
+      "楽しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1158,
+  "fields": {
+    "level": 31,
+    "theme": "interact",
+    "title": "誰かと5分会話する",
+    "message": "家族以外の人と",
+    "reflection_questions": [
+      "会話できましたか？",
+      "5分続きましたか？",
+      "楽しめましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1159,
+  "fields": {
+    "level": 31,
+    "theme": "interact",
+    "title": "図書館で本を借りる",
+    "message": "カウンターで手続き",
+    "reflection_questions": [
+      "カウンターに行けましたか？",
+      "本を借りられましたか？",
+      "スムーズにできましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1160,
+  "fields": {
+    "level": 31,
+    "theme": "interact",
+    "title": "会話のリアクションを一つ増やす",
+    "message": "へえ・そうなんだ等",
+    "reflection_questions": [
+      "できましたか？",
+      "会話に参加できましたか？",
+      "自然でしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1161,
+  "fields": {
+    "level": 31,
+    "theme": "interact",
+    "title": "会話の別れ際に一言付け加える",
+    "message": "じゃあまた等",
+    "reflection_questions": [
+      "言えましたか？",
+      "自然に終われましたか？",
+      "余韻はどうでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1162,
+  "fields": {
+    "level": 31,
+    "theme": "interact",
+    "title": "誰かに笑顔を向ける",
+    "message": "自然な笑顔を",
+    "reflection_questions": [
+      "笑顔を向けられましたか？",
+      "相手も笑ってくれましたか？",
+      "温かい気持ちになれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1163,
+  "fields": {
+    "level": 32,
+    "theme": "interact",
+    "title": "誰かと10分会話する",
+    "message": "少し長く話してみよう",
+    "reflection_questions": [
+      "10分会話できましたか？",
+      "話題が続きましたか？",
+      "楽しいと感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1164,
+  "fields": {
+    "level": 32,
+    "theme": "interact",
+    "title": "美容院や床屋に行く",
+    "message": "人と接する時間",
+    "reflection_questions": [
+      "行けましたか？",
+      "会話できましたか？",
+      "リラックスできましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1165,
+  "fields": {
+    "level": 32,
+    "theme": "interact",
+    "title": "目上の人に話しかけてみよう",
+    "message": "礼儀正しくしましょう",
+    "reflection_questions": [
+      "どんな会話をしましたか？",
+      "話題が続きましたか？",
+      "楽しいと感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1166,
+  "fields": {
+    "level": 32,
+    "theme": "interact",
+    "title": "相手の長所を知り合いに話そう",
+    "message": "相手を褒める練習をしよう",
+    "reflection_questions": [
+      "相手からの反応はどうでしたか？",
+      "うまく褒めることができましたか？",
+      "楽しいと感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1167,
+  "fields": {
+    "level": 32,
+    "theme": "interact",
+    "title": "誰かに自分から話しかける",
+    "message": "勇気を出して",
+    "reflection_questions": [
+      "話しかけられましたか？",
+      "相手は応じてくれましたか？",
+      "会話が続きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1168,
+  "fields": {
+    "level": 33,
+    "theme": "interact",
+    "title": "誰かと30分会話する",
+    "message": "じっくり話そう",
+    "reflection_questions": [
+      "30分会話できましたか？",
+      "深い話ができましたか？",
+      "相手のことを知れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1169,
+  "fields": {
+    "level": 33,
+    "theme": "interact",
+    "title": "友達に連絡する",
+    "message": "メッセージでもいい",
+    "reflection_questions": [
+      "連絡できましたか？",
+      "返事が来ましたか？",
+      "嬉しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1170,
+  "fields": {
+    "level": 33,
+    "theme": "interact",
+    "title": "自分の近況を友達に話そう",
+    "message": "どんなことでもいい",
+    "reflection_questions": [
+      "どんな話になりましたか？",
+      "相手の反応はどうでしたか？",
+      "心が晴れる気がしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1171,
+  "fields": {
+    "level": 33,
+    "theme": "interact",
+    "title": "目上の人に自分の希望を話そう",
+    "message": "萎縮せずにしっかり話そう",
+    "reflection_questions": [
+      "きちんと伝えられましたか？",
+      "どんな返事でしたか？",
+      "どのくらいの会話をしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1172,
+  "fields": {
+    "level": 33,
+    "theme": "interact",
+    "title": "誰かに悩みを相談する",
+    "message": "小さな悩みでもいい",
+    "reflection_questions": [
+      "相談できましたか？",
+      "聞いてもらえましたか？",
+      "少し楽になりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1173,
+  "fields": {
+    "level": 34,
+    "theme": "interact",
+    "title": "友達と会う約束をする",
+    "message": "会わなくてもいい、約束だけ",
+    "reflection_questions": [
+      "約束できましたか？",
+      "日程を決められましたか？",
+      "楽しみになりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1174,
+  "fields": {
+    "level": 34,
+    "theme": "interact",
+    "title": "クラスメイト・同僚と一緒に活動しよう",
+    "message": "どんな活動でも大丈夫",
+    "reflection_questions": [
+      "親しくなることができましたか？",
+      "どんな場所に行きましたか？",
+      "次が楽しみになりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1175,
+  "fields": {
+    "level": 34,
+    "theme": "interact",
+    "title": "友達と会う約束をする",
+    "message": "会わなくてもいい、約束だけ",
+    "reflection_questions": [
+      "約束できましたか？",
+      "日程を決められましたか？",
+      "楽しみになりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1176,
+  "fields": {
+    "level": 34,
+    "theme": "interact",
+    "title": "誰かと一緒にご飯を食べる",
+    "message": "外で食事しよう",
+    "reflection_questions": [
+      "一緒に食べられましたか？",
+      "会話しながら食べられましたか？",
+      "楽しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1177,
+  "fields": {
+    "level": 34,
+    "theme": "interact",
+    "title": "グループでの会話に参加する",
+    "message": "聞くだけでもいい",
+    "reflection_questions": [
+      "参加できましたか？",
+      "何か発言できましたか？",
+      "疎外感を感じませんでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1178,
+  "fields": {
+    "level": 35,
+    "theme": "interact",
+    "title": "友達と遊ぶ",
+    "message": "一緒に時間を過ごそう",
+    "reflection_questions": [
+      "遊べましたか？",
+      "楽しかったですか？",
+      "また会いたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1179,
+  "fields": {
+    "level": 35,
+    "theme": "interact",
+    "title": "家族で旅行に行こう",
+    "message": "親密な時間を過ごそう",
+    "reflection_questions": [
+      "どんなところに行きましたか？",
+      "楽しかったですか？",
+      "娯楽地に行きましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1180,
+  "fields": {
+    "level": 35,
+    "theme": "interact",
+    "title": "隠し事を家族に話そう",
+    "message": "誰か一人で大丈夫",
+    "reflection_questions": [
+      "心が晴れた気がしましたか？",
+      "相手に共感してもらえましたか？",
+      "その人は自分にとって安心できる存在ですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1181,
+  "fields": {
+    "level": 35,
+    "theme": "interact",
+    "title": "誰かに自分のことを話す",
+    "message": "最近の出来事を",
+    "reflection_questions": [
+      "話せましたか？",
+      "聞いてもらえましたか？",
+      "理解してもらえましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1182,
+  "fields": {
+    "level": 35,
+    "theme": "interact",
+    "title": "新しい人と知り合う",
+    "message": "名前を覚えよう",
+    "reflection_questions": [
+      "知り合えましたか？",
+      "名前を覚えられましたか？",
+      "また話したいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1183,
+  "fields": {
+    "level": 36,
+    "theme": "exercise",
+    "title": "部屋でストレッチ10分",
+    "message": "体をほぐそう",
+    "reflection_questions": [
+      "ストレッチできましたか？",
+      "10分続けられましたか？",
+      "体がほぐれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1184,
+  "fields": {
+    "level": 36,
+    "theme": "exercise",
+    "title": "家の階段を上り下りする",
+    "message": "5回でいい",
+    "reflection_questions": [
+      "上り下りできましたか？",
+      "5回できましたか？",
+      "息が上がりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1185,
+  "fields": {
+    "level": 36,
+    "theme": "exercise",
+    "title": "つま先立ち5回",
+    "message": "壁OK",
+    "reflection_questions": [
+      "できましたか？",
+      "ふらつきませんでしたか？",
+      "自分の筋肉を感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1186,
+  "fields": {
+    "level": 36,
+    "theme": "exercise",
+    "title": "軽い掃除5分",
+    "message": "動き続ける",
+    "reflection_questions": [
+      "続けられましたか？",
+      "疲れすぎませんでしたか？",
+      "達成感ありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1187,
+  "fields": {
+    "level": 36,
+    "theme": "exercise",
+    "title": "外で散歩15分",
+    "message": "ゆっくり歩こう",
+    "reflection_questions": [
+      "散歩できましたか？",
+      "15分歩けましたか？",
+      "気持ち良かったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1188,
+  "fields": {
+    "level": 37,
+    "theme": "exercise",
+    "title": "外で散歩30分",
+    "message": "少し長めに歩こう",
+    "reflection_questions": [
+      "30分歩けましたか？",
+      "疲れすぎませんでしたか？",
+      "景色を楽しめましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1189,
+  "fields": {
+    "level": 37,
+    "theme": "exercise",
+    "title": "ラジオ体操をする",
+    "message": "全身を動かそう",
+    "reflection_questions": [
+      "ラジオ体操できましたか？",
+      "最後までできましたか？",
+      "体がスッキリしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1190,
+  "fields": {
+    "level": 37,
+    "theme": "exercise",
+    "title": "ある程度重い物を3回運ぶ",
+    "message": "往復動作をしてみよう",
+    "reflection_questions": [
+      "できましたか？",
+      "面倒すぎませんでしたか？",
+      "動けましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1191,
+  "fields": {
+    "level": 37,
+    "theme": "exercise",
+    "title": "自分の部屋の片付け",
+    "message": "動き続けてみよう",
+    "reflection_questions": [
+      "続けられましたか？",
+      "体は温まりましたか？",
+      "自信になりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1192,
+  "fields": {
+    "level": 37,
+    "theme": "exercise",
+    "title": "公園で軽く体を動かす",
+    "message": "遊具を使ってもいい",
+    "reflection_questions": [
+      "公園に行けましたか？",
+      "体を動かせましたか？",
+      "楽しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1193,
+  "fields": {
+    "level": 38,
+    "theme": "exercise",
+    "title": "軽くジョギング10分",
+    "message": "走ってみよう",
+    "reflection_questions": [
+      "ジョギングできましたか？",
+      "10分続けられましたか？",
+      "気持ち良かったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1194,
+  "fields": {
+    "level": 38,
+    "theme": "exercise",
+    "title": "外で軽い筋トレ",
+    "message": "腕立てやスクワット",
+    "reflection_questions": [
+      "筋トレできましたか？",
+      "何回できましたか？",
+      "達成感がありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1195,
+  "fields": {
+    "level": 38,
+    "theme": "exercise",
+    "title": "家の家事を15分",
+    "message": "いろんなことをしてみよう",
+    "reflection_questions": [
+      "続けられましたか？",
+      "集中できましたか？",
+      "終わった後どうでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1196,
+  "fields": {
+    "level": 38,
+    "theme": "exercise",
+    "title": "立ち作業30分",
+    "message": "種類は問いません",
+    "reflection_questions": [
+      "耐えられましたか？",
+      "疲れすぎませんでしたか？",
+      "慣れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1197,
+  "fields": {
+    "level": 38,
+    "theme": "exercise",
+    "title": "自転車に乗る",
+    "message": "20分くらい",
+    "reflection_questions": [
+      "自転車に乗れましたか？",
+      "20分乗れましたか？",
+      "風を感じられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1198,
+  "fields": {
+    "level": 39,
+    "theme": "exercise",
+    "title": "ジョギング30分",
+    "message": "長く走ってみよう",
+    "reflection_questions": [
+      "30分走れましたか？",
+      "途中で休みましたか？",
+      "完走できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1199,
+  "fields": {
+    "level": 39,
+    "theme": "exercise",
+    "title": "スポーツ施設を見に行く",
+    "message": "ジムや体育館",
+    "reflection_questions": [
+      "見に行けましたか？",
+      "中を見られましたか？",
+      "通いたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1200,
+  "fields": {
+    "level": 39,
+    "theme": "exercise",
+    "title": "縄跳びをする",
+    "message": "何回跳べるかな",
+    "reflection_questions": [
+      "縄跳びできましたか？",
+      "何回跳べましたか？",
+      "楽しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1201,
+  "fields": {
+    "level": 39,
+    "theme": "exercise",
+    "title": "バービージャンプに挑戦",
+    "message": "超きついので10回でもOK",
+    "reflection_questions": [
+      "連続でできましたか？",
+      "10回以上できましたか？",
+      "やり続けられそうですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1202,
+  "fields": {
+    "level": 39,
+    "theme": "exercise",
+    "title": "プランクをやってみよう",
+    "message": "できるところまでで大丈夫",
+    "reflection_questions": [
+      "30秒以上できましたか？",
+      "体感を意識できましたか？",
+      "姿勢を維持できましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1203,
+  "fields": {
+    "level": 40,
+    "theme": "exercise",
+    "title": "ジムの体験に行く",
+    "message": "初めてのジム",
+    "reflection_questions": [
+      "体験に行けましたか？",
+      "マシンを使えましたか？",
+      "また行きたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1204,
+  "fields": {
+    "level": 40,
+    "theme": "exercise",
+    "title": "ヨガをする",
+    "message": "動画を見ながらでもいい",
+    "reflection_questions": [
+      "ヨガできましたか？",
+      "リラックスできましたか？",
+      "体が柔らかくなりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1205,
+  "fields": {
+    "level": 40,
+    "theme": "exercise",
+    "title": "坂道歩き15分",
+    "message": "上り中心だとなお良い",
+    "reflection_questions": [
+      "歩ききれましたか？",
+      "呼吸は荒れましたか？",
+      "耐えられましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1206,
+  "fields": {
+    "level": 40,
+    "theme": "exercise",
+    "title": "シャトルランをやってみよう",
+    "message": "できたところまででOK",
+    "reflection_questions": [
+      "100回以上できましたか？",
+      "運動できた実感はありますか？",
+      "楽しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1207,
+  "fields": {
+    "level": 40,
+    "theme": "exercise",
+    "title": "1時間運動する",
+    "message": "何でもいい、体を動かそう",
+    "reflection_questions": [
+      "1時間運動できましたか？",
+      "汗をかきましたか？",
+      "爽快感がありましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1208,
+  "fields": {
+    "level": 41,
+    "theme": "exercise",
+    "title": "好きなスポーツを調べる",
+    "message": "やってみたいことを探そう",
+    "reflection_questions": [
+      "調べられましたか？",
+      "興味のあるスポーツが見つかりましたか？",
+      "やってみたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1209,
+  "fields": {
+    "level": 41,
+    "theme": "exercise",
+    "title": "プールに行く",
+    "message": "泳がなくてもいい",
+    "reflection_questions": [
+      "プールに行けましたか？",
+      "水に入れましたか？",
+      "楽しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1210,
+  "fields": {
+    "level": 41,
+    "theme": "exercise",
+    "title": "5種類以上の運動を立て続けにやってみよう",
+    "message": "強度が低くても大丈夫",
+    "reflection_questions": [
+      "最後までやれましたか？",
+      "好きな運動はみつかりましたか？",
+      "もっと種類を増やしたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1211,
+  "fields": {
+    "level": 41,
+    "theme": "exercise",
+    "title": "自転車で隣の街まで行ってみよう",
+    "message": "急ぐ必要はない",
+    "reflection_questions": [
+      "往復で1時間以上かかりましたか？",
+      "自然を感じましたか？",
+      "自転車が楽しいと思えましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1212,
+  "fields": {
+    "level": 41,
+    "theme": "exercise",
+    "title": "ダンス動画を見て踊る",
+    "message": "楽しく体を動かそう",
+    "reflection_questions": [
+      "踊れましたか？",
+      "最後まで続けられましたか？",
+      "楽しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1213,
+  "fields": {
+    "level": 42,
+    "theme": "exercise",
+    "title": "スポーツ用品を買いに行く",
+    "message": "シューズやウェア",
+    "reflection_questions": [
+      "買いに行けましたか？",
+      "何か購入しましたか？",
+      "運動が楽しみになりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1214,
+  "fields": {
+    "level": 42,
+    "theme": "exercise",
+    "title": "スポーツイベントに参加する",
+    "message": "準備をしっかりしましょう",
+    "reflection_questions": [
+      "楽しいイベントでしたか？",
+      "やってみたい運動と出会えましたか？",
+      "体を動かすことに抵抗がなくなってきましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1215,
+  "fields": {
+    "level": 42,
+    "theme": "exercise",
+    "title": "HIITに挑戦",
+    "message": "最高強度のトレーニングを体験しよう",
+    "reflection_questions": [
+      "達成感はありますか？",
+      "最後までできましたか？",
+      "もう一回やりたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1216,
+  "fields": {
+    "level": 42,
+    "theme": "exercise",
+    "title": "誰かと一緒に運動する",
+    "message": "友達や家族と",
+    "reflection_questions": [
+      "一緒に運動できましたか？",
+      "楽しかったですか？",
+      "また一緒にやりたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1217,
+  "fields": {
+    "level": 42,
+    "theme": "exercise",
+    "title": "運動を習慣にする",
+    "message": "週3回を目標に",
+    "reflection_questions": [
+      "週3回運動できましたか？",
+      "習慣になってきましたか？",
+      "体調は良くなりましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1218,
+  "fields": {
+    "level": 43,
+    "theme": "challenge",
+    "title": "興味のあることをリストアップ",
+    "message": "やりたいことを書き出そう",
+    "reflection_questions": [
+      "リストアップできましたか？",
+      "5つ以上書けましたか？",
+      "ワクワクしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1219,
+  "fields": {
+    "level": 43,
+    "theme": "challenge",
+    "title": "オンライン講座を探す",
+    "message": "無料でもいい",
+    "reflection_questions": [
+      "探せましたか？",
+      "興味のある講座が見つかりましたか？",
+      "受けてみたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1220,
+  "fields": {
+    "level": 43,
+    "theme": "challenge",
+    "title": "SNSで興味の分野を検索",
+    "message": "眺めるだけでも大きな一歩",
+    "reflection_questions": [
+      "検索しましたか？",
+      "共感できましたか？",
+      "安心しましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1221,
+  "fields": {
+    "level": 43,
+    "theme": "challenge",
+    "title": "新しい趣味を1つ調べる",
+    "message": "まだ始めなくていい",
+    "reflection_questions": [
+      "調べましたか？",
+      "難しそうでしたか？",
+      "やれそうに感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1222,
+  "fields": {
+    "level": 43,
+    "theme": "challenge",
+    "title": "本屋で新しいジャンルの本を探す",
+    "message": "いつもと違う棚へ",
+    "reflection_questions": [
+      "新しいジャンルを見ましたか？",
+      "何か気になる本がありましたか？",
+      "購入しましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1223,
+  "fields": {
+    "level": 44,
+    "theme": "challenge",
+    "title": "習い事の情報を集める",
+    "message": "体験できるところを探そう",
+    "reflection_questions": [
+      "情報を集められましたか？",
+      "興味のある習い事が見つかりましたか？",
+      "体験を申し込みたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1224,
+  "fields": {
+    "level": 44,
+    "theme": "challenge",
+    "title": "学習計画を3日分立てる",
+    "message": "簡単に",
+    "reflection_questions": [
+      "書けましたか？",
+      "現実的ですか？",
+      "負担は少ないですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1225,
+  "fields": {
+    "level": 44,
+    "theme": "challenge",
+    "title": "検定に挑戦してみよう",
+    "message": "どんなジャンルでもOK",
+    "reflection_questions": [
+      "向上心が湧きましたか？",
+      "自分にとって利益のある検定を選べましたか？",
+      "負担は少ないですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1226,
+  "fields": {
+    "level": 44,
+    "theme": "challenge",
+    "title": "新しい料理に挑戦する",
+    "message": "レシピを見ながら",
+    "reflection_questions": [
+      "料理できましたか？",
+      "美味しくできましたか？",
+      "また作りたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1227,
+  "fields": {
+    "level": 44,
+    "theme": "challenge",
+    "title": "イベント情報をチェック",
+    "message": "行けそうなものを探そう",
+    "reflection_questions": [
+      "チェックできましたか？",
+      "行きたいイベントが見つかりましたか？",
+      "予定に入れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1228,
+  "fields": {
+    "level": 45,
+    "theme": "challenge",
+    "title": "体験教室に申し込む",
+    "message": "一歩踏み出そう",
+    "reflection_questions": [
+      "申し込めましたか？",
+      "日程を決められましたか？",
+      "緊張しますか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1229,
+  "fields": {
+    "level": 45,
+    "theme": "challenge",
+    "title": "家族が挑戦していることを聞いてみよう",
+    "message": "身近な人がヒントになるかも",
+    "reflection_questions": [
+      "うまく聞き出せましたか？",
+      "やる気が湧きましたか？",
+      "相手は楽しそうでしたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1230,
+  "fields": {
+    "level": 45,
+    "theme": "challenge",
+    "title": "ボランティアに参加する",
+    "message": "社会とつながろう",
+    "reflection_questions": [
+      "参加できましたか？",
+      "役に立てましたか？",
+      "やりがいを感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1231,
+  "fields": {
+    "level": 45,
+    "theme": "challenge",
+    "title": "資格に挑戦しよう",
+    "message": "自分の限界を試してみよう",
+    "reflection_questions": [
+      "申し込めましたか？",
+      "計画を決められましたか？",
+      "無理のない範囲ですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1232,
+  "fields": {
+    "level": 45,
+    "theme": "challenge",
+    "title": "新しいアプリを使ってみる",
+    "message": "学習アプリなど",
+    "reflection_questions": [
+      "使ってみましたか？",
+      "続けられそうですか？",
+      "役立ちそうですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1233,
+  "fields": {
+    "level": 46,
+    "theme": "challenge",
+    "title": "体験教室に参加する",
+    "message": "新しい世界へ",
+    "reflection_questions": [
+      "参加できましたか？",
+      "楽しかったですか？",
+      "続けたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1234,
+  "fields": {
+    "level": 46,
+    "theme": "challenge",
+    "title": "コミュニティに参加する",
+    "message": "サークルや集まり",
+    "reflection_questions": [
+      "参加できましたか？",
+      "人と交流できましたか？",
+      "また参加したいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1235,
+  "fields": {
+    "level": 46,
+    "theme": "challenge",
+    "title": "新しい趣味を始めてみよう",
+    "message": "新しい自分をみよう",
+    "reflection_questions": [
+      "楽しそうでしたか？",
+      "続けられそうですたか？",
+      "奥が深いと感じましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1236,
+  "fields": {
+    "level": 46,
+    "theme": "challenge",
+    "title": "社交場に参加しよう",
+    "message": "大人数の人と、より大きな舞台で",
+    "reflection_questions": [
+      "参加できましたか？",
+      "新鮮な体験でしたか？",
+      "刺激をたくさんもらえましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1237,
+  "fields": {
+    "level": 46,
+    "theme": "challenge",
+    "title": "新しい場所に行く",
+    "message": "行ったことない街へ",
+    "reflection_questions": [
+      "行けましたか？",
+      "何か発見がありましたか？",
+      "楽しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1238,
+  "fields": {
+    "level": 47,
+    "theme": "challenge",
+    "title": "目標を立てる",
+    "message": "1ヶ月後の自分へ",
+    "reflection_questions": [
+      "目標を立てられましたか？",
+      "達成可能な目標ですか？",
+      "やる気が出ましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1239,
+  "fields": {
+    "level": 47,
+    "theme": "challenge",
+    "title": "新しいスキルを学び始める",
+    "message": "語学やプログラミングなど",
+    "reflection_questions": [
+      "学び始められましたか？",
+      "楽しいと感じますか？",
+      "続けられそうですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1240,
+  "fields": {
+    "level": 47,
+    "theme": "challenge",
+    "title": "自分を分析してみる",
+    "message": "今の自分のリアルを知ろう",
+    "reflection_questions": [
+      "客観的にみれましたか？",
+      "理解が深まりましたか？",
+      "自分を変えたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1241,
+  "fields": {
+    "level": 47,
+    "theme": "challenge",
+    "title": "同じ目標に2日連続で挑戦する",
+    "message": "継続を体験しよう",
+    "reflection_questions": [
+      "2日続けられましたか？",
+      "抵抗は減りましたか？",
+      "習慣化の感覚ありますか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1242,
+  "fields": {
+    "level": 47,
+    "theme": "challenge",
+    "title": "作品を作る",
+    "message": "絵や文章、何でもいい",
+    "reflection_questions": [
+      "作品を作れましたか？",
+      "満足できましたか？",
+      "誰かに見せたいと思いましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1243,
+  "fields": {
+    "level": 48,
+    "theme": "challenge",
+    "title": "誰かと約束をする",
+    "message": "1週間後に会う約束",
+    "reflection_questions": [
+      "約束できましたか？",
+      "日時を決められましたか？",
+      "楽しみですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1244,
+  "fields": {
+    "level": 48,
+    "theme": "challenge",
+    "title": "将来の計画を立てる",
+    "message": "半年後、1年後",
+    "reflection_questions": [
+      "計画を立てられましたか？",
+      "具体的に考えられましたか？",
+      "前向きな気持ちになれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1245,
+  "fields": {
+    "level": 48,
+    "theme": "challenge",
+    "title": "チャレンジリストを作る",
+    "message": "やりたいこと100個",
+    "reflection_questions": [
+      "リストを作れましたか？",
+      "100個書けましたか？",
+      "ワクワクしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1246,
+  "fields": {
+    "level": 48,
+    "theme": "challenge",
+    "title": "自分の将来像を作る",
+    "message": "数十年後の自分を想像しても良い",
+    "reflection_questions": [
+      "いいイメージが湧きましたか？",
+      "理想を実現できると思いましたか？",
+      "向上心が芽生えましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1247,
+  "fields": {
+    "level": 48,
+    "theme": "challenge",
+    "title": "人との関係図を作る",
+    "message": "人との付き合いをまとめてみよう",
+    "reflection_questions": [
+      "自分の交流を振り返れましたか？",
+      "これからも関係を続けたいと思いましたか？",
+      "守りたい人はいましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1248,
+  "fields": {
+    "level": 49,
+    "theme": "challenge",
+    "title": "約束を守る",
+    "message": "決めたことを実行しよう",
+    "reflection_questions": [
+      "約束を守れましたか？",
+      "会えましたか？",
+      "楽しかったですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1249,
+  "fields": {
+    "level": 49,
+    "theme": "challenge",
+    "title": "新しい挑戦を始める",
+    "message": "本格的に始めよう",
+    "reflection_questions": [
+      "始められましたか？",
+      "継続できそうですか？",
+      "成長を感じますか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1250,
+  "fields": {
+    "level": 49,
+    "theme": "challenge",
+    "title": "自分に自信を持つ",
+    "message": "ここまで来れば、自然とそうなってるはず！",
+    "reflection_questions": [
+      "ポジティブに慣れましたか",
+      "何でもできそうな気がしましたか？",
+      "自分が好きに慣れましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1251,
+  "fields": {
+    "level": 49,
+    "theme": "challenge",
+    "title": "人に自分をアピールする",
+    "message": "誇れることがきっとある",
+    "reflection_questions": [
+      "うまく伝えられましたか？",
+      "相手に自分をよく見せれましたか？",
+      "これからに期待できそうですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1252,
+  "fields": {
+    "level": 49,
+    "theme": "challenge",
+    "title": "誰かに感謝を伝える",
+    "message": "支えてくれた人へ",
+    "reflection_questions": [
+      "伝えられましたか？",
+      "喜んでもらえましたか？",
+      "温かい気持ちになれましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1253,
+  "fields": {
+    "level": 50,
+    "theme": "challenge",
+    "title": "50日間を振り返る",
+    "message": "ここまで来たね",
+    "reflection_questions": [
+      "振り返れましたか？",
+      "成長を感じますか？",
+      "自分を誇りに思えますか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1254,
+  "fields": {
+    "level": 50,
+    "theme": "challenge",
+    "title": "次の目標を決める",
+    "message": "これからも進もう",
+    "reflection_questions": [
+      "5つ書けましたか？",
+      "客観的ですか？",
+      "誇らしいですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1255,
+  "fields": {
+    "level": 50,
+    "theme": "challenge",
+    "title": "成長した点を5つ書く",
+    "message": "なるべく具体的に行こう",
+    "reflection_questions": [
+      "リストを作れましたか？",
+      "100個書けましたか？",
+      "ワクワクしましたか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1256,
+  "fields": {
+    "level": 50,
+    "theme": "challenge",
+    "title": "この生活を続けよう",
+    "message": "もうあなたは、十分健康的です",
+    "reflection_questions": [
+      "これからも続ける自信がありますか？",
+      "達成感ありますか？",
+      "もっと先に進めそうですか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+},
+{
+  "model": "tasks.tasktemplate",
+  "pk": 1257,
+  "fields": {
+    "level": 50,
+    "theme": "challenge",
+    "title": "自分にご褒美をあげる",
+    "message": "よく頑張ったね",
+    "reflection_questions": [
+      "ご褒美を決められましたか？",
+      "自分を褒められましたか？",
+      "幸せを感じますか？"
+    ],
+    "created_at": "2026-02-05T02:15:50Z"
+  }
+}
+]
